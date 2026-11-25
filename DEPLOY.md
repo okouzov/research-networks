@@ -2,7 +2,7 @@
 
 Сайтът е изцяло статичен (HTML + CSS + JS + JSON). Няма база данни, PHP или build стъпка. Затова е достатъчно файловете да се копират в папката на сайта в Hostinger. Работи и в главната папка на домейна (`public_html`), и в подпапка или поддомейн, защото всички пътища са относителни.
 
-Има два начина. За честите промени **вариант Б е най-удобният**. Той се настройва веднъж, а след това всяка промяна е „Commit + Push“ в GitHub Desktop.
+Сайтът вече е публикуван по **вариант Б** (вижте по-долу). Вариант А остава като резервен начин.
 
 ---
 
@@ -28,32 +28,23 @@
 
 ---
 
-## Вариант Б — GitHub + автоматично публикуване (препоръчвам)
+## Вариант Б — GitHub + автоматично публикуване (настроено на 25.11.2026)
 
-Схемата е: промяна на компютъра → **Commit + Push в GitHub Desktop** → Hostinger сам изтегля новата версия за секунди.
+**Текуща настройка**
+- Сайт: **https://logical-darkorchid-eel-54.hostingersite.com**. Временен адрес на Hostinger, отделен сайт в акаунта, който не засяга другите сайтове.
+- Хранилище: **github.com/okouzov/research-networks**, клон `main`.
+- Hostinger е свързан с GitHub чрез приложението „Hostinger“ и има достъп само до това хранилище. Всеки Push в `main` се публикува автоматично в `public_html`.
 
-> Git функцията е в hPanel → **Advanced → GIT**. Има я в плановете Premium/Business/Cloud. Ако университетският акаунт я няма, използвайте вариант А.
-
-### Еднократна настройка
-1. **Хранилище в GitHub** (през GitHub Desktop, акаунт okouzov):
-   - *File → Add local repository* → изберете папката `research-networks`. Ще предложи *create a repository* → **Create repository**.
-   - **Publish repository**. Най-просто е **без** отметка „Keep this code private“. Сайтът и без това ще е публичен.
-   - `.gitignore` вече изключва `export/` и `deploy/`.
-2. **Свързване в Hostinger:** hPanel → (сайтът) → **Advanced → GIT** → *Create a New Repository*:
-   - Repository: `https://github.com/okouzov/research-networks.git`
-   - Branch: `main`
-   - Directory: празно за `public_html`, или името на подпапката.
-   - ⚠ Папката трябва да е **празна** при първото свързване. Ако има файлове, преместете ги временно или ги изтрийте от File Manager.
-   - **Create** → след това **Deploy**.
-3. **Автоматично публикуване:** в същия екран → **Auto Deployment** → копирайте Webhook URL.
-   - В GitHub: хранилището → **Settings → Webhooks → Add webhook**.
-   - Payload URL: поставете адреса. Content type: `application/json`. Събитие: *Just the push event*. Натиснете **Add webhook**.
-4. *(Само ако хранилището е private.)* В hPanel → GIT копирайте показания SSH ключ. В GitHub → Settings → **Deploy keys → Add deploy key** поставете ключа. В Hostinger ползвайте SSH адреса `git@github.com:okouzov/research-networks.git`.
-
-### Обновяване (всеки път)
+**Обновяване (всеки път)**
 1. Направете промяната (сами или с Claude) и я проверете локално на http://localhost:8519.
 2. **GitHub Desktop** → кратко описание долу вляво → **Commit to main** → **Push origin**.
-3. След 10–30 секунди презаредете сайта. Ако не се е обновил: hPanel → GIT → **Deploy** ръчно.
+3. След около минута презаредете сайта. Ако не се е обновил: hPanel → сайтът → **Advanced → GIT** → **Deploy** ръчно.
+
+**Свързване на истински домейн по-късно**
+hPanel → сайтът → **Connect domain**. Например поддомейн като `nrn.<домейн>`. Хранилището и публикуването остават същите.
+
+**Как се настройва отначало, ако се наложи**
+hPanel → сайтът → **Advanced → GIT** → **Connect with GitHub**. В прозореца на GitHub изберете *Only select repositories* → research-networks. После изберете хранилището, клон `main`, папка `public_html` → **Deploy**. Достъпът се спира от GitHub → Settings → Applications → Hostinger.
 
 ---
 

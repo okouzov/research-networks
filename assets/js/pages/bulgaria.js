@@ -46,6 +46,7 @@ function backbone(D) {
   if (window.topojson) fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json').then(r => r.json()).then(t => {
     const f = topojson.feature(t, t.objects.countries).features.find(x => x.id === '100'); if (!f) return;
     $('#bgnLand').innerHTML = `<path class="bgnLand" d="${d3.geoPath(proj)(f)}"/>`;
+    fitTicker(); setTimeout(fitTicker, 1000); // again once the map has finished sliding into place
   }).catch(() => {});
 
   /* cross-border routes to GÉANT */
@@ -60,7 +61,7 @@ function backbone(D) {
 
   /* legend, bottom-right corner of the map */
   const LG = [['dot', 'точка на присъствие', 'point of presence'], ['ln', '100Gb свързаност', '100Gb connectivity'], ['spur', '10Gb (основно за бекъп)', '10Gb (mainly for backup)'], ['ext', 'връзки към GÉANT', 'links to GÉANT']];
-  svg.insertAdjacentHTML('beforeend', `<g class="bgnLegS" transform="translate(745,505)"><rect x="0" y="0" width="235" height="120" rx="12"/>${LG.map(([k, b, e], i) => {
+  svg.insertAdjacentHTML('beforeend', `<g class="bgnLegS" transform="translate(726,505)"><rect x="0" y="0" width="235" height="120" rx="12"/>${LG.map(([k, b, e], i) => {
     const y = 24 + i * 25;
     const sym = k === 'dot' ? `<circle cx="26" cy="${y}" r="10" fill="rgba(79,140,255,.18)"/><circle cx="26" cy="${y}" r="5.5" fill="#4f8cff" stroke="#fff" stroke-width="1.6"/>`
       : `<line x1="12" y1="${y}" x2="40" y2="${y}" class="${k}"/>`;
@@ -107,6 +108,49 @@ function backbone(D) {
   });
 
 }
+
+/* the ticker under the map title runs only in the free gap above the country's outline:
+   find the widest stretch of its line that the land shape does not cover, end it at the highest point of the outline
+   on the right, and fit the ticker window to it */
+function fitTicker() {
+  const sub = $('.kSub.ticker'), land = $('#bgNet .bgnLand'), svg = $('#bgNet');
+  if (!sub || !land) return;
+  sub.style.marginLeft = sub.style.width = '';
+  const col = sub.getBoundingClientRect(), m = svg.getScreenCTM().inverse(), pad = 10;
+  if (getComputedStyle(sub).display === 'none' || !col.width) return;
+  setPace(col.width);
+  let best = [0, 0], start = null;
+  for (let x = col.left; x <= col.right; x += 2) {
+    let free = true;
+    for (let y = col.top; free && y <= col.bottom; y += 2) if (land.isPointInFill(new DOMPoint(x, y).matrixTransform(m))) free = false;
+    if (free && start === null) start = x;
+    if (!free && start !== null) { if (x - start > best[1] - best[0]) best = [start, x]; start = null; }
+  }
+  if (start !== null && col.right - start > best[1] - best[0]) best = [start, col.right]; // a stretch that runs to the right end
+  /* the ticker enters from the right at the highest point of the outline on the right-hand side (by Ruse), not at the map's edge */
+  const ctm = svg.getScreenCTM(), L = land.getTotalLength(), mid = (best[0] + best[1]) / 2;
+  let peak = null;
+  for (let i = 0; i <= 3000; i++) { const p = land.getPointAtLength(L * i / 3000).matrixTransform(ctm); if (p.x > mid && p.x < best[1] + 400 && (!peak || p.y < peak.y)) peak = p; }
+  if (peak && peak.x < best[1]) best[1] = peak.x;
+  const w = best[1] - best[0] - 2 * pad;
+  if (w < 160) return setPace(col.width); // too narrow: keep the full title width
+  sub.style.marginLeft = (best[0] + pad - col.left) + 'px';
+  sub.style.width = w + 'px';
+  setPace(w);
+}
+/* the gap between the two copies = 90% of the window: while one copy fades out over the left 10%, the next fades in over the right 10%
+   (the duration keeps the speed at ~58 px/s) */
+function setPace(w) {
+  const sub = $('.kSub.ticker'), txt = sub && sub.querySelector('.tkI');
+  if (!txt) return;
+  const gap = Math.round(w * 0.9);
+  sub.style.setProperty('--tkGap', gap + 'px');
+  sub.style.setProperty('--tkDur', ((txt.getBoundingClientRect().width + gap) / 58).toFixed(1) + 's');
+}
+addEventListener('resize', () => { clearTimeout(fitTicker.t); fitTicker.t = setTimeout(fitTicker, 150); });
+document.addEventListener('rn:tab', () => setTimeout(fitTicker, 60));
+document.addEventListener('rn:lang', () => setTimeout(fitTicker, 60)); // the English line has another length
+$('.bgnet')?.addEventListener('transitionend', () => fitTicker());
 
 /* ---------- 2. timeline ---------- */
 function timeline(items) {

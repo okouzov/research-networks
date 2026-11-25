@@ -48,9 +48,9 @@ document.addEventListener('rn:lang', () => RN.setTheme(RN.theme));
 RN.PAGES = [
   { id: 'home', href: 'home.html', bg: 'Начало', en: 'Home', d: { bg: 'Какво са изследователските мрежи и защо са нужни', en: 'What research networks are and why they matter' } },
   { id: 'networks', href: 'networks.html', bg: 'Мрежи по света', en: 'World networks', d: { bg: 'Карта, каталог и профили на регионалните мрежи', en: 'Map, directory and profiles of regional networks' } },
-  { id: 'europe', href: 'europe.html', bg: 'GÉANT и Европа', en: 'GÉANT & Europe', d: { bg: '30 000 km опорна мрежа, 800Gb миграция, калкулатор', en: '30,000 km backbone, 800Gb migration, calculator' } },
+  { id: 'europe', href: 'europe.html', bg: 'GÉANT в цифри', en: 'GÉANT in numbers', d: { bg: '30 000 km опорна мрежа, 800Gb миграция, калкулатор', en: '30,000 km backbone, 800Gb migration, calculator' } },
   { id: 'science', href: 'science.html', bg: 'Мега-наука', en: 'Mega-science', d: { bg: 'LHC, Copernicus, EHT, SKA, e-VLBI, климат', en: 'LHC, Copernicus, EHT, SKA, e-VLBI, climate' } },
-  { id: 'services', href: 'services.html', bg: 'Услуги', en: 'Services', d: { bg: 'eduroam, eduGAIN, облак, EOSC, квантови мрежи', en: 'eduroam, eduGAIN, cloud, EOSC, quantum networks' } },
+  { id: 'services', href: 'services.html', bg: 'GÉANT услуги', en: 'GÉANT services', d: { bg: 'eduroam, eduGAIN, облак, EOSC, квантови мрежи', en: 'eduroam, eduGAIN, cloud, EOSC, quantum networks' } },
   { id: 'history', href: 'history.html', bg: 'История', en: 'History', d: { bg: 'От ARPANET до 800Gb — 60 години в хронология', en: 'From ARPANET to 800Gb — 60 years on a timeline' } },
   { id: 'data', href: 'data.html', bg: 'Данни', en: 'Data', d: { bg: 'Търсими таблици с числа, мрежи и събития', en: 'Searchable tables of figures, networks and events' } },
   { id: 'bulgaria', href: 'bulgaria.html', bg: 'NRN BG', en: 'NRN BG', d: { bg: 'Българската национална изследователска мрежа: карта, история, услуги', en: 'The Bulgarian national research network: map, history, services' } },

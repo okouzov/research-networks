@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="bg" data-lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="rn-title" data-bg="Данни" data-en="Data">
+<title>Данни · R&amp;E·NET</title>
+<meta name="description" content="Отворени данни за изследователските мрежи: ключови числа, мрежи и събития с източници — търсене, сортиране и изтегляне като JSON или CSV.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;600;700;800&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script>try{var t=new URLSearchParams(location.search).get("theme")||localStorage.getItem("renet-theme");if(t==="light")document.documentElement.dataset.theme="light"}catch(e){}</script>
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="data">
+<div id="shell-nav"></div>
+
+<header class="phero">
+  <canvas id="heroCanvas" data-density="26000" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="crumbs"><a href="home.html">R&amp;E·NET</a> / <span lang="bg">Данни</span><span lang="en">Data</span></div>
+    <h1><span lang="bg">Данните <span class="grad">зад сайта</span></span><span lang="en">The data <span class="grad">behind the site</span></span></h1>
+    <p class="lead"><span lang="bg">Всички ключови числа, мрежи и събития на едно място — с източник за всеки ред. Търсете, сортирайте и изтегляйте. Тази секция е основата, върху която ще се добавят нови бази данни.</span><span lang="en">Every key figure, network and event in one place — with a source for each row. Search, sort and download. This section is the foundation on which new databases will be added.</span></p>
+  </div>
+</header>
+<nav class="subnav" data-tabs aria-label="On this page"><div class="wrap">
+  <a href="#facts"><span lang="bg">Ключови числа</span><span lang="en">Key figures</span></a>
+  <a href="#nets"><span lang="bg">Мрежи</span><span lang="en">Networks</span></a>
+  <a href="#events"><span lang="bg">Събития</span><span lang="en">Events</span></a>
+  <a href="#roadmap"><span lang="bg">Предстои</span><span lang="en">Coming next</span></a>
+</div></nav>
+
+<section id="facts" class="tight">
+  <div class="wrap">
+    <div class="kicker">DATASET · facts.json</div>
+    <h2 class="reveal"><span lang="bg">Ключови числа</span><span lang="en">Key figures</span></h2>
+    <div class="toolbar"><input class="search" id="qFacts" type="search" aria-label="Search"><span class="count" id="cFacts"></span><a class="chip" href="data/facts.json" download>JSON</a><button class="chip" id="csvFacts">CSV</button></div>
+    <div class="filters" id="fFacts" style="margin:0 0 14px"></div>
+    <div class="card tbl" style="padding:6px 8px"><table class="dtable" id="tFacts"></table></div>
+  </div>
+</section>
+
+<section id="nets" class="tight">
+  <div class="wrap">
+    <div class="kicker">DATASET · networks.json</div>
+    <h2 class="reveal"><span lang="bg">Мрежи</span><span lang="en">Networks</span></h2>
+    <div class="toolbar"><input class="search" id="qNets" type="search" aria-label="Search"><span class="count" id="cNets"></span><a class="chip" href="data/networks.json" download>JSON</a><button class="chip" id="csvNets">CSV</button></div>
+    <div class="card tbl" style="padding:6px 8px"><table class="dtable" id="tNets"></table></div>
+  </div>
+</section>
+
+<section id="events" class="tight">
+  <div class="wrap">
+    <div class="kicker">DATASET · timeline.json</div>
+    <h2 class="reveal"><span lang="bg">Събития</span><span lang="en">Events</span></h2>
+    <div class="toolbar"><input class="search" id="qEv" type="search" aria-label="Search"><span class="count" id="cEv"></span><a class="chip" href="data/timeline.json" download>JSON</a><button class="chip" id="csvEv">CSV</button></div>
+    <div class="card tbl" style="padding:6px 8px"><table class="dtable" id="tEv"></table></div>
+  </div>
+</section>
+
+<section id="roadmap" class="tight">
+  <div class="wrap">
+    <div class="kicker" style="color:var(--am)"><span lang="bg">Предстои</span><span lang="en">Coming next</span></div>
+    <h2 class="reveal"><span lang="bg">Място за <span class="grad">нови бази данни</span></span><span lang="en">Room for <span class="grad">new databases</span></span></h2>
+    <p class="lead reveal"><span lang="bg">Всеки набор е отделен JSON файл в папката <code>data/</code> и се зарежда през една функция (<code>RN.data</code>). Нова база данни — файл или външен API — се добавя, без да се пипат страниците.</span><span lang="en">Each dataset is a separate JSON file in the <code>data/</code> folder, loaded through a single function (<code>RN.data</code>). A new database — a file or an external API — can be added without touching the pages.</span></p>
+    <div class="grid3 mt">
+      <div class="card reveal" style="border-style:dashed"><span class="badge">PLANNED</span><h4 style="margin-top:10px"><span lang="bg">Българската NREN</span><span lang="en">The Bulgarian NREN</span></h4><p><span lang="bg">Свързани институции, капацитет, услуги.</span><span lang="en">Connected institutions, capacity, services.</span></p></div>
+      <div class="card reveal" style="border-style:dashed"><span class="badge">PLANNED</span><h4 style="margin-top:10px"><span lang="bg">Национални мрежи по държави</span><span lang="en">National networks by country</span></h4><p><span lang="bg">Профили на NREN с ключови показатели.</span><span lang="en">NREN profiles with key indicators.</span></p></div>
+      <div class="card reveal" style="border-style:dashed"><span class="badge">PLANNED</span><h4 style="margin-top:10px"><span lang="bg">Научни проекти и потоци</span><span lang="en">Science projects and flows</span></h4><p><span lang="bg">Обеми данни и мрежови изисквания на големите инфраструктури.</span><span lang="en">Data volumes and network needs of large infrastructures.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<div id="shell-footer"></div>
+<script src="assets/js/core.js"></script>
+<script src="assets/js/pages/data.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="bg" data-lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="rn-title" data-bg="Мрежите на науката" data-en="The networks of science">
+<title>Мрежите на науката · R&amp;E·NET</title>
+<meta name="description" content="Двуезичен интерактивен сайт за изследователските и образователните мрежи по света и в ЕС: GÉANT, Internet2, Asi@Connect, RedCLARA, UbuntuNet, WACREN, ASREN и мега-науката, която пренасят.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;600;700;800&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script>try{var t=new URLSearchParams(location.search).get("theme")||localStorage.getItem("renet-theme");if(t==="light")document.documentElement.dataset.theme="light"}catch(e){}</script>
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="home">
+<div id="shell-nav"></div>
+
+<header class="hero home">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="kicker"><span lang="bg">Изследователски и образователни мрежи · NREN</span><span lang="en">Research &amp; Education Networks · NREN</span></div>
+    <h1><span lang="bg">Мрежите, по които <span class="grad">тече науката</span></span><span lang="en">The networks <span class="grad">science runs on</span></span></h1>
+    <p class="lead"><span lang="bg">Отвъд търговския интернет съществува паралелен свят — публични оптични магистрали, които пренасят данните от Големия адронен колайдер, сигналите на радиотелескопите, спътниковите снимки на Земята и климатичните модели. Това е глобалната екосистема на националните изследователски и образователни мрежи.</span><span lang="en">Beyond the commercial internet lies a parallel world: public optical highways that carry data from the Large Hadron Collider, signals from radio telescopes, satellite images of the Earth and climate models. This is the global ecosystem of national research and education networks.</span></p>
+    <div class="btns">
+      <a class="btn pri" href="networks.html"><span lang="bg">Разгледайте световната карта</span><span lang="en">Explore the world map</span> →</a>
+      <a class="btn" href="science.html"><span lang="bg">Науката, която пренасят</span><span lang="en">The science they carry</span></a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b data-count="43">0</b><span lang="bg">национални мрежи в GÉANT</span><span lang="en">national networks in GÉANT</span></div>
+      <div class="stat"><b data-count="50" data-suf="M+">0</b><span lang="bg">потребители в Европа</span><span lang="en">users across Europe</span></div>
+      <div class="stat"><b data-count="30000" data-suf=" km">0</b><span lang="bg">европейска опорна мрежа</span><span lang="en">European backbone</span></div>
+      <div class="stat"><b data-count="3.6" data-dec="1" data-suf=" EB">0</b><span lang="bg">трафик през 2025 г.</span><span lang="en">traffic carried in 2025</span></div>
+      <div class="stat"><b data-count="170" data-suf="+">0</b><span lang="bg">центъра в мрежата на LHC</span><span lang="en">centres in the LHC grid</span></div>
+      <div class="stat"><b data-count="100" data-suf="+">0</b><span lang="bg">държави с eduroam</span><span lang="en">countries with eduroam</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="tight" id="explore">
+  <div class="wrap">
+    <div class="kicker"><span lang="bg">Разделите на сайта</span><span lang="en">Sections of the site</span></div>
+    <h2 class="reveal"><span lang="bg">Откъде да <span class="grad">започнете</span></span><span lang="en">Where to <span class="grad">start</span></span></h2>
+    <div class="tiles mt" id="tiles"></div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="kicker">01 · <span lang="bg">Генезис</span><span lang="en">Genesis</span></div>
+    <h2 class="reveal"><span lang="bg">Защо науката има <span class="grad">собствен интернет</span>?</span><span lang="en">Why does science have <span class="grad">its own internet</span>?</span></h2>
+    <div class="lead reveal">
+      <p lang="bg">Първите академични мрежи — JANET във Великобритания (1984) и американските NSFNET, CSNET, ESnet и NASA Science Network — полагат основите на интернет, като свързват суперкомпютърни центрове и лаборатории по протокола TCP/IP.<sup class="cite" data-c="1,3,46"></sup> Когато през 1995 г. интернет е приватизиран, търговските мрежи бързо се претоварват и университетите губят гарантирания капацитет за големи научни файлове.<sup class="cite" data-c="46,47"></sup> Оттогава академичните мрежи се развиват като отделна, публично финансирана инфраструктура за науката.<sup class="cite" data-c="2,6,7,8"></sup></p>
+      <p lang="en">The first academic networks — JANET in the UK (1984) and the US NSFNET, CSNET, ESnet and NASA Science Network — laid the foundations of the internet by linking supercomputer centres and laboratories over TCP/IP.<sup class="cite" data-c="1,3,46"></sup> When the internet was privatised in 1995, commercial networks quickly congested and universities lost the guaranteed capacity they needed for large scientific files.<sup class="cite" data-c="46,47"></sup> Since then academic networks have grown as separate, publicly funded infrastructure built for science.<sup class="cite" data-c="2,6,7,8"></sup></p>
+    </div>
+
+    <div class="lanes mt reveal">
+      <div class="card lane isp screen">
+        <div class="lh"><h4><span lang="bg">Търговски доставчик</span><span lang="en">Commercial ISP</span></h4><div class="meter"><span lang="bg">загуба</span><span lang="en">loss</span> <b class="loss" id="lossIsp">0%</b></div></div>
+        <canvas id="laneIsp"></canvas>
+        <p class="note" style="margin-top:10px"><span lang="bg">Агрегиран, асиметричен трафик с висока пренаселеност — пиковете препълват опашките.</span><span lang="en">Aggregated, asymmetric, heavily oversubscribed traffic — bursts overflow the queues.</span></p>
+      </div>
+      <div class="card lane nren screen">
+        <div class="lh"><h4><span lang="bg">Изследователска мрежа (NREN)</span><span lang="en">Research network (NREN)</span></h4><div class="meter"><span lang="bg">загуба</span><span lang="en">loss</span> <b class="loss" id="lossNren">0%</b></div></div>
+        <canvas id="laneNren"></canvas>
+        <p class="note" style="margin-top:10px"><span lang="bg">Симетричен капацитет и резерв (headroom) — научният пик минава без загуба.</span><span lang="en">Symmetric capacity with headroom — the science burst passes with no loss.</span></p>
+      </div>
+    </div>
+    <div class="ctl"><button class="btn pri" id="burstBtn">⚡ <span lang="bg">Изпратете научен пик (данни от ускорител)</span><span lang="en">Send a science burst (accelerator data)</span></button></div>
+
+    <div class="grid4 mt" id="whyCards"></div>
+    <div class="card mt reveal tbl"><table class="cmp"><thead><tr><th><span lang="bg">Параметър</span><span lang="en">Parameter</span></th><th><span lang="bg">Търговски доставчици (ISP)</span><span lang="en">Commercial ISPs</span></th><th><span lang="bg">Изследователски мрежи (NREN)</span><span lang="en">Research networks (NREN)</span></th></tr></thead><tbody id="cmpBody"></tbody></table></div>
+  </div>
+</section>
+
+<section id="arch">
+  <div class="wrap">
+    <div class="kicker">02 · <span lang="bg">Архитектура</span><span lang="en">Architecture</span></div>
+    <h2 class="reveal"><span lang="bg">Три нива, <span class="grad">една планета</span></span><span lang="en">Three tiers, <span class="grad">one planet</span></span></h2>
+    <p class="lead reveal"><span lang="bg">Кампусните мрежи се събират в националната мрежа (NREN), а националните — в регионалните (RREN), които осигуряват междуконтиненталната свързаност.<sup class="cite" data-c="5,12,14"></sup> На входа на кампуса научният трафик все по-често се отделя в т.нар. Science DMZ — зона, проектирана за големи научни потоци.<sup class="cite" data-c="40"></sup></span><span lang="en">Campus networks aggregate into the national network (NREN), and national networks into regional ones (RREN), which provide intercontinental connectivity.<sup class="cite" data-c="5,12,14"></sup> At the campus edge, research traffic is increasingly separated into a Science DMZ — a zone designed for large scientific flows.<sup class="cite" data-c="40"></sup></span></p>
+    <div class="arch mt">
+      <div class="card screen reveal" style="padding:14px"><svg id="archSvg" viewBox="0 0 600 430" role="img" aria-label="Network hierarchy diagram"></svg></div>
+      <div class="reveal"><div class="tierTabs" id="tierTabs"></div><div class="card tierInfo" id="tierInfo"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap">
+    <div class="kicker">03 · <span lang="bg">Последни събития</span><span lang="en">Latest milestones</span></div>
+    <h2 class="reveal"><span lang="bg">2024–2026: <span class="grad">годините на терабитите</span></span><span lang="en">2024–2026: <span class="grad">the terabit years</span></span></h2>
+    <div class="news mt" id="newsGrid"></div>
+    <p class="mt"><a class="btn" href="history.html"><span lang="bg">Цялата хронология</span><span lang="en">The full timeline</span> →</a></p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <a class="tile reveal" href="bulgaria.html" style="min-height:0;border-color:rgba(255,106,213,.35)">
+      <span class="tn">NRN BG</span>
+      <h4><span lang="bg">Българската национална изследователска мрежа</span><span lang="en">The Bulgarian national research network</span></h4>
+      <p><span lang="bg">30+ члена, 13 населени места, 100Gb между градовете и 2×100Gb към GÉANT — вижте мрежата на живо.</span><span lang="en">30+ members, 13 towns, 100Gb between cities and 2×100Gb to GÉANT — see the network live.</span></p>
+      <span class="go"><span lang="bg">Към NRN BG</span><span lang="en">Go to NRN BG</span> →</span>
+    </a>
+  </div>
+</section>
+
+<div id="shell-footer"></div>
+<script src="assets/js/core.js"></script>
+<script src="assets/js/pages/home.js"></script>
+</body>
+</html>

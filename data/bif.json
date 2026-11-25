@@ -1,0 +1,36 @@
+{
+  "_doc": "Bulgarian Identity Federation (BIF) in eduGAIN, run by BREN/NRN (БИОМ/НИМ). The page loads the live list from the eduGAIN API ('live') and uses 'members' only for nicer names (matched by entityid) and as a fallback when the API is unreachable. A new BIF member appears automatically with the name from eduGAIN; add it here to give it a polished bg/en name. type: idp = an institution's login (Identity Provider), sp = a service (Service Provider). 'asof'/'feds' describe the fallback snapshot.",
+  "live": {
+    "entities": "https://technical.edugain.org/api.php?action=list_entities&type=7&fed_id=%3ABIF&entity_cat=-2&search_type=entityid&format=json",
+    "feds": "https://technical.edugain.org/api.php?action=list_feds&opt=1&format=json",
+    "page": "https://technical.edugain.org/entities"
+  },
+  "asof": "2026-11",
+  "feds": 84,
+  "members": [
+    { "entityid": "https://idp.au-plovdiv.bg/idp/shibboleth", "type": "idp", "bg": "Аграрен университет – Пловдив", "en": "Agricultural University – Plovdiv" },
+    { "entityid": "https://idp.bas.bg/idp/shibboleth", "type": "idp", "bg": "Българска академия на науките", "en": "Bulgarian Academy of Sciences" },
+    { "entityid": "https://idp.bfu.bg/idp/saml2/idp/metadata.php", "type": "idp", "bg": "Бургаски свободен университет", "en": "Burgas Free University" },
+    { "entityid": "https://d-learning.uni-ruse.bg/shibboleth", "type": "sp", "bg": "D-Learning — Русенски университет", "en": "D-Learning — University of Ruse" },
+    { "entityid": "https://idp.cc.bas.bg/idp/shibboleth", "type": "idp", "bg": "Лаборатория по телематика – БАН", "en": "Laboratory of Telematics – BAS" },
+    { "entityid": "https://sso.libris.bg/module.php/saml/sp/metadata/eclipse", "type": "sp", "bg": "Libris BG", "en": "Libris BG" },
+    { "entityid": "https://e.modern-a.bg/shibboleth", "type": "sp", "bg": "MODERN-A: Moodle (СУ)", "en": "MODERN-A: Moodle (Sofia University)" },
+    { "entityid": "https://idp.mu-sofia.bg/idp/shibboleth", "type": "idp", "bg": "Медицински университет – София", "en": "Medical University – Sofia" },
+    { "entityid": "https://edugain.mu-pleven.bg/idp/shibboleth", "type": "idp", "bg": "Медицински университет – Плевен", "en": "Medical University – Pleven" },
+    { "entityid": "https://idp.natfiz.bg/idp/shibboleth", "type": "idp", "bg": "НАТФИЗ „Кръстьо Сарафов“", "en": "National Academy of Theatre and Film Arts" },
+    { "entityid": "https://sso.nvu.bg/idp/shibboleth", "type": "idp", "bg": "НВУ „Васил Левски“", "en": "Vasil Levski National Military University" },
+    { "entityid": "https://idp.nbu.bg/idp/shibboleth", "type": "idp", "bg": "Нов български университет", "en": "New Bulgarian University" },
+    { "entityid": "https://idp.naval-acad.bg/idp/shibboleth", "type": "idp", "bg": "ВВМУ „Никола Вапцаров“", "en": "Nikola Vaptsarov Naval Academy" },
+    { "entityid": "https://sso.rndc.bg/idp/shibboleth", "type": "idp", "bg": "Военна академия „Г. С. Раковски“", "en": "Rakovski National Defence College" },
+    { "entityid": "https://sso.uni-sofia.bg/idp/shibboleth", "type": "idp", "bg": "Софийски университет „Св. Климент Охридски“", "en": "Sofia University “St Kliment Ohridski”" },
+    { "entityid": "https://eid.swu.bg/idp/shibboleth", "type": "idp", "bg": "ЮЗУ „Неофит Рилски“", "en": "South-West University “Neofit Rilski”" },
+    { "entityid": "https://idp.tu-plovdiv.bg/idp/shibboleth", "type": "idp", "bg": "ТУ – София, филиал Пловдив", "en": "Technical University of Sofia, Plovdiv branch" },
+    { "entityid": "https://idp.tu-sofia.bg/idp/shibboleth", "type": "idp", "bg": "Технически университет – София", "en": "Technical University of Sofia" },
+    { "entityid": "https://sso.uacg.bg", "type": "idp", "bg": "УАСГ", "en": "University of Architecture, Civil Engineering and Geodesy" },
+    { "entityid": "https://idp.uctm.edu/idp/saml2/idp/metadata.php", "type": "idp", "bg": "ХТМУ", "en": "University of Chemical Technology and Metallurgy" },
+    { "entityid": "https://sso.ue-varna.bg", "type": "idp", "bg": "Икономически университет – Варна", "en": "University of Economics – Varna" },
+    { "entityid": "https://ewp.unibit.bg/idp/shibboleth", "type": "idp", "bg": "УниБИТ", "en": "University of Library Studies and Information Technologies" },
+    { "entityid": "https://idp.uni-ruse.bg/idp/shibboleth", "type": "idp", "bg": "Русенски университет „Ангел Кънчев“", "en": "University of Ruse “Angel Kanchev”" },
+    { "entityid": "https://vnshibo.vfu.bg/idp/shibboleth", "type": "idp", "bg": "ВСУ „Черноризец Храбър“", "en": "Varna Free University “Chernorizets Hrabar”" }
+  ]
+}

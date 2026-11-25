@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="bg" data-lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="rn-title" data-bg="Услуги" data-en="Services">
+<title>Услуги · R&amp;E·NET</title>
+<meta name="description" content="Услугите на изследователските мрежи: eduroam, eduGAIN, AARC, OCRE, EOSC, Spectrum-as-a-Service, точно време, EuroQCI, Science DMZ, NOTED, EUMETCast Terrestrial.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;600;700;800&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script>try{var t=new URLSearchParams(location.search).get("theme")||localStorage.getItem("renet-theme");if(t==="light")document.documentElement.dataset.theme="light"}catch(e){}</script>
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="services">
+<div id="shell-nav"></div>
+
+<header class="phero">
+  <canvas id="heroCanvas" data-density="22000" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="crumbs"><a href="home.html">R&amp;E·NET</a> / <span lang="bg">Услуги</span><span lang="en">Services</span></div>
+    <h1><span lang="bg">Повече от <span class="grad">„тръба за данни“</span></span><span lang="en">More than a <span class="grad">data pipe</span></span></h1>
+    <p class="lead"><span lang="bg">Съвременните NREN и GÉANT предлагат цяла цифрова екосистема — идентичност и доверие, облачни услуги, оптични и квантови услуги и инструменти, създадени специално за големите научни потоци.</span><span lang="en">Today’s NRENs and GÉANT provide an entire digital ecosystem — identity and trust, cloud services, optical and quantum services, and tools built specifically for large scientific flows.</span></p>
+  </div>
+</header>
+<nav class="subnav" data-tabs aria-label="On this page"><div class="wrap">
+  <a href="#identity"><span lang="bg">Идентичност</span><span lang="en">Identity</span></a>
+  <a href="#cloud"><span lang="bg">Облак и EOSC</span><span lang="en">Cloud &amp; EOSC</span></a>
+  <a href="#bigdata"><span lang="bg">За големи данни</span><span lang="en">For big data</span></a>
+  <a href="#optical"><span lang="bg">Оптика и квант</span><span lang="en">Optical &amp; quantum</span></a>
+</div></nav>
+
+<section id="identity" class="tight">
+  <div class="wrap">
+    <div class="kicker"><span lang="bg">Идентичност и доверие</span><span lang="en">Trust &amp; identity</span></div>
+    <h2 class="reveal"><span lang="bg">Един акаунт — <span class="grad">хиляди кампуси</span></span><span lang="en">One account — <span class="grad">thousands of campuses</span></span></h2>
+    <div class="card screen mt reveal">
+      <div class="roam">
+        <svg id="roamSvg" viewBox="0 0 560 360" role="img" aria-label="eduroam authentication flow"></svg>
+        <div>
+          <h3>eduroam <span class="badge">Wi-Fi</span></h3>
+          <p class="note" style="font-size:15px;line-height:1.45;margin-bottom:18px"><span lang="bg">Международен Wi-Fi роуминг, създаден първоначално в рамките на SURFnet и TERENA. Студенти и учени влизат в мрежата в хиляди академични места в над 100 държави със своите национални идентификационни данни.<sup class="cite" data-c="4,30"></sup></span><span lang="en">International Wi-Fi roaming, first created within SURFnet and TERENA. Students and researchers get online at thousands of academic sites in more than 100 countries with their national credentials.<sup class="cite" data-c="4,30"></sup></span></p>
+          <div class="scen" id="roamScen" role="group" aria-label="Scenario"></div>
+          <ol class="roamSteps" id="roamSteps"></ol>
+          <div class="ctl" style="justify-content:flex-start"><button class="btn pri" id="roamBtn">▶ <span lang="bg">Пуснете удостоверяването</span><span lang="en">Run the authentication</span></button></div>
+        </div>
+      </div>
+    </div>
+    <div class="card mt reveal bif" id="eduBg">
+      <div>
+        <div class="kicker" style="margin-bottom:10px"><span lang="bg">eduroam в България</span><span lang="en">eduroam in Bulgaria</span></div>
+        <h3>eduroam.bg <span class="badge"><span lang="bg">НИМ</span><span lang="en">NRN</span></span></h3>
+        <p class="note" style="font-size:15px;line-height:1.5"><span lang="bg">Услугата eduroam в България и националните RADIUS сървъри се поддържат от НИМ. Всяка институция свързва своя RADIUS сървър към тях, а оттам заявките стигат до европейските сървъри на eduroam.</span><span lang="en">The eduroam service in Bulgaria and the national RADIUS servers are run by NRN. Each institution connects its own RADIUS server to them, and from there requests reach eduroam’s European servers.</span></p>
+        <div class="bifNums"><div><b id="eduInst">15</b><span lang="bg">институции</span><span lang="en">institutions</span></div><div><b id="eduSrv">19</b><span lang="bg">RADIUS сървъра</span><span lang="en">RADIUS servers</span></div></div>
+        <p class="note bifSrc" id="eduSrc" style="font-size:13px;margin-top:14px"></p>
+      </div>
+      <ul class="bifList" id="eduList"></ul>
+    </div>
+    <div class="card screen mt reveal">
+      <div class="roam">
+        <svg id="gainSvg" viewBox="0 0 560 360" role="img" aria-label="eduGAIN single sign-on flow"></svg>
+        <div>
+          <h3>eduGAIN <span class="badge">SSO</span></h3>
+          <p class="note" style="font-size:15px;line-height:1.45;margin-bottom:18px"><span lang="bg">Глобална инфраструктура за удостоверяване и оторизация, която свързва националните федерации за идентичност. С един академичен акаунт ученият влиза в научни бази данни и e-Science услуги по целия свят.<sup class="cite" data-c="4,29"></sup></span><span lang="en">A global authentication and authorisation infrastructure that interconnects national identity federations. With one academic account a researcher signs in to research databases and e-Science services worldwide.<sup class="cite" data-c="4,29"></sup></span></p>
+          <div class="scen" id="gainScen" role="group" aria-label="Scenario"></div>
+          <ol class="roamSteps" id="gainSteps"></ol>
+          <div class="ctl" style="justify-content:flex-start"><button class="btn pri" id="gainBtn">▶ <span lang="bg">Пуснете влизането</span><span lang="en">Run the sign-in</span></button><a class="btn" href="https://edugain.org" target="_blank" rel="noopener">edugain.org ↗</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="card mt reveal bif">
+      <div>
+        <div class="kicker" style="margin-bottom:10px"><span lang="bg">eduGAIN в България</span><span lang="en">eduGAIN in Bulgaria</span></div>
+        <h3>BIF <span class="badge">Bulgarian Identity Federation</span></h3>
+        <p class="note" style="font-size:15px;line-height:1.5"><span lang="bg">Българската федерация за идентичност се поддържа от БИОМ/НИМ и е една от <b id="bifFeds">84</b> национални федерации в eduGAIN. Чрез нея служителите и студентите на българските институции влизат в услуги по целия свят със своя собствен акаунт, а българските услуги в нея са достъпни за учени от цял свят.</span><span lang="en">The Bulgarian Identity Federation is run by BREN/NRN and is one of <b id="bifFeds2">84</b> national federations in eduGAIN. Through it, staff and students of Bulgarian institutions sign in to services worldwide with their own account, while the Bulgarian services in it are open to researchers from all over the world.</span></p>
+        <div class="bifNums"><div><b id="bifIdp">21</b><span lang="bg">входа на институции (IdP)</span><span lang="en">institutional logins (IdP)</span></div><div><b id="bifSp">3</b><span lang="bg">услуги (SP)</span><span lang="en">services (SP)</span></div></div>
+        <p class="note bifSrc" id="bifSrc" style="font-size:13px;margin-top:14px"></p>
+      </div>
+      <ul class="bifList" id="bifList"></ul>
+    </div>
+    <div class="mt">
+      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div><h4>AARC</h4><p lang="bg">Архитектурен план (blueprint), разработен от GÉANT и научните общности, който стандартизира федеративната идентичност между домейни за международни изследователски екипи.<sup class="cite" data-c="29"></sup></p><p lang="en">An architecture blueprint developed by GÉANT and research communities that standardises cross-domain federated identity for international research teams.<sup class="cite" data-c="29"></sup></p><p style="margin-top:10px"><a href="https://aarc-community.org" target="_blank" rel="noopener">aarc-community.org ↗</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="cloud">
+  <div class="wrap">
+    <div class="kicker"><span lang="bg">Облак и отворена наука</span><span lang="en">Cloud &amp; open science</span></div>
+    <h2 class="reveal"><span lang="bg">Облак по европейски <span class="grad">правила</span></span><span lang="en">Cloud on European <span class="grad">terms</span></span></h2>
+    <div class="grid2 mt">
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 18h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.5 1A3.5 3.5 0 0 0 7 18z"/></svg></div>
+        <h4>OCRE — Open Clouds for Research Environments</h4>
+        <p lang="bg">Финансиран от ЕС проект, координиран от GÉANT. Обединява търсенето на европейско ниво, провежда централизирани търгове и осигурява рамкови споразумения с над 27 доставчици на PaaS и IaaS — от световните хиперскейлъри до европейски компании като OVHcloud и IONOS — при спазване на GDPR и цифровия суверенитет.<sup class="cite" data-c="31,33,34,35"></sup></p>
+        <p lang="en">An EU-funded project coordinated by GÉANT. It pools demand at European level, runs central tenders and secures framework agreements with more than 27 PaaS and IaaS providers — from global hyperscalers to European firms such as OVHcloud and IONOS — in line with GDPR and digital sovereignty.<sup class="cite" data-c="31,33,34,35"></sup></p>
+        <div class="ucStats"><div><b class="grad">10 000+</b><span lang="bg">институции с достъп</span><span lang="en">institutions with access</span></div><div><b class="grad">27+</b><span lang="bg">облачни доставчици</span><span lang="en">cloud providers</span></div></div>
+        <a href="https://clouds.geant.org" target="_blank" rel="noopener">clouds.geant.org ↗</a>
+      </div>
+      <div class="card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+        <h4>EOSC — European Open Science Cloud</h4>
+        <p lang="bg">GÉANT и NREN осигуряват мрежовия и идентификационния слой (GÉANT EOSC Node), върху който стъпва федерацията EOSC — за научни данни, които следват принципите FAIR. Обърнете картите:<sup class="cite" data-c="29,33,34"></sup></p>
+        <p lang="en">GÉANT and the NRENs provide the network and identity layer (the GÉANT EOSC Node) on which the EOSC federation is built — for research data that follows the FAIR principles. Flip the cards:<sup class="cite" data-c="29,33,34"></sup></p>
+        <div class="fair" id="fair"></div>
+        <p style="margin-top:14px"><a href="https://eosc.eu" target="_blank" rel="noopener">eosc.eu ↗</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="bigdata">
+  <div class="wrap">
+    <div class="kicker"><span lang="bg">Инструменти за големи данни</span><span lang="en">Tools for big data</span></div>
+    <h2 class="reveal"><span lang="bg">Когато файлът е <span class="grad">петабайт</span></span><span lang="en">When the file is a <span class="grad">petabyte</span></span></h2>
+    <p class="lead reveal"><span lang="bg">Обикновената мрежова архитектура не е създадена за потоци от стотици гигабита в секунда. Затова изследователските мрежи развиват собствени решения.</span><span lang="en">Ordinary network architecture was not built for flows of hundreds of gigabits per second. So research networks develop their own solutions.</span></p>
+    <div class="grid2 mt">
+      <div class="card reveal"><h4>Science DMZ</h4><p lang="bg">Отделна зона на входа на кампуса, през която научният трафик минава, без да се задръства в общата мрежа и защитните стени. Масово се прилага в центровете на WLCG.<sup class="cite" data-c="40"></sup></p><p lang="en">A separate zone at the campus edge that lets research traffic pass without getting stuck in the general network and firewalls. Widely used across WLCG sites.<sup class="cite" data-c="40"></sup></p>
+        <div class="svgbox" style="margin-top:14px"><svg id="dmzSvg" viewBox="0 0 520 200" role="img" aria-label="Science DMZ"></svg></div></div>
+      <div class="card reveal"><h4>NOTED</h4><p lang="bg">Network Optimisation for Transferring Exabytes of Data: засича големите файлови трансфери в системата FTS на WLCG и автоматично пренасочва мрежовите маршрути, за да използва свободния капацитет.<sup class="cite" data-c="43,54"></sup></p><p lang="en">Network Optimisation for Transferring Exabytes of Data: it detects large file transfers in WLCG’s FTS system and automatically re-steers network routes to use spare capacity.<sup class="cite" data-c="43,54"></sup></p>
+        <div class="svgbox" style="margin-top:14px"><svg id="notedSvg" viewBox="0 0 520 200" role="img" aria-label="NOTED"></svg></div><div class="ctl" style="justify-content:flex-start;margin-top:10px"><button class="chip" id="notedBtn">⚡ <span lang="bg">Голям трансфер</span><span lang="en">Large transfer</span></button></div></div>
+      <div class="card reveal"><h4>LHCONE — <span lang="bg">доверена среда</span><span lang="en">a trusted environment</span></h4><p lang="bg">Тъй като LHCONE е затворена, доверена мрежа, центровете свързват масивите си с данни директно към нея, заобикаляйки периметровите защитни стени, които иначе биха спрели стогигабитовите потоци.<sup class="cite" data-c="43"></sup></p><p lang="en">Because LHCONE is a closed, trusted network, sites connect their storage directly to it, bypassing perimeter firewalls that would otherwise block 100-gigabit flows.<sup class="cite" data-c="43"></sup></p></div>
+      <div class="card reveal"><h4>EUMETCast Terrestrial</h4><p lang="bg">От юни 2025 г., за пет години, GÉANT е единна точка за контакт (SPOC), която координира NREN за метеорологичната услуга на EUMETSAT. Разпространението стъпва на Automatic Multicast Tunnelling (AMT).<sup class="cite" data-c="64"></sup></p><p lang="en">From June 2025, for five years, GÉANT is the single point of contact (SPOC) coordinating the NRENs for EUMETSAT’s weather-data service. Distribution relies on Automatic Multicast Tunnelling (AMT).<sup class="cite" data-c="64"></sup></p><p style="margin-top:10px"><a href="science.html#copernicus">→ <span lang="bg">Copernicus и EUMETSAT</span><span lang="en">Copernicus and EUMETSAT</span></a></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="optical">
+  <div class="wrap">
+    <div class="kicker"><span lang="bg">Оптични и квантови услуги</span><span lang="en">Optical &amp; quantum services</span></div>
+    <h2 class="reveal"><span lang="bg">Светлината като <span class="grad">услуга</span></span><span lang="en">Light as a <span class="grad">service</span></span></h2>
+    <div class="grid3 mt">
+      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 18c3-9 6-9 9 0s6 9 9 0"/></svg></div><h4>Spectrum-as-a-Service</h4><p lang="bg">Отделни спектрални канали се предоставят на изследователски общности, които изграждат свои виртуални оптични мрежи върху физическата инфраструктура на GÉANT.<sup class="cite" data-c="13"></sup></p><p lang="en">Individual spectrum channels are provided to research communities, which build their own virtual optical networks on top of GÉANT’s physical infrastructure.<sup class="cite" data-c="13"></sup></p></div>
+      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg></div><h4><span lang="bg">Точно време и честота</span><span lang="en">Time &amp; frequency</span></h4><p lang="bg">Ултрастабилни честотни сигнали от атомни часовници се пренасят по оптичната мрежа — за метрология и фундаментални физични експерименти.<sup class="cite" data-c="10"></sup></p><p lang="en">Ultra-stable frequency signals from atomic clocks are carried over the optical network — for metrology and fundamental physics experiments.<sup class="cite" data-c="10"></sup></p></div>
+      <div class="card reveal"><div class="ico" style="color:var(--pk);background:rgba(255,106,213,.1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><h4>EuroQCI / NatQCI</h4><p lang="bg">NREN изграждат национални квантови комуникационни мрежи, а GÉANT ги свързва в обща европейска архитектура за квантово разпределение на ключове (QKD).<sup class="cite" data-c="10,29"></sup></p><p lang="en">NRENs build national quantum communication networks, and GÉANT links them into a common European architecture for quantum key distribution (QKD).<sup class="cite" data-c="10,29"></sup></p><div class="qci"><span>HellasQCI · GR</span><span>PIONIER-Q · PL</span><span>CZQCI · CZ</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div id="shell-footer"></div>
+<script src="assets/js/core.js"></script>
+<script src="assets/js/pages/services.js"></script>
+</body>
+</html>

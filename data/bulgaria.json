@@ -1,0 +1,60 @@
+{
+  "_about": "NRN BG: nodes and links of the national backbone (scheme provided by the site owner, 11.2026), cross-border routes and the organisational timeline. Coordinates are lon/lat of the cities; the map is schematic.",
+  "nodes": [
+    { "id": "sof", "bg": "София", "en": "Sofia", "lon": 23.32, "lat": 42.7, "core": true },
+    { "id": "dmi", "bg": "Долна Митрополия", "en": "Dolna Mitropolia", "lon": 24.53, "lat": 43.47, "lab": [-14, -8, "end"] },
+    { "id": "plv", "bg": "Плевен", "en": "Pleven", "lon": 24.62, "lat": 43.42, "lab": "e" },
+    { "id": "svi", "bg": "Свищов", "en": "Svishtov", "lon": 25.35, "lat": 43.62 },
+    { "id": "rus", "bg": "Русе", "en": "Ruse", "lon": 25.97, "lat": 43.85 },
+    { "id": "gab", "bg": "Габрово", "en": "Gabrovo", "lon": 25.32, "lat": 42.87, "lab": [-22, -6, "end"] },
+    { "id": "vtr", "bg": "Велико\nТърново", "en": "Veliko\nTarnovo", "lon": 25.63, "lat": 43.08, "core": true, "lab": [-11, -20, "end"] },
+    { "id": "shu", "bg": "Шумен", "en": "Shumen", "lon": 26.93, "lat": 43.27, "core": true, "lab": [12, -16, "middle"] },
+    { "id": "var", "bg": "Варна", "en": "Varna", "lon": 27.91, "lat": 43.21, "core": true },
+    { "id": "sli", "bg": "Сливен", "en": "Sliven", "lon": 26.36, "lat": 42.4, "lab": "s" },
+    { "id": "pdv", "bg": "Пловдив", "en": "Plovdiv", "lon": 24.75, "lat": 42.15, "core": true, "lab": [4, -16, "middle"] },
+    { "id": "blg", "bg": "Благоевград", "en": "Blagoevgrad", "lon": 23.1, "lat": 42.02, "lab": "s" },
+    { "id": "roz", "bg": "Рожен", "en": "Rozhen", "lon": 24.74, "lat": 41.69, "lab": "s" }
+  ],
+  "links": [
+    { "a": "sof", "b": "dmi" },
+    { "a": "dmi", "b": "plv" },
+    { "a": "plv", "b": "gab" },
+    { "a": "gab", "b": "vtr" },
+    { "a": "vtr", "b": "svi" },
+    { "a": "svi", "b": "rus", "bend": [25.66, 43.66] },
+    { "a": "rus", "b": "shu" },
+    { "a": "shu", "b": "var" },
+    { "a": "pdv", "b": "var", "bend": [26.27, 42.55] },
+    { "a": "sli", "b": "pdv" },
+    { "a": "pdv", "b": "blg" },
+    { "a": "blg", "b": "sof" },
+    { "a": "pdv", "b": "roz", "spur": true },
+    { "a": "sof", "b": "shu", "px": [[300, 346], [400, 362], [485, 360], [610, 308]] },
+    { "a": "sof", "b": "gab", "bak": true },
+    { "a": "sof", "b": "rus", "bak": true, "px": [[300, 337], [400, 342], [485, 338], [556, 300], [566, 225]] },
+    { "a": "sof", "b": "var", "bak": true, "px": [[298, 355], [400, 380], [485, 382], [625, 325], [712, 274]] },
+    { "a": "sof", "b": "pdv", "bak": true }
+  ],
+  "exits": [
+    { "from": "sof", "dx": -125, "dy": -80 }
+  ],
+  "timeline": [
+    { "y": "1991–1998", "bg": ["Сдружение „Уником-Б“", "Обединява изследователските усилия на академичната общност. Подкрепа от фондация „Отворено общество“ и европейски програми; няма национално финансиране."], "en": ["The UNICOM-B association", "Brings together the research efforts of the academic community. Support from the Open Society Foundation and European programmes; no national funding."] },
+    { "y": "1999–2001", "bg": ["НОНИМ „Уником-Б“", "Национална изследователска и научна информационна мрежа, учредена като звено към Министерството на образованието и науката."], "en": ["NONIM UNICOM-B", "A national research and scientific information network, set up as a unit of the Ministry of Education and Science."] },
+    { "y": "2001", "bg": ["Извън GÉANT", "След закриването на звеното към МОН България остава без национално представителство и изпада от консорциума на GÉANT."], "en": ["Outside GÉANT", "When the ministry unit is closed, Bulgaria is left without national representation and drops out of the GÉANT consortium."], "warn": true },
+    { "y": "2002–2005", "bg": ["АРСИКТ и SEEREN", "Агенцията за развитие на съобщенията и ИКТ към МТС поддържа изследователската свързаност, легитимира участието на българските учени в SEEREN (югоизточния сегмент на GÉANT) и я финансира съвместно с Програмата за развитие на ООН."], "en": ["The ICT agency and SEEREN", "The communications and ICT development agency at the Ministry of Transport and Communications keeps research connectivity alive, makes Bulgarian participation in SEEREN (GÉANT’s south-eastern segment) official and funds it together with the UN Development Programme."] },
+    { "y": "2003", "bg": ["Възстановяване в GÉANT", "Фондация „Технологии на информационното общество“ е създадена от видни представители на академичната общност. С подкрепата на МТС и АРСИКТ тя получава международна легитимация и е приета в GÉANT като официален представител на България."], "en": ["Back in GÉANT", "The Information Society Technologies Foundation is founded by leading academics. With the backing of the ministry and the ICT agency it gains international recognition and is admitted to GÉANT as Bulgaria’s official representative."] },
+    { "y": "2005", "bg": ["Сдружение „Национална изследователска мрежа“", "МТС, АРСИКТ, ФТИО, БАН, Софийският университет, ТУ – София и Русенският университет учредяват новата организация и възстановяват статута на националната мрежа."], "en": ["The National Research Network Association", "The ministry, the ICT agency, ISTF, the Bulgarian Academy of Sciences, Sofia University, the Technical University of Sofia and the University of Ruse found the new organisation and restore the status of the national network."] },
+    { "y": "2006", "bg": ["БИОМ", "Сдружение „Българска изследователска и образователна мрежа“ — С НИМ, Държавната агенция за информационни технологии и съобщения (правоприемник на АРСИКТ), БАН и Съветът на ректорите с подкрепа от правителството обособяват новата организация и я легитимират в международен план. БИОМ официално замества ФТИО в GÉANT."], "en": ["BREN", "The Bulgarian Research and Education Network Association — NRN, the State Agency for Information Technology and Communications (successor of the ICT agency), the Academy of Sciences and the Council of Rectors set up the new organisation with government support and give it international legitimacy. BREN officially replaces ISTF in GÉANT."] },
+    {"y": "2026", "bg": ["Днес", ["Основното представителство и дейностите, свързани с изследователските мрежи в България, се осъществяват от С НИМ. Общото събрание на сдружението включва всички организации, които ползват изследователски трафик в страната.", "Дейностите, свързани с GÉANT, са делегирани на БИОМ и БАН, през чийто бюджет съгласно РМС № 730 от 19 октомври 2023 г. ежегодно се финансира международната свързаност.", "Оптичните линии до организациите участници и тяхното обслужване на настоящия етап не се финансират от държавата и се покриват с техни собствени средства."]], "en": ["Today", ["Bulgaria’s research networking is represented and run mainly by the NRN association, whose general assembly includes every organisation in the country that uses research traffic.", "GÉANT-related activities are delegated to BREN and the Bulgarian Academy of Sciences, whose budget funds the international connectivity every year under Council of Ministers Decision No. 730 of 19 October 2023.", "At present the fibre lines to the participating organisations and their maintenance are not state-funded and are paid for by the organisations themselves."]], "now": true}
+  ],
+  "founders": [
+    { "bg": "Министерство на транспорта и съобщенията", "en": "Ministry of Transport and Communications" },
+    { "bg": "Агенция „Развитие на съобщенията и на ИКТ“", "en": "Agency for the Development of Communications and ICT" },
+    { "bg": "Фондация „Технологии на информационното общество“", "en": "Information Society Technologies Foundation" },
+    { "bg": "Българска академия на науките", "en": "Bulgarian Academy of Sciences" },
+    { "bg": "Софийски университет „Св. Климент Охридски“", "en": "Sofia University “St Kliment Ohridski”" },
+    { "bg": "Технически университет – София", "en": "Technical University of Sofia" },
+    { "bg": "Русенски университет „Ангел Кънчев“", "en": "University of Ruse “Angel Kanchev”" }
+  ]
+}

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="bg" data-lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="rn-title" data-bg="Мрежи по света" data-en="World networks">
+<title>Мрежи по света · R&amp;E·NET</title>
+<meta name="description" content="Карта и каталог на континенталните изследователски мрежи: GÉANT, Internet2, ESnet, CANARIE, RedCLARA, UbuntuNet, WACREN, ASREN, APAN, TEIN/Asi@Connect, AARNet и др.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;600;700;800&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script>try{var t=new URLSearchParams(location.search).get("theme")||localStorage.getItem("renet-theme");if(t==="light")document.documentElement.dataset.theme="light"}catch(e){}</script>
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="networks">
+<div id="shell-nav"></div>
+
+<header class="phero">
+  <canvas id="heroCanvas" data-density="22000" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="crumbs"><a href="home.html">R&amp;E·NET</a> / <span lang="bg">Мрежи по света</span><span lang="en">World networks</span></div>
+    <h1><span lang="bg">Светът, свързан <span class="grad">със светлина</span></span><span lang="en">A world connected <span class="grad">by light</span></span></h1>
+    <p class="lead"><span lang="bg">Регионалните мрежи обединяват националните в общи географски зони и ги свързват през океаните. Тук ще намерите карта, каталог с официалните сайтове и подробни профили на Северна Америка, Азия, Латинска Америка, Африка и трансатлантическия мост.</span><span lang="en">Regional networks unite national ones across geographic zones and link them across the oceans. Here you will find a map, a directory with official websites and in-depth profiles of North America, Asia, Latin America, Africa and the transatlantic bridge.</span></p>
+  </div>
+</header>
+<nav class="subnav" data-tabs aria-label="On this page"><div class="wrap">
+  <a href="#map-sec"><span lang="bg">Карта</span><span lang="en">Map</span></a>
+  <a href="#directory"><span lang="bg">Каталог</span><span lang="en">Directory</span></a>
+  <a href="#na"><span lang="bg">Северна Америка</span><span lang="en">North America</span></a>
+  <a href="#asia"><span lang="bg">Азия и Океания</span><span lang="en">Asia &amp; Oceania</span></a>
+  <a href="#south"><span lang="bg">Латинска Америка и Африка</span><span lang="en">Latin America &amp; Africa</span></a>
+  <a href="#ana"><span lang="bg">Трансатлантическият мост</span><span lang="en">The transatlantic bridge</span></a>
+</div></nav>
+
+<section id="map-sec" class="tight">
+  <div class="wrap">
+    <div class="kicker"><span lang="bg">Интерактивна карта</span><span lang="en">Interactive map</span></div>
+    <h2 class="reveal"><span lang="bg">Континенталните мрежи</span><span lang="en">The continental networks</span></h2>
+    <p class="lead reveal"><span lang="bg">Натиснете точка на картата — ще видите описание, ключови числа и връзка към официалния сайт.</span><span lang="en">Click a point on the map to see a description, key figures and a link to the official site.</span></p>
+    <div class="mapBox mt reveal">
+      <svg id="map" viewBox="0 0 960 505" role="img" aria-label="World map of research networks"></svg>
+      <div class="mapPanel" id="mapPanel"><button class="x" id="mapX" aria-label="Close">×</button><div id="mapPanelBody"></div></div>
+      <div class="mapNote"><span lang="bg">Схематично: дъгите показват основни междурегионални връзки, а точките — зоните на мрежите, не точни седалища.</span><span lang="en">Schematic: arcs show key inter-regional links; points mark network regions, not exact headquarters.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="directory" class="tight">
+  <div class="wrap">
+    <div class="kicker"><span lang="bg">Каталог</span><span lang="en">Directory</span></div>
+    <h2 class="reveal"><span lang="bg">Официалните сайтове</span><span lang="en">Official websites</span></h2>
+    <div class="filters" id="filters"></div>
+    <div class="netGrid" id="netGrid"></div>
+  </div>
+</section>
+
+<section id="na">
+  <div class="wrap">
+    <div class="kicker" style="color:var(--vi)"><span lang="bg">Северна Америка</span><span lang="en">North America</span></div>
+    <h2 class="reveal"><span lang="bg">Internet2: от криза до <span class="grad">800 Gbps</span></span><span lang="en">Internet2: from crisis to <span class="grad">800 Gbps</span></span></h2>
+    <div class="split top mt">
+      <div class="reveal">
+        <p lang="bg" style="color:var(--mut)">През 1985 г. Националната научна фондация създава NSFNET, за да свърже университетите с петте национални суперкомпютърни центъра; от 1987 г. опорната мрежа се управлява съвместно с Merit Network.<sup class="cite" data-c="46,47"></sup> След приватизацията през април 1995 г. търговските мрежи бързо се задръстват и науката губи гарантирания си капацитет.<sup class="cite" data-c="47"></sup></p>
+        <p lang="en" style="color:var(--mut)">In 1985 the National Science Foundation created NSFNET to connect universities to the five national supercomputer centres; from 1987 the backbone was run jointly with Merit Network.<sup class="cite" data-c="46,47"></sup> After privatisation in April 1995, commercial networks quickly congested and science lost its guaranteed capacity.<sup class="cite" data-c="47"></sup></p>
+        <p lang="bg" style="color:var(--mut)">На 1 октомври 1996 г. 34 университетски ръководители се събират в Чикаго и поставят началото на Internet2. Заедно с федералната инициатива Next Generation Internet разгръщат високопроизводителните магистрали vBNS и Abilene — полигон за QoS, суперкомпютърни изчисления и медицински приложения.<sup class="cite" data-c="39,46,47"></sup></p>
+        <p lang="en" style="color:var(--mut)">On 1 October 1996, 34 university leaders met in Chicago and launched Internet2. With the federal Next Generation Internet initiative they deployed the high-performance vBNS and Abilene backbones — a test-bed for QoS, supercomputing and medical applications.<sup class="cite" data-c="39,46,47"></sup></p>
+        <div class="callout cy" style="margin-top:14px"><span lang="bg">Изкуственият интелект, облакът и центровете за данни надраснаха 100Gb и 200Gb Ethernet. Отговорът на Internet2 е Next Generation Infrastructure (NGI).</span><span lang="en">AI, cloud and data centres outgrew 100Gb and 200Gb Ethernet. Internet2’s answer is the Next Generation Infrastructure (NGI).</span><sup class="cite" data-c="41,48,49"></sup></div>
+      </div>
+      <div class="reveal">
+        <div class="kpis" style="grid-template-columns:1fr 1fr">
+          <div class="kpi"><b class="grad">1985</b><span lang="bg">NSFNET и 5 суперкомпютърни центъра</span><span lang="en">NSFNET and 5 supercomputer centres</span></div>
+          <div class="kpi"><b class="grad">34</b><span lang="bg">ръководители на учредителната среща (1996)</span><span lang="en">leaders at the founding meeting (1996)</span></div>
+          <div class="kpi"><b class="grad">02 · 2021</b><span lang="bg">първата 800Gb вълна: Финикс – Тусон</span><span lang="en">first 800Gb wave: Phoenix – Tucson</span></div>
+          <div class="kpi"><b class="grad">7 × 400Gb</b><span lang="bg">първите Ethernet трасета на NGI (03 · 2021)</span><span lang="en">first NGI Ethernet paths (03 · 2021)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mt reveal">
+      <h3><span lang="bg">Как работи NGI: от пакет до светлинна вълна</span><span lang="en">How NGI works: from packet to light wave</span><sup class="cite" data-c="41"></sup></h3>
+      <div class="svgbox" style="margin-top:14px"><svg id="ngiSvg" viewBox="0 0 960 230" role="img" aria-label="Internet2 NGI stack"></svg></div>
+      <p class="note" style="margin-top:12px"><span lang="bg">Смесеното OTN-Ethernet картографиране леко намалява суровия капацитет на сегмента, но позволява едновременно 10Gb, 100Gb и 400Gb услуги и пести енергия. Конфигурацията се управлява от Cisco NSO, а натоварването се тества с 400Gb+ perfSONAR клъстер.</span><span lang="en">Mixed OTN-Ethernet mapping slightly reduces a segment’s raw capacity but allows 10Gb, 100Gb and 400Gb services at once and saves energy. Configuration is orchestrated by Cisco NSO, and load is tested with a 400Gb+ perfSONAR cluster.</span><sup class="cite" data-c="41"></sup></p>
+    </div>
+
+    <div class="card mt reveal">
+      <h3><span lang="bg">NGI сегменти: моделиран, валидиран и начален капацитет</span><span lang="en">NGI segments: modelled, validated and day-1 capacity</span><sup class="cite" data-c="41"></sup></h3>
+      <div class="legend" style="flex-direction:row;flex-wrap:wrap;gap:16px;margin:10px 0 6px"><span><i style="background:#5e7096"></i><span lang="bg">моделиран</span><span lang="en">modelled</span></span><span><i style="background:var(--vi)"></i><span lang="bg">валидиран</span><span lang="en">validated</span></span><span><i style="background:var(--cy)"></i><span lang="bg">ден 1</span><span lang="en">day 1</span></span></div>
+      <div id="ngiChart"></div>
+    </div>
+  </div>
+</section>
+
+<section id="asia">
+  <div class="wrap">
+    <div class="kicker" style="color:var(--pk)"><span lang="bg">Азия и Океания</span><span lang="en">Asia &amp; Oceania</span></div>
+    <h2 class="reveal"><span lang="bg">TEIN → Asi@Connect: <span class="grad">50 000 пъти по-бързо</span></span><span lang="en">TEIN → Asi@Connect: <span class="grad">50,000 times faster</span></span></h2>
+    <p class="lead reveal"><span lang="bg">Започва като политическа инициатива на срещата Азия – Европа в Сеул (2000) и скромна връзка от 2 Mbps между Франция и Корея (2001). Днес дава до 100 Gbps на 22 държави и територии и е пряко свързана с GÉANT.<sup class="cite" data-c="42"></sup></span><span lang="en">It began as a political initiative at the Asia–Europe summit in Seoul (2000) and a modest 2 Mbps link between France and Korea (2001). Today it delivers up to 100 Gbps to 22 countries and territories and connects directly to GÉANT.<sup class="cite" data-c="42"></sup></span></p>
+    <div class="card mt reveal"><h3><span lang="bg">Петте етапа</span><span lang="en">The five stages</span></h3><div id="teinSteps" class="capChart"></div></div>
+    <div class="grid2 mt">
+      <div class="card reveal"><h3><span lang="bg">Бюджет на Asi@Connect</span><span lang="en">Asi@Connect budget</span><sup class="cite" data-c="42"></sup></h3>
+        <div class="split" style="gap:10px;margin-top:8px"><div id="donut1"></div><div id="donut2"></div></div>
+        <div class="legend" style="margin-top:10px"><span><i style="background:var(--cy)"></i><span lang="bg">ЕС (фаза 2: компонент, съфинансиран от ЕС)</span><span lang="en">EU (phase 2: EU co-financed component)</span></span><span><i style="background:var(--pk)"></i><span lang="bg">Национални мрежи (NREN)</span><span lang="en">National networks (NRENs)</span></span></div>
+      </div>
+      <div class="card reveal"><h3><span lang="bg">За какво служи мрежата</span><span lang="en">What the network is for</span><sup class="cite" data-c="42"></sup></h3>
+        <p style="color:var(--mut);font-size:15px"><span lang="bg">Приоритет имат проекти с висока обществена стойност, които допринасят за Целите за устойчиво развитие на ООН. Мрежата е и полигон за SDN и комуникации между машини (M2M).</span><span lang="en">Priority goes to projects with high social value that contribute to the UN Sustainable Development Goals. The network is also a test-bed for SDN and machine-to-machine (M2M) communications.</span></p>
+        <div id="teinUses" class="grid2" style="gap:10px;margin-top:12px"></div>
+        <p class="note" style="margin-top:14px"><span lang="bg">Ключови национални мрежи:</span><span lang="en">Key national networks:</span></p>
+        <div><span class="pill">AARNet · AU</span><span class="pill">CERNET/CSTNET · CN</span><span class="pill">NKN · IN</span><span class="pill">NICT/NII · JP</span><span class="pill">NIA · KR</span><span class="pill">SingAREN · SG</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="south">
+  <div class="wrap">
+    <div class="kicker" style="color:var(--gr)"><span lang="bg">Латинска Америка и Африка</span><span lang="en">Latin America &amp; Africa</span></div>
+    <h2 class="reveal h2Long"><span lang="bg">Директни връзки – <span class="grad">без заобиколни пътища</span></span><span lang="en">Direct links – <span class="grad">no detours</span></span></h2>
+    <p class="lead reveal"><span lang="bg">Дълго време трафикът между съседни региони на Юга минаваше през Европа или Северна Америка. Новите кабели и трасета промениха това и направиха изследователите от тези региони равностойни партньори.<sup class="cite" data-c="14,19,20"></sup></span><span lang="en">For a long time, traffic between neighbouring regions of the Global South went via Europe or North America. New cables and routes changed that and made researchers from these regions equal partners.<sup class="cite" data-c="14,19,20"></sup></span></p>
+    <div class="grid3 mt" id="southCards"></div>
+  </div>
+</section>
+
+<section id="ana">
+  <div class="wrap">
+    <div class="kicker" style="color:var(--vi)">ANA · Advanced North Atlantic</div>
+    <h2 class="reveal"><span lang="bg">Трансатлантическият <span class="grad">мост на науката</span></span><span lang="en">The transatlantic <span class="grad">bridge of science</span></span></h2>
+    <div class="split r mt">
+      <div class="svgbox reveal"><svg id="anaSvg" viewBox="0 0 640 340" role="img" aria-label="Transatlantic links"></svg></div>
+      <div class="reveal">
+        <p style="color:var(--mut)"><span lang="bg">Водещите мрежи от двете страни на океана работят заедно в сътрудничеството Advanced North Atlantic (ANA).<sup class="cite" data-c="72"></sup> През 2025 г. GÉANT подписа с EXA Infrastructure 15-годишен договор за неотменимо право на ползване (IRU) на спектър в две физически разделени подводни кабелни системи — терабитово разширение, което дава устойчиви нови пътища към Северна Америка.<sup class="cite" data-c="72,75"></sup></span><span lang="en">The leading networks on both sides of the ocean work together in the Advanced North Atlantic (ANA) collaboration.<sup class="cite" data-c="72"></sup> In 2025 GÉANT signed a 15-year indefeasible right of use (IRU) with EXA Infrastructure for spectrum on two physically diverse subsea cable systems — a terabit expansion that adds resilient new paths to North America.<sup class="cite" data-c="72,75"></sup></span></p>
+        <div class="kpis" style="grid-template-columns:repeat(3,1fr);margin:16px 0">
+          <div class="kpi"><b class="grad">15</b><span lang="bg">години IRU</span><span lang="en">years of IRU</span></div>
+          <div class="kpi"><b class="grad">2</b><span lang="bg">разделени кабелни системи</span><span lang="en">diverse cable systems</span></div>
+          <div class="kpi"><b class="grad">&gt;75%</b><span lang="bg">от външния трафик на Европа е със Северна Америка</span><span lang="en">of Europe’s external traffic is with North America</span></div>
+        </div>
+        <p class="note"><span lang="bg">Партньори в ANA:</span><span lang="en">ANA partners:</span><sup class="cite" data-c="72"></sup></p>
+        <div class="anaGrid" id="anaGrid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="shell-footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script src="assets/js/core.js"></script>
+<script src="assets/js/pages/networks.js"></script>
+</body>
+</html>

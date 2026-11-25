@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="bg" data-lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="rn-title" data-bg="GÉANT и Европа" data-en="GÉANT & Europe">
+<title>GÉANT и Европа · R&amp;E·NET</title>
+<meta name="description" content="GÉANT — европейската изследователска опорна мрежа: 43 национални мрежи, 30 000 km, 12 Tbps, 3,6 EB трафик през 2025 г. и миграция към 800Gb без прекъсване.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;600;700;800&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script>try{var t=new URLSearchParams(location.search).get("theme")||localStorage.getItem("renet-theme");if(t==="light")document.documentElement.dataset.theme="light"}catch(e){}</script>
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="europe">
+<div id="shell-nav"></div>
+
+<header class="phero">
+  <canvas id="heroCanvas" data-density="20000" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="crumbs"><a href="home.html">R&amp;E·NET</a> / GÉANT</div>
+    <h1 class="h1Long"><span lang="bg">Европейската <span class="grad">оптична опорна мрежа</span></span><span lang="en">Europe’s <span class="grad">optical backbone</span></span></h1>
+    <p class="lead"><span lang="bg">GÉANT обединява 43 национални мрежи и обслужва над 50 милиона потребители в 10 000 институции. Сегашният етап (GN5-1 и GN5-2) се финансира от „Хоризонт Европа“.<sup class="cite" data-c="10,12,13"></sup></span><span lang="en">GÉANT brings together 43 national networks and serves more than 50 million users in 10,000 institutions. The current phase (GN5-1 and GN5-2) is funded by Horizon Europe.<sup class="cite" data-c="10,12,13"></sup></span></p>
+  </div>
+</header>
+<nav class="subnav" data-tabs aria-label="On this page"><div class="wrap">
+  <a href="#today"><span lang="bg">В числа</span><span lang="en">In numbers</span></a>
+  <a href="#rings"><span lang="bg">Пръстените</span><span lang="en">The rings</span></a>
+  <a href="#migration"><span lang="bg">Миграция към 800Gb</span><span lang="en">800Gb migration</span></a>
+  <a href="#hardware"><span lang="bg">Технологиите</span><span lang="en">The technology</span></a>
+  <a href="#scale"><span lang="bg">3,6 ексабайта</span><span lang="en">3.6 exabytes</span></a>
+  <a href="#calc"><span lang="bg">Калкулатор</span><span lang="en">Calculator</span></a>
+</div></nav>
+
+<section id="today" class="tight">
+  <div class="wrap">
+    <div class="kicker"><span lang="bg">GÉANT в числа</span><span lang="en">GÉANT in numbers</span></div>
+    <div class="kpis mt">
+      <div class="kpi reveal"><b class="grad" data-count="43">0</b><span lang="bg">национални мрежи</span><span lang="en">national networks</span></div>
+      <div class="kpi reveal"><b class="grad" data-count="50" data-suf="M+">0</b><span lang="bg">потребители</span><span lang="en">users</span></div>
+      <div class="kpi reveal"><b class="grad" data-count="10000">0</b><span lang="bg">институции</span><span lang="en">institutions</span></div>
+      <div class="kpi reveal"><b class="grad" data-count="30000" data-suf=" km">0</b><span lang="bg">дължина на опорната мрежа</span><span lang="en">backbone length</span></div>
+      <div class="kpi reveal"><b class="grad" data-count="12" data-suf=" Tbps">0</b><span lang="bg">агрегиран капацитет на ядрото</span><span lang="en">aggregate core capacity</span></div>
+      <div class="kpi reveal"><b class="grad" data-count="3.6" data-dec="1" data-suf=" EB">0</b><span lang="bg">трафик през 2025 г.</span><span lang="en">traffic in 2025</span></div>
+      <div class="kpi reveal"><b class="grad" data-count="1240">0</b><span lang="bg">услуги, мигрирани без прекъсване</span><span lang="en">services migrated with no downtime</span></div>
+      <div class="kpi reveal"><b class="grad" data-count="800" data-suf="Gb">0</b><span lang="bg">свързаност до краищата на Европа</span><span lang="en">connectivity to Europe’s edges</span></div>
+    </div>
+    <p class="note" style="margin-top:12px"><span lang="bg">Източници:</span><span lang="en">Sources:</span><sup class="cite" data-c="10,12,74"></sup></p>
+  </div>
+</section>
+
+<section id="rings">
+  <div class="wrap">
+    <div class="kicker"><span lang="bg">Оптичното ядро</span><span lang="en">The optical core</span></div>
+    <h2 class="reveal"><span lang="bg">Пръстените на мрежата, 2024–2025</span><span lang="en">The network rings, 2024–2025</span></h2>
+    <div class="rings mt">
+      <div class="card screen reveal" style="padding:10px"><svg id="ringSvg" viewBox="0 0 520 440" role="img" aria-label="GÉANT ring capacities"></svg></div>
+      <div class="reveal">
+        <p style="color:var(--mut)"><span lang="bg">Ядрото е организирано в пръстени с различен капацитет. Западният, през който минават най-натоварените трасета, вече преминава към 800 Gbps.</span><span lang="en">The core is organised into rings of different capacity. The Western ring, which carries the busiest routes, is already moving to 800 Gbps.</span><sup class="cite" data-c="27,28"></sup></p>
+        <div class="ringLeg" id="ringLeg"></div>
+        <p class="note" style="margin-top:14px"><span lang="bg">Схема без географска точност; скоростта на импулсите е пропорционална на капацитета.</span><span lang="en">Not geographically accurate; pulse speed is proportional to capacity.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="migration">
+  <div class="wrap">
+    <div class="kicker" style="color:var(--am)">06 · 2024 → 01 · 2026</div>
+    <h2 class="reveal"><span lang="bg">Смяна на двигателя <span class="grad">в полет</span></span><span lang="en">Changing the engine <span class="grad">mid-flight</span></span></h2>
+    <p class="lead reveal"><span lang="bg">През 2023 г. търгът за нов IP/MPLS слой е спечелен от Nokia и Nomios. От юни 2024 до януари 2026 г. екипът на GÉANT поетапно пренася цялата мрежа — първо ядрото, после крайните услуги — без нито едно прекъсване на живата мрежа.<sup class="cite" data-c="74"></sup></span><span lang="en">In 2023 the tender for a new IP/MPLS layer was won by Nokia and Nomios. From June 2024 to January 2026 the GÉANT team migrated the whole network in phases — core first, then edge services — without a single outage of the live network.<sup class="cite" data-c="74"></sup></span></p>
+    <div class="split r mt">
+      <div class="card reveal">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap"><h3 style="margin:0"><span lang="bg">Симулация на миграцията</span><span lang="en">Migration simulation</span></h3><button class="chip" id="migBtn">▶ <span lang="bg">Пуснете отново</span><span lang="en">Replay</span></button></div>
+        <div id="migGrid" style="display:grid;grid-template-columns:repeat(8,1fr);gap:8px;margin:18px 0"></div>
+        <div class="kpis" style="grid-template-columns:repeat(3,1fr)">
+          <div class="kpi"><b id="migSvc" class="grad">0</b><span lang="bg">услуги</span><span lang="en">services</span></div>
+          <div class="kpi"><b id="migSite" class="grad">0</b><span lang="bg">обекта</span><span lang="en">sites</span></div>
+          <div class="kpi"><b style="color:var(--gr)">0</b><span lang="bg">минути прекъсване</span><span lang="en">minutes of downtime</span></div>
+        </div>
+        <p class="note" style="margin-top:10px" id="migDate"></p>
+        <p class="note"><span lang="bg">Подредбата по месеци е илюстративна; общите числа и периодът са от източника.</span><span lang="en">The month-by-month order is illustrative; the totals and the period come from the source.</span></p>
+      </div>
+      <div class="reveal">
+        <div class="steps" style="grid-template-columns:1fr">
+          <div><b><span lang="bg">Модел вместо ръчни команди</span><span lang="en">Models instead of manual commands</span></b><span lang="bg">Внедряването минава през GÉANT Automation Platform (GAP), изградена върху отворения Workflow Orchestrator (WFO): мрежата се описва като модел, а платформата следи състоянието и оркестрира промените.</span><span lang="en">Deployment runs through the GÉANT Automation Platform (GAP), built on the open-source Workflow Orchestrator (WFO): the network is described as a model, and the platform tracks state and orchestrates changes.</span></div>
+          <div><b><span lang="bg">Ядрото първо</span><span lang="en">Core first</span></b><span lang="bg">Първите фази интегрират новата опорна мрежа, после идва редът на крайните услуги към членовете.</span><span lang="en">The first phases integrate the new backbone; then it is the turn of the edge services to members.</span></div>
+          <div><b><span lang="bg">Мрежата като софтуер</span><span lang="en">The network as software</span></b><span lang="bg">Успехът се дължи на тясното сътрудничество между мрежовия и софтуерния екип и подготвя самообслужване на свързаността за членовете.</span><span lang="en">Success came from close collaboration between the network and software teams, and it paves the way for self-service connectivity for members.</span></div>
+        </div>
+        <p class="note" style="margin-top:10px"><span lang="bg">Източник:</span><span lang="en">Source:</span><sup class="cite" data-c="74"></sup></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hardware">
+  <div class="wrap">
+    <div class="kicker"><span lang="bg">Технологиите</span><span lang="en">The technology</span></div>
+    <h2 class="reveal"><span lang="bg">Влакно, спектър, <span class="grad">силиций</span></span><span lang="en">Fibre, spectrum, <span class="grad">silicon</span></span></h2>
+    <div class="grid3 mt">
+      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12c4-6 16-6 20 0M2 12c4 6 16 6 20 0"/><circle cx="12" cy="12" r="2.5"/></svg></div><h4><span lang="bg">Собствено тъмно влакно</span><span lang="en">Owned dark fibre</span></h4><p lang="bg">Преход от наети капацитети към дългосрочна собственост върху тъмни влакна и оптичен спектър (FlexGrid). Новата топология от GN4-3N е планирана за 15 до 21 години.<sup class="cite" data-c="10,13,27"></sup></p><p lang="en">A shift from leased capacity to long-term ownership of dark fibre and optical spectrum (FlexGrid). The new GN4-3N topology is planned for 15 to 21 years.<sup class="cite" data-c="10,13,27"></sup></p></div>
+      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></svg></div><h4><span lang="bg">Рутери Nokia FP5</span><span lang="en">Nokia FP5 routers</span></h4><p lang="bg">Juniper MX се заменят с Nokia 7750 SR-7s и SR-2se на чипсета FP5 — до 18 Tbps на слот.<sup class="cite" data-c="27"></sup></p><p lang="en">Juniper MX routers are replaced by Nokia 7750 SR-7s and SR-2se on the FP5 chipset — up to 18 Tbps per slot.<sup class="cite" data-c="27"></sup></p></div>
+      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></div><h4><span lang="bg">ZR+ оптика 400Gb/800Gb</span><span lang="en">400Gb/800Gb ZR+ optics</span></h4><p lang="bg">Кохерентните pluggable модули намаляват разходите за трансивъри до 50% и снижават енергийната консумация.<sup class="cite" data-c="13,27"></sup></p><p lang="en">Coherent pluggable modules cut transceiver costs by up to 50% and lower energy consumption.<sup class="cite" data-c="13,27"></sup></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="scale">
+  <div class="wrap">
+    <div class="kicker"><span lang="bg">Мащаб</span><span lang="en">Scale</span></div>
+    <h2 class="reveal"><span lang="bg">Колко са <span class="grad">3,6 ексабайта</span>?</span><span lang="en">How big is <span class="grad">3.6 exabytes</span>?</span></h2>
+    <p class="note"><span lang="bg">Толкова трафик е пренесен през магистралите на GÉANT през 2025 г.<sup class="cite" data-c="12"></sup> Сравненията са изчислени от нас.</span><span lang="en">That much traffic crossed GÉANT’s backbone in 2025.<sup class="cite" data-c="12"></sup> The comparisons are our own calculations.</span></p>
+    <div class="eb mt">
+      <div class="card reveal"><b class="grad" data-count="766" data-suf="M">0</b><span lang="bg">DVD диска по 4,7 GB</span><span lang="en">4.7 GB DVDs</span></div>
+      <div class="card reveal"><b class="grad" data-count="919" data-suf=" km">0</b><span lang="bg">височина на купчината от тези дискове (1,2 мм всеки)</span><span lang="en">height of that stack of discs (1.2 mm each)</span></div>
+      <div class="card reveal"><b class="grad" data-count="0.91" data-dec="2" data-suf=" Tbps">0</b><span lang="bg">среден поток денонощно през цялата година</span><span lang="en">average flow, around the clock, all year</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="calc">
+  <div class="wrap">
+    <div class="card reveal">
+      <h3><span lang="bg">Калкулатор: колко време отнема преносът?</span><span lang="en">Calculator: how long does the transfer take?</span></h3>
+      <div class="calc">
+        <div>
+          <label><span lang="bg">Набор от данни</span><span lang="en">Dataset</span></label><div class="opts" id="dsOpts"></div>
+          <label><span lang="bg">Връзка</span><span lang="en">Link</span></label><div class="opts" id="lkOpts"></div>
+        </div>
+        <div class="card result" style="background:rgba(0,0,0,.25)">
+          <span class="note"><span lang="bg">Време за пренос при пълно натоварване</span><span lang="en">Transfer time at full line rate</span></span>
+          <div class="time grad" id="calcTime">—</div>
+          <div class="pipe"><i id="calcPipe"></i></div>
+          <div class="note" id="calcCmp"></div>
+          <p class="note" style="margin-top:10px"><span lang="bg">Идеализирано: без служебна информация на протоколите и без други потоци. 350 PB са годишните сурови данни на един експеримент при HL-LHC; останалите размери са илюстративни.</span><span lang="en">Idealised: no protocol overhead and no competing flows. 350 PB is one experiment’s yearly raw data at HL-LHC; other sizes are illustrative.</span><sup class="cite" data-c="43"></sup></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="shell-footer"></div>
+<script src="assets/js/core.js"></script>
+<script src="assets/js/pages/europe.js"></script>
+</body>
+</html>

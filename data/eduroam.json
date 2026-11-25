@@ -1,0 +1,176 @@
+{
+  "_doc": "eduroam in Bulgaria. The service and the national RADIUS servers are run by NRN (НИМ). 'servers' is a snapshot of the monitoring table at live.page (refresh it with: python tools/update_eduroam.py). The page also tries to read live.page directly; that works only if eduroam.bg sends an Access-Control-Allow-Origin header, otherwise the snapshot is shown. 'names' maps the institution name used in the monitoring table to a polished bg/en name; 'top': true marks the national top-level servers. A new institution without an entry in 'names' is shown with its monitoring name.",
+  "live": {
+    "page": "https://www.eduroam.bg/?page_id=213"
+  },
+  "asof": "2026-11-24",
+  "names": {
+    "Bulgaria Top Level": {
+      "top": true,
+      "bg": "Национални RADIUS сървъри (НИМ)",
+      "en": "National RADIUS servers (NRN)"
+    },
+    "Bulgaria2 Top Level": {
+      "top": true,
+      "bg": "Национални RADIUS сървъри (НИМ)",
+      "en": "National RADIUS servers (NRN)"
+    },
+    "Acad.bg": {
+      "bg": "Acad.bg",
+      "en": "Acad.bg"
+    },
+    "Ruse University": {
+      "bg": "Русенски университет „Ангел Кънчев“",
+      "en": "University of Ruse “Angel Kanchev”"
+    },
+    "MU-Pleven": {
+      "bg": "Медицински университет – Плевен",
+      "en": "Medical University – Pleven"
+    },
+    "Svishtov University": {
+      "bg": "Стопанска академия „Д. А. Ценов“",
+      "en": "D. A. Tsenov Academy of Economics"
+    },
+    "Sofia University": {
+      "bg": "Софийски университет „Св. Климент Охридски“",
+      "en": "Sofia University “St Kliment Ohridski”"
+    },
+    "Military University": {
+      "bg": "НВУ „Васил Левски“",
+      "en": "Vasil Levski National Military University"
+    },
+    "Shumen University": {
+      "bg": "Шуменски университет „Епископ Константин Преславски“",
+      "en": "Konstantin Preslavsky University of Shumen"
+    },
+    "TU-Sofia": {
+      "bg": "Технически университет – София",
+      "en": "Technical University of Sofia"
+    },
+    "TU-Plovdiv": {
+      "bg": "ТУ – София, филиал Пловдив",
+      "en": "Technical University of Sofia, Plovdiv branch"
+    },
+    "Astro.bas.bg": {
+      "bg": "Институт по астрономия с НАО – БАН",
+      "en": "Institute of Astronomy and NAO – BAS"
+    },
+    "Discoverer HPC": {
+      "bg": "Суперкомпютър Discoverer",
+      "en": "Discoverer supercomputer"
+    },
+    "NATFIZ": {
+      "bg": "НАТФИЗ „Кръстьо Сарафов“",
+      "en": "National Academy of Theatre and Film Arts"
+    },
+    "AU-Plovdiv": {
+      "bg": "Аграрен университет – Пловдив",
+      "en": "Agricultural University – Plovdiv"
+    },
+    "UACG-Sofia": {
+      "bg": "УАСГ",
+      "en": "University of Architecture, Civil Engineering and Geodesy"
+    },
+    "UE-Varna": {
+      "bg": "Икономически университет – Варна",
+      "en": "University of Economics – Varna"
+    }
+  },
+  "servers": [
+    {
+      "inst": "Bulgaria Top Level",
+      "host": "btlr.eduroam.bg",
+      "status": "Up"
+    },
+    {
+      "inst": "Bulgaria2 Top Level",
+      "host": "btlr2.eduroam.bg",
+      "status": "Up"
+    },
+    {
+      "inst": "Acad.bg",
+      "host": "radius.acad.bg",
+      "status": "Up"
+    },
+    {
+      "inst": "Ruse University",
+      "host": "radius.uni-ruse.bg",
+      "status": "Up"
+    },
+    {
+      "inst": "MU-Pleven",
+      "host": "munps1.mu-pleven.bg",
+      "status": "Down/Up"
+    },
+    {
+      "inst": "MU-Pleven",
+      "host": "munps2.mu-pleven.bg",
+      "status": "Down/Up"
+    },
+    {
+      "inst": "Svishtov University",
+      "host": "hotspot.uni-svishtov.bg",
+      "status": "Up"
+    },
+    {
+      "inst": "Sofia University",
+      "host": "radius-rectorate.uni-sofia.bg",
+      "status": "Up"
+    },
+    {
+      "inst": "Sofia University",
+      "host": "services-loz.uni-sofia.bg",
+      "status": "Up"
+    },
+    {
+      "inst": "Military University",
+      "host": "194.141.64.161",
+      "status": "Down/Up"
+    },
+    {
+      "inst": "Shumen University",
+      "host": "edurad.shu-bg.net",
+      "status": "Down/Up"
+    },
+    {
+      "inst": "TU-Sofia",
+      "host": "radius.tu-sofia.bg",
+      "status": "Up"
+    },
+    {
+      "inst": "TU-Plovdiv",
+      "host": "radius.tu-plovdiv.bg",
+      "status": "Up"
+    },
+    {
+      "inst": "Astro.bas.bg",
+      "host": "a2014.astro.bas.bg",
+      "status": "Down/Up"
+    },
+    {
+      "inst": "Discoverer HPC",
+      "host": "radius.discoverer.bg",
+      "status": "Up"
+    },
+    {
+      "inst": "NATFIZ",
+      "host": "95.87.212.233",
+      "status": "Up"
+    },
+    {
+      "inst": "AU-Plovdiv",
+      "host": "radius.au-plovdiv.bg",
+      "status": "Up"
+    },
+    {
+      "inst": "UACG-Sofia",
+      "host": "eduroam-radius01.uacg.bg",
+      "status": "Down"
+    },
+    {
+      "inst": "UE-Varna",
+      "host": "radius.ue-varna.bg",
+      "status": "Up"
+    }
+  ]
+}

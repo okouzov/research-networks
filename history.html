@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="bg" data-lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="rn-title" data-bg="История" data-en="History">
+<title>История · R&amp;E·NET</title>
+<meta name="description" content="Хронология на изследователските мрежи: ARPANET, NSFNET, JANET, RARE, TERENA, GÉANT, Internet2, TEIN и Asi@Connect, 800Gb и HL-LHC.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;600;700;800&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script>try{var t=new URLSearchParams(location.search).get("theme")||localStorage.getItem("renet-theme");if(t==="light")document.documentElement.dataset.theme="light"}catch(e){}</script>
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="history">
+<div id="shell-nav"></div>
+
+<header class="phero">
+  <canvas id="heroCanvas" data-density="24000" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="crumbs"><a href="home.html">R&amp;E·NET</a> / <span lang="bg">История</span><span lang="en">History</span></div>
+    <h1><span lang="bg">От килобити до <span class="grad">терабити</span></span><span lang="en">From kilobits to <span class="grad">terabits</span></span></h1>
+    <p class="lead"><span lang="bg">Шест десетилетия — от ARPANET до 800Gb опорни мрежи. Изследователските мрежи изминават пътя от разпокъсани национални и фирмени мрежи до трансконтинентални оптични магистрали.<sup class="cite" data-c="3,21,22,46"></sup></span><span lang="en">Six decades — from ARPANET to 800Gb backbones. Research networks travelled from fragmented national and vendor networks to transcontinental optical highways.<sup class="cite" data-c="3,21,22,46"></sup></span></p>
+  </div>
+</header>
+<nav class="subnav" data-tabs aria-label="On this page"><div class="wrap">
+  <a href="#timeline"><span lang="bg">Хронология</span><span lang="en">Timeline</span></a>
+  <a href="#capacity"><span lang="bg">Капацитетът</span><span lang="en">Capacity</span></a>
+  <a href="#eras"><span lang="bg">Епохите в Европа</span><span lang="en">Europe’s eras</span></a>
+  <a href="#all"><span lang="bg">Всички събития</span><span lang="en">All events</span></a>
+</div></nav>
+
+<section id="timeline" class="tight">
+  <div class="wrap">
+    <div class="kicker"><span lang="bg">Интерактивна хронология</span><span lang="en">Interactive timeline</span></div>
+    <h2 class="reveal"><span lang="bg">Разходете се по ключовите моменти</span><span lang="en">Walk through the key moments</span></h2>
+    <div class="tlFilters" id="tlFilters"></div>
+    <div class="tl">
+      <div class="tlTrack" id="tlTrack"></div>
+      <div class="card tlDetail" id="tlDetail"></div>
+      <div class="tlNav"><button class="chip" id="tlPrev" aria-label="Previous">←</button><button class="chip" id="tlNext" aria-label="Next">→</button><button class="chip" id="tlPlay">▶ <span lang="bg">Автоматично</span><span lang="en">Autoplay</span></button></div>
+    </div>
+  </div>
+</section>
+
+<section id="capacity">
+  <div class="wrap">
+    <div class="card reveal">
+      <h3><span lang="bg">Капацитетът на ядрото през епохите</span><span lang="en">Core capacity through the eras</span> <span class="badge">LOG</span></h3>
+      <p class="note"><span lang="bg">Логаритмична скала — всяко деление е десетократен скок. От 2 Mbps на TEIN1 до 12 Tbps на GÉANT капацитетът расте шест милиона пъти.</span><span lang="en">Logarithmic scale — each step is a tenfold leap. From TEIN1’s 2 Mbps to GÉANT’s 12 Tbps, capacity grows six million times.</span></p>
+      <div class="capChart" id="capChart"></div>
+    </div>
+  </div>
+</section>
+
+<section id="eras">
+  <div class="wrap">
+    <div class="kicker"><span lang="bg">Европа</span><span lang="en">Europe</span></div>
+    <h2 class="reveal"><span lang="bg">Четирите епохи на европейската мрежа</span><span lang="en">The four eras of Europe’s network</span></h2>
+    <div class="card mt reveal tbl"><table class="cmp"><thead><tr><th><span lang="bg">Епоха</span><span lang="en">Era</span></th><th><span lang="bg">Архитектура и протоколи</span><span lang="en">Architecture &amp; protocols</span></th><th><span lang="bg">Капацитет</span><span lang="en">Capacity</span></th><th><span lang="bg">Постижение</span><span lang="en">Achievement</span></th></tr></thead><tbody id="eraBody"></tbody></table></div>
+  </div>
+</section>
+
+<section id="all">
+  <div class="wrap">
+    <div class="kicker"><span lang="bg">Пълен списък</span><span lang="en">Full list</span></div>
+    <h2 class="reveal"><span lang="bg">Всички събития</span><span lang="en">All events</span></h2>
+    <div id="vlist" class="mt"></div>
+  </div>
+</section>
+
+<div id="shell-footer"></div>
+<script src="assets/js/core.js"></script>
+<script src="assets/js/pages/history.js"></script>
+</body>
+</html>

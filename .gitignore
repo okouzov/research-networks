@@ -1,0 +1,4 @@
+# local only: exported media and the upload package
+export/
+deploy/
+__pycache__/

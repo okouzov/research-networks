@@ -25,9 +25,9 @@
 </header>
 <nav class="subnav" data-tabs aria-label="On this page"><div class="wrap">
   <a href="#facts"><span lang="bg">Ключови числа</span><span lang="en">Key figures</span></a>
-  <a href="#nets"><span lang="bg">Мрежи</span><span lang="en">Networks</span></a>
-  <a href="#events"><span lang="bg">Ключови събития</span><span lang="en">Key events</span></a>
-  <a href="#roadmap"><span lang="bg">Предстои</span><span lang="en">Coming next</span></a>
+  <a href="#nets"><span lang="bg">Глобални мрежи</span><span lang="en">Global networks</span></a>
+  <a href="#events"><span lang="bg">Знакови събития</span><span lang="en">Milestones</span></a>
+  <a href="#roadmap"><span lang="bg">Новини</span><span lang="en">News</span></a>
 </div></nav>
 
 <section id="facts" class="tight">
@@ -43,7 +43,7 @@
 <section id="nets" class="tight">
   <div class="wrap">
     <div class="kicker">DATASET · networks.json</div>
-    <h2 class="reveal"><span lang="bg">Мрежи</span><span lang="en">Networks</span></h2>
+    <h2 class="reveal"><span lang="bg">Глобални мрежи</span><span lang="en">Global networks</span></h2>
     <div class="toolbar"><input class="search" id="qNets" type="search" aria-label="Search"><span class="count" id="cNets"></span><a class="chip" href="data/networks.json" download>JSON</a><button class="chip" id="csvNets">CSV</button></div>
     <div class="card tbl" style="padding:6px 8px"><table class="dtable" id="tNets"></table></div>
   </div>
@@ -52,7 +52,7 @@
 <section id="events" class="tight">
   <div class="wrap">
     <div class="kicker">DATASET · timeline.json</div>
-    <h2 class="reveal"><span lang="bg">Ключови събития</span><span lang="en">Key events</span></h2>
+    <h2 class="reveal"><span lang="bg">Знакови събития</span><span lang="en">Milestones</span></h2>
     <div class="toolbar"><input class="search" id="qEv" type="search" aria-label="Search"><span class="count" id="cEv"></span><a class="chip" href="data/timeline.json" download>JSON</a><button class="chip" id="csvEv">CSV</button></div>
     <div class="card tbl" style="padding:6px 8px"><table class="dtable" id="tEv"></table></div>
   </div>
@@ -60,13 +60,13 @@
 
 <section id="roadmap" class="tight">
   <div class="wrap">
-    <div class="kicker" style="color:var(--am)"><span lang="bg">Предстои</span><span lang="en">Coming next</span></div>
-    <h2 class="reveal"><span lang="bg">Място за <span class="grad">нови бази данни</span></span><span lang="en">Room for <span class="grad">new databases</span></span></h2>
-    <p class="lead reveal"><span lang="bg">Всеки набор е отделен JSON файл в папката <code>data/</code> и се зарежда през една функция (<code>RN.data</code>). Нова база данни — файл или външен API — се добавя, без да се пипат страниците.</span><span lang="en">Each dataset is a separate JSON file in the <code>data/</code> folder, loaded through a single function (<code>RN.data</code>). A new database — a file or an external API — can be added without touching the pages.</span></p>
-    <div class="grid3 mt">
-      <div class="card reveal" style="border-style:dashed"><span class="badge">PLANNED</span><h4 style="margin-top:10px"><span lang="bg">Българската NREN</span><span lang="en">The Bulgarian NREN</span></h4><p><span lang="bg">Свързани институции, капацитет, услуги.</span><span lang="en">Connected institutions, capacity, services.</span></p></div>
-      <div class="card reveal" style="border-style:dashed"><span class="badge">PLANNED</span><h4 style="margin-top:10px"><span lang="bg">Национални мрежи по държави</span><span lang="en">National networks by country</span></h4><p><span lang="bg">Профили на NREN с ключови показатели.</span><span lang="en">NREN profiles with key indicators.</span></p></div>
-      <div class="card reveal" style="border-style:dashed"><span class="badge">PLANNED</span><h4 style="margin-top:10px"><span lang="bg">Научни проекти и потоци</span><span lang="en">Science projects and flows</span></h4><p><span lang="bg">Обеми данни и мрежови изисквания на големите инфраструктури.</span><span lang="en">Data volumes and network needs of large infrastructures.</span></p></div>
+    <div class="kicker" style="color:var(--am)"><span lang="bg">Новини</span><span lang="en">News</span></div>
+    <div class="wip reveal">
+      <svg class="wipIco" viewBox="0 0 120 120" aria-hidden="true">
+        <g class="wipGear"><path d="M60 22l6 1 2 9 7 3 8-5 8 8-5 8 3 7 9 2v12l-9 2-3 7 5 8-8 8-8-5-7 3-2 9H54l-2-9-7-3-8 5-8-8 5-8-3-7-9-2V54l9-2 3-7-5-8 8-8 8 5 7-3 2-9z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><circle cx="60" cy="60" r="13" fill="none" stroke="currentColor" stroke-width="4"/></g>
+        <g class="wipCone"><path d="M84 112l12-40h6l12 40z" fill="var(--am)"/><path d="M89 96h20M86 106h26" stroke="#0b1530" stroke-width="5"/><rect x="78" y="110" width="42" height="6" rx="2" fill="var(--am)"/></g>
+      </svg>
+      <div><b><span lang="bg">В процес на разработка</span><span lang="en">Under development</span></b><p><span lang="bg">Скоро тук ще намерите актуални новини от изследователските и образователни мрежи.</span><span lang="en">Soon you will find the latest news from research and education networks here.</span></p></div>
     </div>
   </div>
 </section>

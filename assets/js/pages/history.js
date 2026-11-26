@@ -41,10 +41,10 @@ RN.bars($('#capChart'), [
   { label: `<b>TEN-155</b>1994–2000`, v: 155e6, txt: '155 Mbps' },
   { label: `<b>${L('Ранен GÉANT', 'Early GÉANT')}</b>2000–`, v: 2.5e9, txt: '2.5 Gbps' },
   { label: `<b>GÉANT2 / GÉANT3</b>2004–2015`, v: 10e9, txt: '10 Gbps' },
-  { label: `<b>${L('GÉANT, 100Gb ера', 'GÉANT, 100Gb era')}</b>–2015`, v: 100e9, txt: '100 Gbps' },
+  { label: `<b>${L('GÉANT, 100 Gb ера', 'GÉANT, 100 Gb era')}</b>–2015`, v: 100e9, txt: '100 Gbps' },
   { label: `<b>Asi@Connect</b>2016–`, v: 100e9, txt: '100 Gbps', color: 'linear-gradient(90deg,#8f7dff,#ff6ad5)' },
-  { label: `<b>Internet2 NGI</b>2021`, v: 800e9, txt: '800Gb λ', color: 'linear-gradient(90deg,#5aa8ff,#8f7dff)' },
-  { label: `<b>${L('GÉANT, 800Gb IP', 'GÉANT, 800Gb IP')}</b>2026`, v: 800e9, txt: '800Gb' },
+  { label: `<b>Internet2 NGI</b>2021`, v: 800e9, txt: '800 Gb λ', color: 'linear-gradient(90deg,#5aa8ff,#8f7dff)' },
+  { label: `<b>${L('GÉANT, 800 Gb IP', 'GÉANT, 800 Gb IP')}</b>2026`, v: 800e9, txt: '800 Gb' },
   { label: `<b>${L('Ядро на GÉANT', 'GÉANT core')}</b>GN5`, v: 12e12, txt: '12 Tbps' },
 ], { log: true, min: 1e4, max: 1.2e13 });
 $('#capChart').insertAdjacentHTML('beforeend', `<p class="note" style="margin-top:12px">${L('Източници', 'Sources')}${cite('3,12,13,21,22,27,41,42,74')}</p>`);
@@ -53,7 +53,7 @@ $('#eraBody').innerHTML = [
   [['EARN / RARE', 'EARN / RARE'], '1984–1994', ['SNA/NJE (EARN), X.25, „Coloured Book“, ранен IP', 'SNA/NJE (EARN), X.25, “Coloured Book”, early IP'], ['килобитови до мегабитови линии', 'kilobit to megabit lines'], ['Първата паневропейска академична общност', 'The first pan-European academic community'], '3,22,23'],
   [['DANTE / TERENA', 'DANTE / TERENA'], '1994–2000', ['ATM, SDH, преход към чист IP пренос', 'ATM, SDH, move to native IP'], ['34–155 Mbps', '34–155 Mbps'], ['Стандартизирано паневропейско IP рутиране за науката', 'Standardised pan-European IP routing for science'], '21,22'],
   [['Ранните GÉANT', 'Early GÉANT'], '2000–2015', ['WDM, MPLS, рутирани и комутирани светлинни пътища', 'WDM, MPLS, routed and switched lightpaths'], ['2,5 → 10 → 100 Gbps', '2.5 → 10 → 100 Gbps'], ['Автоматизирани светлинни пътища; глобално разширение', 'Automated lightpaths; global expansion'], '12,13,25'],
-  [['GÉANT GN5', 'GÉANT GN5'], '2023–', ['FlexGrid спектър, Nokia FP5 IP/MPLS, 400Gb/800Gb ZR+', 'FlexGrid spectrum, Nokia FP5 IP/MPLS, 400Gb/800Gb ZR+'], ['12 Tbps ядро; 800Gb IP слой', '12 Tbps core; 800Gb IP layer'], ['Собствен спектър, квантова интеграция (EuroQCI), 3,6 EB годишно', 'Own spectrum, quantum integration (EuroQCI), 3.6 EB a year'], '10,12,13,27,29,74'],
+  [['GÉANT GN5', 'GÉANT GN5'], '2023–', ['FlexGrid спектър, Nokia FP5 IP/MPLS, 400 Gb/800 Gb ZR+', 'FlexGrid spectrum, Nokia FP5 IP/MPLS, 400 Gb/800 Gb ZR+'], ['12 Tbps ядро; 800 Gb IP слой', '12 Tbps core; 800 Gb IP layer'], ['Собствен спектър, квантова интеграция (EuroQCI), 3,6 EB годишно', 'Own spectrum, quantum integration (EuroQCI), 3.6 EB a year'], '10,12,13,27,29,74'],
 ].map(([e, y, a, c, s, ci]) => `<tr><td>${L(...e)}<div class="note">${y}</div></td><td>${L(...a)}</td><td>${L(...c)}</td><td>${L(...s)}${cite(ci)}</td></tr>`).join('');
 RN.enhance();
 })();

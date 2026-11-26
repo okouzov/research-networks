@@ -60,7 +60,7 @@ function backbone(D) {
   }).join('');
 
   /* legend, bottom-right corner of the map */
-  const LG = [['dot', 'точка на присъствие', 'point of presence'], ['ln', '100Gb свързаност', '100Gb connectivity'], ['spur', '10Gb (основно за бекъп)', '10Gb (mainly for backup)'], ['ext', 'връзки към GÉANT', 'links to GÉANT']];
+  const LG = [['dot', 'точка на присъствие', 'point of presence'], ['ln', '100 Gb свързаност', '100 Gb connectivity'], ['spur', '10 Gb (основно за бекъп)', '10 Gb (mainly for backup)'], ['ext', 'връзки към GÉANT', 'links to GÉANT']];
   svg.insertAdjacentHTML('beforeend', `<g class="bgnLegS" transform="translate(709,487)"><rect x="0" y="0" width="235" height="120" rx="12"/>${LG.map(([k, b, e], i) => {
     const y = 24 + i * 25;
     const sym = k === 'dot' ? `<circle cx="26" cy="${y}" r="10" fill="rgba(79,140,255,.18)"/><circle cx="26" cy="${y}" r="5.5" fill="#4f8cff" stroke="#fff" stroke-width="1.6"/>`
@@ -71,7 +71,7 @@ function backbone(D) {
   const nm = t => t.replace(/\n/g, ' ');
   /* links: glow band + flowing dashes + wide transparent hit area */
   $('#bgnLinks').innerHTML = links.map(k => `<g class="bgnL${k.spur || k.bak ? ' spur' : ''}" data-i="${k.i}">
-      <path class="band" d="${k.d}"/><path class="wire" d="${k.d}"/><path class="hit" d="${k.d}"><title>${nm(N[k.a].bg)} — ${nm(N[k.b].bg)} / ${nm(N[k.a].en)} — ${nm(N[k.b].en)}${k.bak ? ' · 10Gb' : ''}</title></path>
+      <path class="band" d="${k.d}"/><path class="wire" d="${k.d}"/><path class="hit" d="${k.d}"><title>${nm(N[k.a].bg)} — ${nm(N[k.b].bg)} / ${nm(N[k.a].en)} — ${nm(N[k.b].en)}${k.bak ? ' · 10 Gb' : ''}</title></path>
       <text class="scis" text-anchor="middle">✂</text></g>`).join('');
   const gEls = [...svg.querySelectorAll('.bgnL')];
   gEls.forEach((g, i) => {
@@ -216,8 +216,8 @@ function uplinks() {
   const svg = $('#upSvg'), hub = [190, 200];
   const U = [
     { y: 70, col: C.vi, w: [6, 6], cap: 200, t: ['GÉANT', 'GÉANT'], s: ['2 × 100 Gb · Европа и светът', '2 × 100 Gb · Europe and the world'] },
-    { y: 200, col: C.cy, w: [7], cap: 100, t: ['BIX', 'BIX'], s: ['100Gb · българският интернет', '100Gb · the Bulgarian internet'] },
-    { y: 330, col: C.am, w: [3], cap: 25, flo: true, t: ['Комерсиален интернет', 'Commercial internet'], s: ['10–40Gb · плаващ капацитет', '10–40Gb · flexible capacity'] },
+    { y: 200, col: C.cy, w: [7], cap: 100, t: ['BIX', 'BIX'], s: ['100 Gb · българският интернет', '100 Gb · the Bulgarian internet'] },
+    { y: 330, col: C.am, w: [3], cap: 25, flo: true, t: ['Комерсиален интернет', 'Commercial internet'], s: ['10–40 Gb · плаващ капацитет', '10–40 Gb · flexible capacity'] },
   ];
   const tx = 400;
   let h = `<defs><radialGradient id="upG"><stop offset="0" stop-color="#3ee6ff" stop-opacity=".25"/><stop offset="1" stop-color="#3ee6ff" stop-opacity="0"/></radialGradient></defs>`;
@@ -248,9 +248,9 @@ function uplinks() {
   let tt = 0, lastF = -1;
   RN.loop(svg, (dt, now) => {
     tt += dt;
-    const flo = 25 + 15 * Math.sin(tt * .7); // demo of a flexible 10–40Gb pipe
+    const flo = 25 + 15 * Math.sin(tt * .7); // demo of a flexible 10–40 Gb pipe
     floW.forEach(w => w.setAttribute('stroke-width', (flo / 40) * 12));
-    const fv = Math.round(flo); if (fv !== lastF) { lastF = fv; $('#upFloB').textContent = `в момента ≈ ${fv}Gb (демонстрация)`; $('#upFloE').textContent = `now ≈ ${fv}Gb (demo)`; }
+    const fv = Math.round(flo); if (fv !== lastF) { lastF = fv; $('#upFloB').textContent = `в момента ≈ ${fv} Gb (демонстрация)`; $('#upFloE').textContent = `now ≈ ${fv} Gb (demo)`; }
     pk.forEach((p, i) => {
       const sp = p.inb ? 90 : 60 + (U[p.o.u] ? U[p.o.u].cap : 50) * .5;
       p.t += p.dir * sp * dt / p.o.len; if (p.t > 1) p.t -= 1; if (p.t < 0) p.t += 1;

@@ -98,8 +98,8 @@ RN.data('networks').then(D => {
   const s = $('#ngiSvg');
   const B = [
     { x: 20, t: 'Cisco 8201', s: ['рутер · 400GE', 'router · 400GE'], c: C.vi },
-    { x: 255, t: '400Gb AOC', s: ['активен оптичен кабел', 'active optical cable'], c: C.bl },
-    { x: 490, t: 'Ciena Waveserver 5', s: ['кохерентна вълна 600–800Gb', 'coherent wave 600–800Gb'], c: C.cy },
+    { x: 255, t: '400 Gb AOC', s: ['активен оптичен кабел', 'active optical cable'], c: C.bl },
+    { x: 490, t: 'Ciena Waveserver 5', s: ['кохерентна вълна 600–800 Gb', 'coherent wave 600–800 Gb'], c: C.cy },
     { x: 725, t: 'Ciena 6500 Flex-Grid', s: ['оптична линия', 'optical line system'], c: C.pk },
   ];
   let h = `<defs><linearGradient id="wv" x1="0" x2="1"><stop offset="0" stop-color="${C.cy}"/><stop offset="1" stop-color="${C.pk}"/></linearGradient></defs>`;
@@ -127,7 +127,7 @@ RN.data('networks').then(D => {
   const el = $('#ngiChart');
   el.innerHTML = SEG.map(([n, km, m, v, d]) => `<div class="capRow" style="grid-template-columns:230px 1fr 70px"><div class="lbl"><b>${n}</b>${RN.NF(km)} km</div>
     <div style="display:flex;flex-direction:column;gap:4px">${[[m, '#5e7096'], [v, 'var(--vi)'], [d, 'var(--cy)']].map(([x, c]) => `<div class="capBar" style="height:8px"><i data-w="${x ? x / 8 : 0}" style="background:${c}"></i></div>`).join('')}</div>
-    <div class="v" style="font-size:12px;line-height:1.35">${m ?? '—'}<br>${v}<br><b style="color:var(--cy)">${d}</b></div></div>`).join('') + `<p class="note" style="margin-top:10px">${L('Стойности в Gbps. Ден 1: 400GE + 100GE + OTL4.4 (OTN); Рено – Солт Лейк Сити работи само с Ethernet: 400GE + 3×100GE.', 'Values in Gbps. Day 1: 400GE + 100GE + OTL4.4 (OTN); Reno – Salt Lake City runs Ethernet-only: 400GE + 3×100GE.')}</p>`;
+    <div class="v" style="font-size:12px;line-height:1.35">${m ?? '—'}<br>${v}<br><b style="color:var(--cy)">${d}</b></div></div>`).join('') + `<p class="note" style="margin-top:10px">${L('Стойности в Gbps. Ден 1: 400GE + 100GE + OTL4.4 (OTN); Рено – Солт Лейк Сити работи само с Ethernet: 400GE + 3 × 100GE.', 'Values in Gbps. Day 1: 400GE + 100GE + OTL4.4 (OTN); Reno – Salt Lake City runs Ethernet-only: 400GE + 3 × 100GE.')}</p>`;
   RN.whenNear(el, () => $$('.capBar i', el).forEach((b, i) => setTimeout(() => b.style.width = b.dataset.w + '%', RN.RM ? 0 : i * 60)));
 })();
 

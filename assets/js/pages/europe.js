@@ -1,4 +1,4 @@
-/* GÉANT & Europe page: rings, 800Gb migration simulation, transfer calculator */
+/* GÉANT & Europe page: rings, 800 Gb migration simulation, transfer calculator */
 (() => {
 const { $, $$, L, C } = RN;
 
@@ -6,9 +6,9 @@ const { $, $$, L, C } = RN;
 (function rings() {
   const svg = $('#ringSvg');
   const R = [
-    { id: 'w', cx: 140, cy: 235, r: 115, col: C.cy, cap: 800, t: ['Западен пръстен', 'Western ring'], v: '2×400 → 800Gb', d: ['надграден до 2×400 Gbps, с преход към 800 Gbps трасета', 'upgraded to 2×400 Gbps, moving to 800 Gbps paths'] },
-    { id: 'c', cx: 300, cy: 125, r: 85, col: C.vi, cap: 300, t: ['Централен пръстен', 'Central ring'], v: '≥300Gb', d: ['минимум 300 Gbps', 'a minimum of 300 Gbps'] },
-    { id: 'e', cx: 415, cy: 290, r: 80, col: C.pk, cap: 200, t: ['Източен пръстен', 'Eastern ring'], v: '200Gb', d: ['стабилизиран на 200 Gbps', 'stabilised at 200 Gbps'] },
+    { id: 'w', cx: 140, cy: 235, r: 115, col: C.cy, cap: 800, t: ['Западен пръстен', 'Western ring'], v: '2 × 400 → 800 Gb', d: ['надграден до 2 × 400 Gbps, с преход към 800 Gbps трасета', 'upgraded to 2 × 400 Gbps, moving to 800 Gbps paths'] },
+    { id: 'c', cx: 300, cy: 125, r: 85, col: C.vi, cap: 300, t: ['Централен пръстен', 'Central ring'], v: '≥300 Gb', d: ['минимум 300 Gbps', 'a minimum of 300 Gbps'] },
+    { id: 'e', cx: 415, cy: 290, r: 80, col: C.pk, cap: 200, t: ['Източен пръстен', 'Eastern ring'], v: '200 Gb', d: ['стабилизиран на 200 Gbps', 'stabilised at 200 Gbps'] },
   ];
   let h = '';
   R.forEach(r => {
@@ -69,7 +69,7 @@ const { $, $$, L, C } = RN;
     { r: 1e10, t: ['Кампусна връзка', 'Campus uplink'], s: '10 Gbps' },
     { r: 1e11, t: ['Гръбнак на Asi@Connect', 'Asi@Connect backbone'], s: '100 Gbps' },
     { r: 4e11, t: ['Средният поток, нужен за HL-LHC', 'The average flow HL-LHC needs'], s: '400 Gbps' },
-    { r: 8e11, t: ['Единична вълна 800Gb', 'A single 800Gb wave'], s: '800 Gbps' },
+    { r: 8e11, t: ['Единична вълна 800 Gb', 'A single 800 Gb wave'], s: '800 Gbps' },
     { r: 2.4e12, t: ['Устойчив поток при Data Challenge 2024', 'Sustained flow in Data Challenge 2024'], s: '2.4 Tbps' },
     { r: 1.2e13, t: ['Цялото ядро на GÉANT', 'The whole GÉANT core'], s: '12 Tbps' },
   ];

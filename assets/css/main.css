@@ -809,3 +809,8 @@ html[data-theme=light] .faqFacts>span{background:rgba(8,145,178,.07);border-colo
 .faqSide .btn{padding:8px 26px}
 .faqSide .faqStats{margin-top:10px}
 .faqStats li>*{padding:6px 0}
+/* FAQ side card: email button centred in the free space */
+.faqSide{grid-template-rows:auto auto 1fr auto}
+.faqSide .btn{align-self:center;margin:12px 0}
+.faqSide p{margin-bottom:0}
+.faqSide .faqStats{margin-top:0}

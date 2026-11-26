@@ -268,11 +268,12 @@ function uplinks() {
   const sync = () => { const vis = items.filter(i => !i.hidden); all.setAttribute('aria-pressed', vis.length > 0 && vis.every(i => i.classList.contains('open'))); };
   items.forEach(it => it.querySelector('.faqQ').addEventListener('click', () => { set(it, !it.classList.contains('open')); sync(); }));
   all.addEventListener('click', () => { const on = all.getAttribute('aria-pressed') !== 'true'; items.filter(i => !i.hidden).forEach(i => set(i, on)); sync(); });
+  const filter = f => { items.forEach(i => { i.hidden = f !== '*' && i.dataset.cat !== f; }); sync(); };
   root.querySelectorAll('.faqChips .chip').forEach(ch => ch.addEventListener('click', () => {
-    root.querySelectorAll('.faqChips .chip').forEach(c => c.classList.toggle('on', c === ch));
-    const f = ch.dataset.f; items.forEach(i => { i.hidden = f !== '*' && i.dataset.cat !== f; }); sync();
+    root.querySelectorAll('.faqChips .chip').forEach(c => c.classList.toggle('on', c === ch)); filter(ch.dataset.f);
   }));
-  set(items[0], true); sync();
+  /* start on the chip marked .on in the markup (Membership), all questions closed */
+  filter((root.querySelector('.faqChips .chip.on') || {}).dataset?.f || '*');
 })();
 
 /* FAQ: the side card matches the height of the first visible question while it is open */
@@ -282,8 +283,12 @@ function uplinks() {
   const fit = () => {
     side.style.minHeight = '';
     if (innerWidth <= 900) return;
-    const first = items.find(i => !i.hidden);
-    if (first && first.classList.contains('open')) side.style.minHeight = first.offsetHeight + 'px';
+    /* stretch the card down to the bottom edge of the first visible question that reaches below its natural height,
+       so the card's top and bottom always line up with question edges */
+    const vis = items.filter(i => !i.hidden); if (!vis.length) return;
+    const top = vis[0].getBoundingClientRect().top, need = side.offsetHeight;
+    const hit = vis.find(i => i.getBoundingClientRect().bottom - top >= need - 1);
+    if (hit) side.style.minHeight = (hit.getBoundingClientRect().bottom - top) + 'px';
   };
   const ro = new ResizeObserver(fit); items.forEach(i => ro.observe(i));
   addEventListener('resize', fit); document.addEventListener('rn:tab', () => setTimeout(fit, 50)); fit();

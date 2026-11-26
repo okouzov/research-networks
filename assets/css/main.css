@@ -814,3 +814,7 @@ html[data-theme=light] .faqFacts>span{background:rgba(8,145,178,.07);border-colo
 .faqSide .btn{align-self:center;margin:12px 0}
 .faqSide p{margin-bottom:0}
 .faqSide .faqStats{margin-top:0}
+/* compact top of the FAQ side card so it lines up with the four Membership questions */
+.faqSide{padding:16px 18px}
+.faqSide .btn{margin:6px 0}
+.faqStats li>*{padding:5px 0}

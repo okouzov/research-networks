@@ -710,3 +710,5 @@ html[data-theme=light] .shade::after{background:linear-gradient(90deg,transparen
 /* NRN BG hero: the paragraph is exactly as wide as the title above it (it ends under "науката") */
 .heroFit{width:fit-content;max-width:100%}
 .heroFit .lead{contain:inline-size;width:100%}
+/* full caption fits: less right padding, text a bit further left */
+.shade{padding:0 4px 0 3px;gap:6px}

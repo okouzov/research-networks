@@ -152,7 +152,7 @@ function shell() {
     + `<path d="${op ? 'M7.6 11V7.2a4.4 4.4 0 0 1 8.6-1.3' : 'M7.6 11V8a4.4 4.4 0 0 1 8.8 0v3'}" fill="none" stroke="#c9d0dc" stroke-width="2.3" stroke-linecap="round"/>`
     + `<rect x="4.8" y="10.4" width="14.4" height="10.6" rx="2.2" fill="url(#lockG${op ? 'O' : 'C'})" stroke="rgba(0,0,0,.35)" stroke-width=".8"/>`
     + `<circle cx="12" cy="15" r="1.6" fill="#4a5468"/><path d="M12 15.8v2.4" stroke="#4a5468" stroke-width="1.4" stroke-linecap="round"/></svg>`;
-  const SHADE = `<div class="shade" id="shade" role="button" tabindex="0" aria-label="${RN.L('Плъзнете нагоре, за да отключите менюто', 'Drag up to unlock the menu').replace(/<[^>]+>/g, '')}"><span class="shAr shLock" title="">${LOCK(false)}</span><span class="shTx">${RN.L('Информация за световните изследователски мрежи – може да я отключите чрез катинара вляво', 'Information on the world’s research networks – unlock it with the padlock on the left')}</span></div>`;
+  const SHADE = `<div class="shade" id="shade" role="button" tabindex="0" aria-label="${RN.L('Плъзнете нагоре, за да отключите менюто', 'Drag up to unlock the menu').replace(/<[^>]+>/g, '')}"><span class="shAr shLock" title="">${LOCK(false)}</span><span class="shTx">${RN.L('Информация за световните изследователски мрежи – можете да я отключите чрез катинара вляво', 'Information on the world’s research networks – unlock it with the padlock on the left')}</span></div>`;
   const KNOB = `<button class="shadeKnob" id="shadeKnob" type="button" title="${'Щракнете, за да заключите менюто'}">${LOCK(true)}</button>`;
   const nav = $('#shell-nav');
   if (nav) {

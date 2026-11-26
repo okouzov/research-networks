@@ -712,3 +712,8 @@ html[data-theme=light] .shade::after{background:linear-gradient(90deg,transparen
 .heroFit .lead{contain:inline-size;width:100%}
 /* full caption fits: less right padding, text a bit further left */
 .shade{padding:0 4px 0 3px;gap:6px}
+/* compact footer */
+.foot{padding:18px 0 14px}
+.foot .note{margin:6px 0 4px;line-height:1.4}
+.footBot{margin-top:10px;padding-top:9px}
+.footLinks{row-gap:2px}

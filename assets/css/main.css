@@ -50,7 +50,7 @@ p{margin:0 0 1em}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 section{position:relative;padding:110px 0}
 .kicker{font-family:var(--fm);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--cy);margin-bottom:14px;display:flex;align-items:center;gap:10px}
-.kicker::before{content:"";width:28px;height:1px;background:currentColor}
+.kicker::before{content:"";width:14px;height:1px;background:currentColor}
 .lead{font-size:clamp(17px,1.6vw,20px);color:var(--mut);max-width:780px}
 .grad{background:linear-gradient(90deg,var(--g1),var(--g2) 55%,var(--g3));-webkit-background-clip:text;background-clip:text;color:transparent}
 .mono{font-family:var(--fm)}

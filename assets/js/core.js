@@ -97,7 +97,8 @@ RN.latch = kind => {
   } catch (e) { /* no audio: silent */ }
 };
 
-/* the "blind" over the top menu on the NRN BG page: drag it up to unlock (click), drag the ▾ knob down to lock again.
+/* the "blind" over the top menu on the NRN BG page: click the padlock on it (or drag it up) to unlock, click the open padlock
+   on the left (or drag it down) to lock again.
    It starts locked on each visit (sessionStorage remembers it while the tab is open). Other pages have no blind. */
 function blind(nav) {
   const sh = $('#shade', nav), kn = $('#shadeKnob', nav), KEY = 'renet-blind';
@@ -108,20 +109,22 @@ function blind(nav) {
     if (sound) RN.latch(o ? 'unlock' : 'lock');
     try { sessionStorage.setItem(KEY, o ? 'open' : 'locked'); } catch (e) {}
   };
-  const titles = () => { kn.title = kn.ariaLabel = RN.lang === 'en' ? 'Drag down to lock the menu' : 'Плъзнете надолу, за да заключите менюто';
-    sh.setAttribute('aria-label', RN.lang === 'en' ? 'Drag up to unlock the menu' : 'Плъзнете нагоре, за да отключите менюто'); };
+  const lk = $('.shLock', sh);
+  const titles = () => { kn.title = kn.ariaLabel = RN.lang === 'en' ? 'Click to lock the menu' : 'Щракнете, за да заключите менюто';
+    lk.title = RN.lang === 'en' ? 'Click to unlock the menu' : 'Щракнете, за да отключите менюто';
+    sh.setAttribute('aria-label', RN.lang === 'en' ? 'Click the padlock (or drag up) to unlock the menu' : 'Щракнете върху катинара (или плъзнете нагоре), за да отключите менюто'); };
   document.addEventListener('rn:lang', titles); titles();
   /* drag helper: follows the pointer one way only, decides on release (35% of the height) */
   const drag = (el, dir, done) => {
-    let y0 = null, h = 0, moved = 0;
-    el.addEventListener('pointerdown', e => { y0 = e.clientY; h = sh.offsetHeight; moved = 0; el.setPointerCapture(e.pointerId); sh.style.transition = 'none'; e.preventDefault(); });
+    let y0 = null, h = 0, moved = 0, onLock = false;
+    el.addEventListener('pointerdown', e => { onLock = !!e.target.closest('.shLock'); y0 = e.clientY; h = sh.offsetHeight; moved = 0; el.setPointerCapture(e.pointerId); sh.style.transition = 'none'; e.preventDefault(); });
     el.addEventListener('pointermove', e => {
       if (y0 === null) return; const dy = e.clientY - y0; moved = Math.max(moved, Math.abs(dy));
       const d = dir < 0 ? Math.min(0, dy) : Math.max(0, dy), base = open ? -h * 1.2 : 0;
       sh.style.transform = `translateY(${Math.max(-h * 1.2, Math.min(0, base + d))}px)`;
     });
     const end = e => { if (y0 === null) return; const dy = e.clientY - y0; y0 = null;
-      if (dir * dy > h * .35 || (moved < 4 && el === kn)) return done();
+      if (dir * dy > h * .35 || (moved < 4 && (el === kn || onLock))) return done(); // a click on either padlock opens / locks
       sh.style.transition = ''; sh.style.transform = '';
       /* a plain click on the blind only hints that it slides up */
       if (moved < 4 && el === sh) { sh.classList.remove('nudge'); void sh.offsetWidth; sh.classList.add('nudge'); } };
@@ -144,8 +147,13 @@ function shell() {
   /* NRN BG only: a "blind" over the world-network menu, unlocked by dragging it up and locked again by dragging down */
   /* silver triangle (up or down) for the blind and its knob */
   const TRI = up => `<svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="silver${up ? 'U' : 'D'}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f6fa"/><stop offset=".45" stop-color="#aeb6c4"/><stop offset=".55" stop-color="#d9dee7"/><stop offset="1" stop-color="#7d8696"/></linearGradient></defs><path d="${up ? 'M12 5 L20.5 18.5 L3.5 18.5 Z' : 'M3.5 5.5 L20.5 5.5 L12 19 Z'}" fill="url(#silver${up ? 'U' : 'D'})" stroke="rgba(0,0,0,.35)" stroke-width=".8" stroke-linejoin="round"/></svg>`;
-  const SHADE = `<div class="shade" id="shade" role="button" tabindex="0" aria-label="${RN.L('Плъзнете нагоре, за да отключите менюто', 'Drag up to unlock the menu').replace(/<[^>]+>/g, '')}"><span class="shAr">${TRI(true)}</span><span class="shTx">${RN.L('Информация за световните изследователски мрежи – приплъзнете нагоре за достъп', 'Information on the world’s research networks – slide up for access')}</span></div>`;
-  const KNOB = `<button class="shadeKnob" id="shadeKnob" type="button" title="${'Плъзнете надолу, за да заключите менюто'}">${TRI(false)}</button>`;
+  /* silver padlock, closed (on the blind) or open (the knob that locks the menu again) */
+  const LOCK = op => `<svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="lockG${op ? 'O' : 'C'}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f6fa"/><stop offset=".45" stop-color="#aeb6c4"/><stop offset=".55" stop-color="#d9dee7"/><stop offset="1" stop-color="#7d8696"/></linearGradient></defs>`
+    + `<path d="${op ? 'M7.6 11V7.2a4.4 4.4 0 0 1 8.6-1.3' : 'M7.6 11V8a4.4 4.4 0 0 1 8.8 0v3'}" fill="none" stroke="#c9d0dc" stroke-width="2.3" stroke-linecap="round"/>`
+    + `<rect x="4.8" y="10.4" width="14.4" height="10.6" rx="2.2" fill="url(#lockG${op ? 'O' : 'C'})" stroke="rgba(0,0,0,.35)" stroke-width=".8"/>`
+    + `<circle cx="12" cy="15" r="1.6" fill="#4a5468"/><path d="M12 15.8v2.4" stroke="#4a5468" stroke-width="1.4" stroke-linecap="round"/></svg>`;
+  const SHADE = `<div class="shade" id="shade" role="button" tabindex="0" aria-label="${RN.L('Плъзнете нагоре, за да отключите менюто', 'Drag up to unlock the menu').replace(/<[^>]+>/g, '')}"><span class="shAr shLock" title="">${LOCK(false)}</span><span class="shTx">${RN.L('Информация за световните изследователски мрежи – може да я отключите чрез катинара вляво', 'Information on the world’s research networks – unlock it with the padlock on the left')}</span></div>`;
+  const KNOB = `<button class="shadeKnob" id="shadeKnob" type="button" title="${'Щракнете, за да заключите менюто'}">${LOCK(true)}</button>`;
   const nav = $('#shell-nav');
   if (nav) {
     nav.outerHTML = `<nav class="nav" id="nav"><div class="wrap">

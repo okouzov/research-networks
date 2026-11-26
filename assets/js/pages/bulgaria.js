@@ -61,7 +61,7 @@ function backbone(D) {
 
   /* legend, bottom-right corner of the map */
   const LG = [['dot', 'точка на присъствие', 'point of presence'], ['ln', '100Gb свързаност', '100Gb connectivity'], ['spur', '10Gb (основно за бекъп)', '10Gb (mainly for backup)'], ['ext', 'връзки към GÉANT', 'links to GÉANT']];
-  svg.insertAdjacentHTML('beforeend', `<g class="bgnLegS" transform="translate(726,505)"><rect x="0" y="0" width="235" height="120" rx="12"/>${LG.map(([k, b, e], i) => {
+  svg.insertAdjacentHTML('beforeend', `<g class="bgnLegS" transform="translate(709,487)"><rect x="0" y="0" width="235" height="120" rx="12"/>${LG.map(([k, b, e], i) => {
     const y = 24 + i * 25;
     const sym = k === 'dot' ? `<circle cx="26" cy="${y}" r="10" fill="rgba(79,140,255,.18)"/><circle cx="26" cy="${y}" r="5.5" fill="#4f8cff" stroke="#fff" stroke-width="1.6"/>`
       : `<line x1="12" y1="${y}" x2="40" y2="${y}" class="${k}"/>`;
@@ -231,10 +231,11 @@ function uplinks() {
       <text x="12" y="-4" fill="#e7efff" font-family="Geologica" font-weight="700" font-size="14">${T2(u.t[0], u.t[1])}</text>
       <text x="12" y="14" fill="${u.col}" font-size="10.5" font-family="JetBrains Mono" id="upS${i}">${T2(u.s[0], u.s[1])}</text></g>`;
   });
-  h += `<circle cx="${hub[0]}" cy="${hub[1]}" r="70" fill="url(#upG)"/><circle cx="${hub[0]}" cy="${hub[1]}" r="38" fill="#0b1834" stroke="${C.cy}" stroke-width="2"/>
+  /* packets first, then the hub on top of them: the sphere is opaque, nothing shows through it */
+  h += `<g id="upPk"></g><circle cx="${hub[0]}" cy="${hub[1]}" r="70" fill="url(#upG)"/><circle cx="${hub[0]}" cy="${hub[1]}" r="38" fill="#0b1834" stroke="${C.cy}" stroke-width="2"/>
     <text x="${hub[0]}" y="${hub[1] + 5}" text-anchor="middle" fill="#e7efff" font-family="Geologica" font-weight="800" font-size="15">NRN BG</text>
     <text x="${hub[0]}" y="${hub[1] + 60}" text-anchor="middle" fill="#93a5c8" font-size="10.5" font-family="JetBrains Mono">AS · 256 × /24</text>
-    <text x="${tx + 117}" y="388" text-anchor="middle" fill="#93a5c8" font-size="11"><tspan lang="bg" id="upFloB"></tspan><tspan lang="en" id="upFloE"></tspan></text><g id="upPk"></g>`;
+    <text x="${tx + 117}" y="388" text-anchor="middle" fill="#93a5c8" font-size="11"><tspan lang="bg" id="upFloB"></tspan><tspan lang="en" id="upFloE"></tspan></text>`;
   svg.innerHTML = h;
   const paths = [...svg.querySelectorAll('.upP')].map(p => ({ p, u: +p.dataset.u, len: p.getTotalLength() }));
   const ins = [...svg.querySelectorAll('.upIn')].map(p => ({ p, len: p.getTotalLength() }));

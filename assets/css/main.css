@@ -676,7 +676,7 @@ html[data-theme=light] .subnav.ribbon a.on{box-shadow:3px 4px 7px rgba(15,30,70,
 .kTitle{display:block;text-transform:none;font-family:var(--fd);font-size:clamp(26px,3.2vw,40px);font-weight:600;line-height:1.1;color:#fff;letter-spacing:.02em;font-feature-settings:"locl" 0}
 html[data-theme=light] .kTitle{color:var(--tx)}
 /* NRN BG: the map section starts closer to the tab bar */
-.subnav[data-tabs] ~ section#network{padding-top:21px}
+.subnav[data-tabs] ~ section#network{padding-top:36px}
 /* the line under the map title runs as a slow, seamless ticker (right to left) inside the free gap above the map (fitTicker in
    bulgaria.js sets the window and --tkGap): two copies follow each other, so the next one enters on the right just as the
    previous one fades out on the left */
@@ -687,3 +687,23 @@ html[data-theme=light] .kTitle{color:var(--tx)}
 .kSub.ticker:hover .tk{animation-play-state:paused}
 @keyframes kTick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.kSub.ticker .tk{animation:none}.kSub.ticker .tkI[aria-hidden],.kSub.ticker .tkGap{display:none}.kHead .kSub.ticker{text-align:center;-webkit-mask-image:none;mask-image:none;white-space:normal}}
+/* the padlock on the blind: still, clickable, a little lift on hover */
+.shade .shAr.shLock{animation:none;cursor:pointer;width:26px;height:26px;transition:transform .2s}
+.shade .shAr.shLock:hover{transform:scale(1.12)}
+.shade .shLock svg,.shadeKnob svg{width:19px;height:19px}
+.shadeKnob{cursor:pointer}
+/* the flash on the blind now runs right to left (overrides the earlier bottom-to-top version) */
+.shade .shTx{background-image:linear-gradient(90deg,rgba(176,190,216,.5) 0 46%,rgba(255,255,255,1) 50%,rgba(176,190,216,.5) 54% 100%);background-size:300% 100%;background-position:0 0;animation-name:shTxSweep}
+html[data-theme=light] .shade .shTx{background-image:linear-gradient(90deg,rgba(60,78,112,.42) 0 44%,#1d6ff2 48%,#38bdf8 50%,#1d6ff2 52%,rgba(60,78,112,.42) 56% 100%)}
+@keyframes shTxSweep{0%{background-position:0 0}35%,100%{background-position:100% 0}}
+.shade::after{top:0;bottom:0;height:auto;left:100%;right:auto;width:30%;animation-name:shSweep;background:linear-gradient(90deg,transparent,rgba(220,235,255,.16) 50%,transparent)}
+html[data-theme=light] .shade::after{background:linear-gradient(90deg,transparent,rgba(56,140,255,.22) 50%,transparent)}
+@keyframes shSweep{0%{left:100%;opacity:1}35%{left:-30%;opacity:1}36%,100%{left:-30%;opacity:0}}
+@media (prefers-reduced-motion:reduce){.shade .shTx{animation:none;background-position:100% 0}.shade::after{display:none}}
+/* the longer caption fits on one line: no extra letter-spacing */
+.shade .shTx{letter-spacing:0}
+/* the blind rises more slowly when it is unlocked (it still drops at the old speed when locked) */
+.blindOpen .shade{transition-duration:.95s}
+/* a tab that is not ready yet (no section behind it): shown like the others, but inert */
+.subnav a.soon{cursor:default}
+.subnav a.soon:hover{border-color:transparent;color:inherit}

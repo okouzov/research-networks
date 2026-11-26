@@ -558,7 +558,7 @@ html[data-theme=light] .nrnLogo.onLight{display:block}
 /* compact page header (NRN BG): one-line title, less height */
 .phero.compact{padding:66px 0 16px}
 .phero.compact h1{font-size:clamp(28px,4vw,52px);margin-bottom:4px}
-.phero.compact .lead{font-size:clamp(15px,1.3vw,17px);line-height:1.28;max-width:1130px;margin:0}
+.phero.compact .lead{font-size:15.5px;line-height:1.28;max-width:1130px;margin:0}
 .phero.compact .crumbs{margin-bottom:8px}
 @media (max-width:600px){.phero.compact{padding:80px 0 20px}}
 /* sub-navigation "lightning": a faint glint sweeps left → right every 3 s */
@@ -707,3 +707,6 @@ html[data-theme=light] .shade::after{background:linear-gradient(90deg,transparen
 /* a tab that is not ready yet (no section behind it): shown like the others, but inert */
 .subnav a.soon{cursor:default}
 .subnav a.soon:hover{border-color:transparent;color:inherit}
+/* NRN BG hero: the paragraph is exactly as wide as the title above it (it ends under "науката") */
+.heroFit{width:fit-content;max-width:100%}
+.heroFit .lead{contain:inline-size;width:100%}

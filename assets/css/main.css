@@ -818,3 +818,60 @@ html[data-theme=light] .faqFacts>span{background:rgba(8,145,178,.07);border-colo
 .faqSide{padding:16px 18px}
 .faqSide .btn{margin:6px 0}
 .faqStats li>*{padding:5px 0}
+/* eduroam: start button in the empty corner under "own institution" */
+.roamL{position:relative}
+.roamGo{margin-top:14px}
+.roamL>svg{display:block}
+@media (min-width:600px){.roamGo{position:absolute;margin:0;right:1.8%;bottom:2.3%;white-space:nowrap}}
+/* eduroam: title, text and scenario above the diagram; steps alone on the right */
+.roamHead{margin-bottom:20px}
+.roamHead h3{margin-top:0}
+.roamHead .note{max-width:calc((100% - 26px) * 1.3 / 2.3)}
+.scenLbl{font:600 11px var(--fm);letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:0 0 8px}
+.roamHead .note{margin-bottom:0 !important}
+/* eduroam as a 2x2 grid: headings on one line, diagram and steps start together */
+.roamGrid{align-items:start;row-gap:0}
+.roamGrid .roamHead .note{max-width:none}
+/* eduroam right column: "Scenarios" + switches on one line, steps right under them */
+.roamGrid .roamR{grid-column:2;grid-row:1 / span 2}
+.roamGrid .roamHead{grid-column:1;grid-row:1}
+.roamGrid .roamL{grid-column:1;grid-row:2}
+.scenHead{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.scenHead h3{margin:0}
+.scenHead .scen{margin:0}
+@media (max-width:900px){.roamGrid .roamR,.roamGrid .roamHead,.roamGrid .roamL{grid-column:auto;grid-row:auto}}
+.scenHead{gap:10px;flex-wrap:nowrap}
+.scenHead .scen{flex-wrap:nowrap;gap:6px}
+.scenHead .scen button{font-size:13px;padding:5px 10px;white-space:nowrap}
+@media (max-width:560px){.scenHead{flex-wrap:wrap}}
+/* eduroam: step 6 ends level with the start button (button sits 2.3% of the diagram height above its bottom = 1.92% of this column width) */
+.roamGrid .roamR{display:flex;flex-direction:column;align-self:stretch;padding-bottom:1.92%}
+.roamGrid .roamR .roamSteps{margin-top:auto}
+@media (max-width:900px){.roamGrid .roamR{padding-bottom:0}.roamGrid .roamR .roamSteps{margin-top:0}}
+/* scenario switches back under the "Scenarios" heading */
+.scenHead{display:block;margin-bottom:14px}
+.scenHead h3{margin:0 0 10px}
+.scenHead .scen{flex-wrap:wrap;gap:8px}
+.scenHead .scen button{font-size:13.5px;padding:6px 13px}
+.scenHead h3{font-size:16px;line-height:1.2;margin:0 0 8px}
+.scenHead{margin-bottom:10px}
+.scenHead h3{font-size:15px;margin:0 0 6px}
+.scenHead{margin-bottom:4px}
+.scenHead .scen button{padding:5px 12px}
+.roamGrid .roamSteps{gap:7px}
+/* final: "Scenarios" as large as "eduroam", switches beside it, vertically centred */
+.scenHead{display:flex;align-items:center;gap:10px;flex-wrap:nowrap;margin-bottom:14px}
+.scenHead h3{font-size:26px;line-height:1.15;margin:0}
+.scenHead .scen{flex-wrap:nowrap;gap:6px;margin:0}
+.scenHead .scen button{font-size:13px;padding:5px 10px;white-space:nowrap}
+@media (max-width:560px){.scenHead{flex-wrap:wrap}}
+.roamGrid .roamR.noPad{padding-bottom:0}
+/* eduGAIN: steps directly under "Scenarios" */
+.roamGrid .roamR.noPad .roamSteps{margin-top:0}
+/* eduGAIN: a slightly wider steps column so every step fits on two lines */
+.gainGrid{grid-template-columns:1.2fr 1fr}
+.gainGrid .roamSteps li{padding-left:44px;padding-right:10px}
+@media (max-width:900px){.gainGrid{grid-template-columns:1fr}}
+.gainGrid .roamR.noPad .roamSteps{margin-top:12px}
+html[lang=en] .gainGrid .roamR.noPad .roamSteps{margin-top:0}
+html[lang=en] .gainGrid .roamL .ctl{margin-top:26px !important}

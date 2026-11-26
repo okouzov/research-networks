@@ -170,11 +170,15 @@ function shell() {
     if (nrn) blind(n);
   }
   const ft = $('#shell-footer');
+  /* NRN BG keeps the world-network pages behind the blind, so its footer lists the page's own sections instead */
+  const FOOT_LINKS = nrn
+    ? $$('.subnav a[href^="#"]').map(a => `<a href="${a.getAttribute('href')}">${a.innerHTML}</a>`).join('')
+    : RN.PAGES.map(p => `<a href="${p.href}">${RN.L(p.bg, p.en)}</a>`).join('');
   if (ft) {
     ft.outerHTML = `<footer class="foot"><div class="wrap">
       <div class="footTop"><div>${BRAND}
       <p class="note" style="max-width:340px;margin-top:12px">${RN.L('Информационен портал за изследователските и образователни мрежи в България и по света. Данните са актуални към датата на източниците.', 'An information portal on research and education networks in Bulgaria and around the world. Figures are current as of the sources’ dates.')}</p></div>
-      <div class="footLinks">${RN.PAGES.map(p => `<a href="${p.href}">${RN.L(p.bg, p.en)}</a>`).join('')}</div></div>
+      <div class="footLinks">${FOOT_LINKS}</div></div>
       <div class="footBot"><span>© 2026 R&amp;E·NET</span></div>
     </div></footer>`;
   }

@@ -259,3 +259,32 @@ function uplinks() {
   });
 }
 })();
+
+/* ---------- FAQ accordion + category filter ---------- */
+(() => {
+  const root = document.getElementById('faq'); if (!root) return;
+  const items = [...root.querySelectorAll('.faqI')], all = root.querySelector('.faqAll');
+  const set = (it, on) => { it.classList.toggle('open', on); it.querySelector('.faqQ').setAttribute('aria-expanded', on); };
+  const sync = () => { const vis = items.filter(i => !i.hidden); all.setAttribute('aria-pressed', vis.length > 0 && vis.every(i => i.classList.contains('open'))); };
+  items.forEach(it => it.querySelector('.faqQ').addEventListener('click', () => { set(it, !it.classList.contains('open')); sync(); }));
+  all.addEventListener('click', () => { const on = all.getAttribute('aria-pressed') !== 'true'; items.filter(i => !i.hidden).forEach(i => set(i, on)); sync(); });
+  root.querySelectorAll('.faqChips .chip').forEach(ch => ch.addEventListener('click', () => {
+    root.querySelectorAll('.faqChips .chip').forEach(c => c.classList.toggle('on', c === ch));
+    const f = ch.dataset.f; items.forEach(i => { i.hidden = f !== '*' && i.dataset.cat !== f; }); sync();
+  }));
+  set(items[0], true); sync();
+})();
+
+/* FAQ: the side card matches the height of the first visible question while it is open */
+(() => {
+  const root = document.getElementById('faq'); if (!root) return;
+  const side = root.querySelector('.faqSide'), items = [...root.querySelectorAll('.faqI')];
+  const fit = () => {
+    side.style.minHeight = '';
+    if (innerWidth <= 900) return;
+    const first = items.find(i => !i.hidden);
+    if (first && first.classList.contains('open')) side.style.minHeight = first.offsetHeight + 'px';
+  };
+  const ro = new ResizeObserver(fit); items.forEach(i => ro.observe(i));
+  addEventListener('resize', fit); document.addEventListener('rn:tab', () => setTimeout(fit, 50)); fit();
+})();

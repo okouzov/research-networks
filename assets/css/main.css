@@ -875,3 +875,12 @@ html[data-theme=light] .faqFacts>span{background:rgba(8,145,178,.07);border-colo
 .gainGrid .roamR.noPad .roamSteps{margin-top:12px}
 html[lang=en] .gainGrid .roamR.noPad .roamSteps{margin-top:0}
 html[lang=en] .gainGrid .roamL .ctl{margin-top:26px !important}
+/* hero swap (experiment): title and lead alternate with a 3D vertical flip */
+.heroSwap.swapOn{display:grid;align-items:center;perspective:900px}
+.heroSwap.swapOn>*{grid-area:1/1;margin:0;transform-origin:50% 50% -30px;backface-visibility:hidden;transition:transform .9s cubic-bezier(.65,0,.35,1),opacity .9s ease,filter .9s ease}
+.heroSwap.swapOn>.off{opacity:0;transform:rotateX(-90deg);filter:blur(4px);pointer-events:none}
+.heroSwap.swapOn>.off.up{transform:rotateX(90deg)}
+@media (prefers-reduced-motion:reduce){.heroSwap.swapOn>*{transition:opacity .6s}.heroSwap.swapOn>.off{transform:none;filter:none}}
+.phero.compact .heroSwap.swapOn>.lead{font-size:19px;line-height:1.2}
+.hRed{color:var(--nrn);font-weight:600}.hBlue{color:#4f8cff;font-weight:600}
+.hPur{color:var(--g2);font-weight:600}

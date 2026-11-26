@@ -293,3 +293,24 @@ function uplinks() {
   const ro = new ResizeObserver(fit); items.forEach(i => ro.observe(i));
   addEventListener('resize', fit); document.addEventListener('rn:tab', () => setTimeout(fit, 50)); fit();
 })();
+
+/* hero swap (experiment): h1 and lead take turns every 10 s, centred in the block's original height */
+(() => {
+  const box = document.querySelector('.heroSwap'); if (!box) return;
+  const [a, b] = box.children; let cur = 0;
+  const measure = () => {
+    box.classList.remove('swapOn'); box.style.minHeight = '';
+    const lh = parseFloat(getComputedStyle(b).lineHeight) || 20; /* keep the original 2-line block height even if the text grows */
+    const h = Math.round(a.offsetHeight + parseFloat(getComputedStyle(a).marginBottom) + Math.min(b.offsetHeight, 2 * lh));
+    box.classList.add('swapOn'); box.style.minHeight = h + 'px';
+  };
+  const show = i => {
+    const on = i ? b : a, off = i ? a : b;
+    off.classList.add('off', 'up'); on.classList.remove('off');
+    on.classList.remove('up');
+    setTimeout(() => { if (off.classList.contains('off')) off.classList.remove('up'); }, 950);
+  };
+  b.classList.add('off'); measure();
+  addEventListener('resize', measure); document.addEventListener('rn:lang', measure);
+  setInterval(() => { cur ^= 1; show(cur); }, 10000);
+})();

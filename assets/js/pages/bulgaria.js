@@ -52,7 +52,7 @@ function backbone(D) {
   /* cross-border routes to GÉANT */
   $('#bgnExits').innerHTML = D.exits.map(e => {
     const a = N[e.from], x = a.x + e.dx, y = a.y + e.dy, up = e.dy < 0;
-    // two links (2×100Gb) drawn as half-ellipses on either side of the chord Sofia → GÉANT
+    // two links (2 × 100 Gb) drawn as half-ellipses on either side of the chord Sofia → GÉANT
     const rx = Math.hypot(e.dx, e.dy) / 2, ry = rx * 0.3, rot = Math.atan2(e.dy, e.dx) * 180 / Math.PI;
     const arcs = [0, 1].map(sw => `M${a.x},${a.y} A${rx},${ry} ${rot} 0 ${sw} ${x},${y}`);
     return arcs.map(d => `<path class="bgnExitB" d="${d}"/><path class="bgnExit" d="${d}"/>`).join('') + `<circle cx="${x}" cy="${y}" r="6" fill="${C.vi}" stroke="#fff" stroke-width="2"/>
@@ -215,7 +215,7 @@ function growth() {
 function uplinks() {
   const svg = $('#upSvg'), hub = [190, 200];
   const U = [
-    { y: 70, col: C.vi, w: [6, 6], cap: 200, t: ['GÉANT', 'GÉANT'], s: ['2×100Gb · Европа и светът', '2×100Gb · Europe and the world'] },
+    { y: 70, col: C.vi, w: [6, 6], cap: 200, t: ['GÉANT', 'GÉANT'], s: ['2 × 100 Gb · Европа и светът', '2 × 100 Gb · Europe and the world'] },
     { y: 200, col: C.cy, w: [7], cap: 100, t: ['BIX', 'BIX'], s: ['100Gb · българският интернет', '100Gb · the Bulgarian internet'] },
     { y: 330, col: C.am, w: [3], cap: 25, flo: true, t: ['Комерсиален интернет', 'Commercial internet'], s: ['10–40Gb · плаващ капацитет', '10–40Gb · flexible capacity'] },
   ];

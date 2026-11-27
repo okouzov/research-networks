@@ -937,3 +937,4 @@ body[data-page="data"] .phero{padding-bottom:32px}
 body[data-page="sources"] .phero{padding-bottom:24px}body[data-page="sources"] section.tight{padding-top:34px}body[data-page="sources"] #srcBody>.mt:first-child{margin-top:22px}
 body[data-page="sources"] .phero{padding-bottom:2px}body[data-page="sources"] section.tight{padding-top:8px}body[data-page="sources"] #srcBody>.mt:first-child{margin-top:11px}
 body[data-page="sources"] .toolbar{margin-bottom:0}
+.emd{display:inline-block;transform:scaleX(.67);margin:0 -.165em}

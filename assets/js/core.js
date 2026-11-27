@@ -317,4 +317,19 @@ document.addEventListener('DOMContentLoaded', () => RN.enhance());
 /* content is partly rendered from JSON, so re-apply #hash scrolling once it has settled */
 if (!TABS && location.hash && !/^#src-/.test(location.hash)) addEventListener('load', () => setTimeout(() => { const t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }, 350));
 if (document.readyState !== 'loading') RN.enhance();
+/* the em dash (—) in our fonts is very long: draw every one about a third shorter.
+   Each "—" in page text (static or rendered later from JSON) is wrapped in <span class="emd">;
+   SVG, form fields and gradient text (background-clip) are left alone. */
+const EMD_SKIP = 'script,style,svg,textarea,input,select,option,.grad,.emd,title';
+const emdWrap = root => {
+  if (!root || (root.nodeType === 1 && root.closest(EMD_SKIP))) return;
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode: n => n.nodeValue.includes('—') && !(n.parentElement && n.parentElement.closest(EMD_SKIP)) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT });
+  const list = []; while (w.nextNode()) list.push(w.currentNode);
+  list.forEach(n => { const f = document.createDocumentFragment();
+    n.nodeValue.split('—').forEach((part, i) => { if (i) { const s = document.createElement('span'); s.className = 'emd'; s.textContent = '—'; f.appendChild(s); } if (part) f.appendChild(document.createTextNode(part)); });
+    n.replaceWith(f); });
+};
+const emdRun = () => { emdWrap(document.body); new MutationObserver(ms => ms.forEach(m => m.addedNodes.forEach(n => n.nodeType === 3 ? (n.parentNode && emdWrap(n.parentNode)) : n.nodeType === 1 && emdWrap(n))))
+  .observe(document.body, { childList: true, subtree: true, characterData: false }); };
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', emdRun); else emdRun();
 })();

@@ -460,15 +460,15 @@ $$('#fair .flip').forEach(f => { f.addEventListener('click', () => f.classList.t
   <rect x="436" y="78" width="70" height="44" rx="10" fill="#0b1834" stroke="${C.cy}"/><text x="471" y="104" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="11">Tier-1</text>
   <path id="nA" d="M84 100 C 180 100, 200 40, 260 40 S 360 100, 436 100" fill="none" stroke="rgba(143,125,255,.5)" stroke-width="6"/>
   <path id="nB" d="M84 100 C 180 100, 200 165, 260 165 S 360 100, 436 100" fill="none" stroke="rgba(120,170,255,.12)" stroke-width="6"/>
-  <text x="260" y="26" text-anchor="middle" fill="#93a5c8" font-family="JetBrains Mono" font-size="10">route A</text><text x="260" y="192" text-anchor="middle" fill="#93a5c8" font-family="JetBrains Mono" font-size="10">route B · spare</text>
-  <text id="nState" x="260" y="108" text-anchor="middle" fill="#5e7096" font-family="JetBrains Mono" font-size="10">monitoring FTS…</text><g id="nP"></g>`;
+  <text x="260" y="26" text-anchor="middle" fill="#93a5c8" font-family="JetBrains Mono" font-size="10"><tspan lang="bg">маршрут A</tspan><tspan lang="en">route A</tspan></text><text x="260" y="192" text-anchor="middle" fill="#93a5c8" font-family="JetBrains Mono" font-size="10"><tspan lang="bg">маршрут B · резервен</tspan><tspan lang="en">route B · spare</tspan></text>
+  <text id="nState" x="260" y="108" text-anchor="middle" fill="#5e7096" font-family="JetBrains Mono" font-size="10"></text><g id="nP"></g>`;
   const A = $('#nA', s), B = $('#nB', s), g = $('#nP', s), st = $('#nState', s), LA = A.getTotalLength(), LB = B.getTotalLength();
   let big = 0; const P = [];
   for (let i = 0; i < 22; i++) { const c = document.createElementNS(RN.NS, 'circle'); c.setAttribute('r', 3.2); g.appendChild(c); P.push({ c, k: i / 22, alt: i % 2 }); }
   $('#notedBtn').addEventListener('click', () => { big = performance.now(); });
   RN.loop(s, (dt, now) => {
     const t = big ? (now - big) / 1000 : 99, steering = t > 1.2 && t < 9;
-    st.textContent = t < 1.2 ? 'large transfer detected' : steering ? 'VRF steering → route B' : 'monitoring FTS…';
+    const EN = RN.lang === 'en'; st.textContent = t < 1.2 ? (EN ? 'large transfer detected' : 'засечен голям пренос') : steering ? (EN ? 'VRF steering → route B' : 'пренасочване с VRF → маршрут B') : (EN ? 'monitoring FTS…' : 'наблюдение на FTS…');
     st.setAttribute('fill', t < 9 ? C.am : '#5e7096');
     B.setAttribute('stroke', steering ? 'rgba(62,230,255,.55)' : 'rgba(120,170,255,.12)');
     P.forEach(p => { const active = p.alt ? steering : true, path = p.alt && steering ? B : A, len = p.alt && steering ? LB : LA;

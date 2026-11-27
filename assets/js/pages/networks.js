@@ -315,7 +315,7 @@ $('#southCards').innerHTML = [
   const toggle = () => v.paused || v.ended ? v.play().catch(() => {}) : v.pause();
   $('#vpPlay').addEventListener('click', toggle); $('#vpBig').addEventListener('click', toggle); v.addEventListener('click', toggle);
   ['play', 'pause', 'ended', 'loadedmetadata', 'volumechange', 'durationchange'].forEach(e => v.addEventListener(e, ui));
-  v.addEventListener('play', () => { if (cur) ensureSeekable(cur); });
+  v.addEventListener('play', () => { if (cur) ensureSeekable(cur); $('#vpList').classList.add('picked'); });
   v.addEventListener('timeupdate', () => { ui(); showSub(); });
   seek.addEventListener('input', () => { if (v.duration) { v.currentTime = seek.value / 1000 * v.duration; showSub(); } });
   vol.addEventListener('input', () => { v.volume = +vol.value; v.muted = v.volume === 0; });
@@ -323,7 +323,20 @@ $('#southCards').innerHTML = [
   $('#vpCC').addEventListener('click', e => { e.stopPropagation(); menu.hidden = !menu.hidden; });
   menu.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; userTrack = true; setTrack(b.dataset.k); menu.hidden = true; });
   document.addEventListener('click', e => { if (!e.target.closest('.vpCC')) menu.hidden = true; });
-  $('#vpFull').addEventListener('click', () => { const el = lib.querySelector('.vp'); if (document.fullscreenElement) document.exitFullscreen(); else (el.requestFullscreen || el.webkitRequestFullscreen).call(el); });
+  /* full screen: the browser's Fullscreen API where it is allowed; otherwise (embedded views, iOS, blocked)
+     a "big screen" mode that fills the window. Esc or the same button leaves either. */
+  const tvEl = lib.querySelector('.vp');
+  const setBig = on => { tvEl.classList.toggle('big', on); document.documentElement.classList.toggle('vpBigOn', on); };
+  $('#vpFull').addEventListener('click', () => {
+    if (document.fullscreenElement || document.webkitFullscreenElement) return (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+    if (tvEl.classList.contains('big')) return setBig(false);
+    const req = tvEl.requestFullscreen || tvEl.webkitRequestFullscreen;
+    let p; try { p = req && req.call(tvEl); } catch (e) { p = null; }
+    if (p && p.catch) p.catch(() => setBig(true));
+    else if (!req) setBig(true);
+    setTimeout(() => { if (!document.fullscreenElement && !document.webkitFullscreenElement && !tvEl.classList.contains('big')) setBig(true); }, 350);
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && tvEl.classList.contains('big')) setBig(false); });
   /* keyboard while the player has focus: space/k play, ←/→ 5 s, ↑/↓ volume, m mute, c subtitles, f full screen */
   lib.querySelector('.vp').addEventListener('keydown', e => {
     if (e.target.matches('input[type=range]') && /Arrow/.test(e.key)) return;
@@ -343,10 +356,10 @@ $('#southCards').innerHTML = [
   document.addEventListener('rn:lang', () => { menuHtml(); if (cur) { $('#vpTitle').innerHTML = T(cur.t); } });
   RN.data('videos').then(D => {
     list = (D.videos || []).filter(x => x && x.src); if (!list.length) return;
-    $('#vidWip').hidden = true; lib.hidden = false;
+    $('#vidWip').hidden = true; lib.hidden = false; const vh = $('.vidHead'); if (vh) vh.hidden = true;
     $('#vpList').innerHTML = list.map((x, i) => `<button class="vpItem" data-id="${x.id || i}"><span class="vpThumb">${x.poster ? `<img src="${x.poster}" alt="" loading="lazy">` : `<video src="${x.src}#t=1" preload="metadata" muted playsinline></video>`}<i>${IC.play}</i></span><span class="vpMeta"><b>${T(x.t)}</b>${x.d ? `<small>${T(x.d)}</small>` : ''}</span></button>`).join('');
     list.forEach((x, i) => { if (!x.id) x.id = String(i); });
-    $('#vpList').addEventListener('click', e => { const b = e.target.closest('.vpItem'); if (!b) return; const it = list.find(x => x.id === b.dataset.id); if (it && it !== cur) load(it, true); });
+    $('#vpList').addEventListener('click', e => { const b = e.target.closest('.vpItem'); if (!b) return; const it = list.find(x => x.id === b.dataset.id); $('#vpList').classList.add('picked'); if (it && it !== cur) load(it, true); });
     load(list[0], false); ui();
   }).catch(() => {});
 })();

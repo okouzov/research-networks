@@ -1078,3 +1078,12 @@ html.vpBigOn,html.vpBigOn body{overflow:hidden}
 .tvBrand{color:rgba(170,190,235,.6)}
 .vidHead[hidden]{display:none}
 body[data-page="networks"] .phero{padding-bottom:6px}body[data-page="networks"] .phero .lead{max-width:none}#videos.tight{padding-top:0}#videos .vidLib{margin-top:17px}
+/* TV bezel v2: wider top bezel with a readable "2026 COPYRIGHT © NRN BG" (NRN BG in red), frame kept in big/full screen */
+.vp.tv{padding-top:26px}
+.tvBrand{top:0;height:26px;line-height:26px;font:700 11.5px var(--fm);letter-spacing:.16em;color:rgba(200,215,245,.78);white-space:nowrap}
+.tvBrand b{color:var(--nrn);font-weight:800}
+.tvLed{top:9.5px}
+.vp.tv.big,.vp.tv:fullscreen{padding:26px 18px 0;border-radius:0;background:linear-gradient(160deg,#1b2540 0%,#0d1428 45%,#070c1a 100%)}
+.vp.tv.big .vpStage,.vp.tv:fullscreen .vpStage{border-radius:12px;box-shadow:0 0 0 2px #02050d,0 0 0 3px rgba(255,255,255,.05),inset 0 0 40px rgba(0,0,0,.6)}
+.vp.tv.big .vpStage::after,.vp.tv:fullscreen .vpStage::after,.vp.tv.big .tvBrand,.vp.tv:fullscreen .tvBrand,.vp.tv.big .tvLed,.vp.tv:fullscreen .tvLed{display:block}
+.vp.tv.big .vpBar,.vp.tv:fullscreen .vpBar{background:none;padding:12px 4px}

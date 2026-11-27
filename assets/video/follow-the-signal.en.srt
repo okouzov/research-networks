@@ -1,0 +1,191 @@
+1
+00:00:00,500 --> 00:00:03,830
+How do you build a telescope the size of a continent?
+
+2
+00:00:04,080 --> 00:00:08,670
+Put one antenna in Sardinia and another thousands of kilometres away.
+
+3
+00:00:08,720 --> 00:00:10,959
+Point them at the same galaxy.
+
+4
+00:00:11,009 --> 00:00:13,490
+Then bring their signals together.
+
+5
+00:00:13,740 --> 00:00:19,858
+A computer in the Netherlands can combine those measurements while the telescopes are still observing.
+
+6
+00:00:19,908 --> 00:00:23,390
+Details that either antenna would miss come into focus.
+
+7
+00:00:23,640 --> 00:00:28,490
+To see what makes that possible, follow the signal.
+
+8
+00:00:28,740 --> 00:00:32,519
+The first links on this map grew out of a practical problem.
+
+9
+00:00:32,569 --> 00:00:35,503
+Universities were building national networks,
+
+10
+00:00:35,553 --> 00:00:39,050
+but their research partners were often across a border.
+
+11
+00:00:39,300 --> 00:00:44,555
+In 1993, DANTE began coordinating those connections.
+
+12
+00:00:44,605 --> 00:00:49,595
+In 1997, TEN-34 linked researchers across Europe.
+
+13
+00:00:49,645 --> 00:00:53,220
+In 2001, GÉANT went into service.
+
+14
+00:00:53,470 --> 00:01:00,246
+The European Union co-funds this work alongside the national research and education networks.
+
+15
+00:01:00,296 --> 00:01:02,815
+Today, through Horizon Europe,
+
+16
+00:01:02,865 --> 00:01:08,830
+the EU helps those partners expand and maintain infrastructure they use together.
+
+17
+00:01:09,080 --> 00:01:11,618
+Start at a university in Sofia.
+
+18
+00:01:11,668 --> 00:01:15,002
+Its national network is the way into GÉANT.
+
+19
+00:01:15,052 --> 00:01:21,970
+Across Europe, this arrangement serves around ten thousand institutions and fifty million people.
+
+20
+00:01:22,220 --> 00:01:29,890
+In January 2026, GÉANT completed a backbone upgrade supporting links of eight hundred gigabits per second.
+
+21
+00:01:29,940 --> 00:01:31,719
+What does that buy?
+
+22
+00:01:31,769 --> 00:01:32,870
+Capacity.
+
+23
+00:01:33,120 --> 00:01:43,300
+A telescope can keep streaming its observations while satellite images and data from physics experiments travel over the same infrastructure.
+
+24
+00:01:43,550 --> 00:01:48,963
+Near Geneva, two protons collide inside CERN’s Large Hadron Collider.
+
+25
+00:01:49,013 --> 00:01:52,510
+A detector records the tracks left behind.
+
+26
+00:01:52,760 --> 00:01:55,985
+Could one of them be evidence of a new particle?
+
+27
+00:01:56,035 --> 00:01:58,910
+One collision cannot answer that question.
+
+28
+00:01:59,160 --> 00:02:06,029
+Research networks carry the data to a worldwide grid of more than a hundred and seventy computing sites.
+
+29
+00:02:06,079 --> 00:02:10,600
+Physicists compare vast numbers of events until a pattern emerges.
+
+30
+00:02:10,850 --> 00:02:18,370
+The analysis behind the discovery of the Higgs boson in 2012 ran on that shared grid.
+
+31
+00:02:18,620 --> 00:02:21,477
+Follow the next line under the Atlantic.
+
+32
+00:02:21,527 --> 00:02:25,534
+Through BELLA, a programme co-funded by the European Union,
+
+33
+00:02:25,584 --> 00:02:32,620
+a submarine cable between Portugal and Brazil connects GÉANT with Latin America’s research network, RedCLARA.
+
+34
+00:02:32,870 --> 00:02:36,027
+For access to Copernicus Earth observation data,
+
+35
+00:02:36,077 --> 00:02:40,380
+the European Commission reported a drop from sixty minutes to seven.
+
+36
+00:02:40,630 --> 00:02:43,712
+What can a business do with satellite data?
+
+37
+00:02:43,762 --> 00:02:50,960
+In Mauritania, a startup developed a service that helps rice farmers identify fields that may need irrigation.
+
+38
+00:02:51,210 --> 00:02:56,920
+A satellite image becomes a decision about where to send water.
+
+39
+00:02:57,170 --> 00:03:00,160
+For a student visiting another university,
+
+40
+00:03:00,210 --> 00:03:04,903
+the first sign of this cooperation may be a familiar Wi-Fi connection.
+
+41
+00:03:04,953 --> 00:03:09,950
+With eduroam, her laptop can connect using her home university credentials.
+
+42
+00:03:10,200 --> 00:03:17,290
+Through eduGAIN, that same university identity can give her access to participating research services.
+
+43
+00:03:17,540 --> 00:03:21,780
+And when her team needs cloud storage or computing power,
+
+44
+00:03:21,830 --> 00:03:26,400
+the university can purchase it through GÉANT’s OCRE framework.
+
+45
+00:03:26,650 --> 00:03:30,590
+On a map, a research network looks like a set of lines.
+
+46
+00:03:30,840 --> 00:03:34,536
+Follow one, and a distant galaxy comes into focus.
+
+47
+00:03:34,586 --> 00:03:38,670
+Follow another, and a farmer knows which field to check.
+
+48
+00:03:38,920 --> 00:03:42,250
+That is what those lines carry.

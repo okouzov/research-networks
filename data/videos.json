@@ -1,4 +1,26 @@
 {
   "_doc": "Video library on networks.html#videos. Put the files in assets/video/. src = MP4 (H.264); poster = optional JPG/PNG still; subs = optional subtitles per language, .vtt or .srt (both work). t = title, d = short description (bg/en). A clip with no entry here is not shown.",
-  "videos": []
+  "videos": [
+    {
+      "id": "arrive-in-time",
+      "src": "assets/video/arrive-in-time.mp4",
+      "poster": "assets/video/arrive-in-time.jpg",
+      "t": { "bg": "Да пристигнеш навреме (TEIN)", "en": "Arrive in Time (TEIN)" },
+      "subs": { "bg": "assets/video/arrive-in-time.bg.srt", "en": "assets/video/arrive-in-time.en.srt" }
+    },
+    {
+      "id": "follow-the-signal",
+      "src": "assets/video/follow-the-signal.mp4",
+      "poster": "assets/video/follow-the-signal.jpg",
+      "t": { "bg": "Следвай сигнала (GÉANT)", "en": "Follow the Signal (GÉANT)" },
+      "subs": { "bg": "assets/video/follow-the-signal.bg.srt", "en": "assets/video/follow-the-signal.en.srt" }
+    },
+    {
+      "id": "internet2-duet",
+      "src": "assets/video/internet2-duet.mp4",
+      "poster": "assets/video/internet2-duet.jpg",
+      "t": { "bg": "Дует през интернет (Internet2)", "en": "Duet over the Internet (Internet2)" },
+      "subs": { "bg": "assets/video/internet2-duet.bg.srt", "en": "assets/video/internet2-duet.en.srt" }
+    }
+  ]
 }

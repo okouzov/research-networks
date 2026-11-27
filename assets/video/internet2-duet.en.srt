@@ -1,0 +1,111 @@
+1
+00:00:00,500 --> 00:00:00,998
+Listen.
+
+2
+00:00:01,018 --> 00:00:04,106
+A violin begins a phrase in Philadelphia.
+
+3
+00:00:04,126 --> 00:00:06,596
+A cello answers from Illinois.
+
+4
+00:00:07,510 --> 00:00:12,989
+The musicians are thirteen hundred kilometres apart, playing the same piece, live.
+
+5
+00:00:13,009 --> 00:00:16,813
+Each has to hear the other in time for the next note.
+
+6
+00:00:16,930 --> 00:00:21,472
+How did an American university network make that possible?
+
+7
+00:00:22,540 --> 00:00:23,704
+Go back to 1996.
+
+8
+00:00:23,724 --> 00:00:25,628
+The web was growing fast.
+
+9
+00:00:25,648 --> 00:00:33,372
+On American campuses, researchers wanted to do things that ordinary connections struggled to support.
+
+10
+00:00:34,200 --> 00:00:44,240
+A scientist might need to send a large dataset to another university, use a powerful computer there, and get the results back while an experiment was still running.
+
+11
+00:00:44,290 --> 00:00:50,560
+That October, thirty-four American research universities launched a joint initiative.
+
+12
+00:00:50,580 --> 00:00:52,680
+They called it Internet2.
+
+13
+00:00:53,950 --> 00:00:58,222
+In 1999, a new national backbone called Abilene went live.
+
+14
+00:00:58,242 --> 00:01:01,452
+Regional networks linked campuses to it.
+
+15
+00:01:02,390 --> 00:01:07,180
+Its early links carried about two and a half gigabits per second.
+
+16
+00:01:07,200 --> 00:01:10,188
+By 2004, that figure had reached ten.
+
+17
+00:01:10,570 --> 00:01:13,357
+Then came a different kind of advance.
+
+18
+00:01:13,377 --> 00:01:20,496
+In 2007, researchers gained the ability to reserve a dedicated connection for a limited time.
+
+19
+00:01:20,620 --> 00:01:27,012
+A team could arrange the capacity it needed for the hours its experiment would run.
+
+20
+00:01:27,450 --> 00:01:29,790
+Now listen to the duet again.
+
+21
+00:01:29,840 --> 00:01:33,880
+For a musician, even a small delay can change the rhythm.
+
+22
+00:01:33,930 --> 00:01:44,560
+In 2012, a violinist and a cellist used Internet2 and low-latency audio and video technology to perform together across those thirteen hundred kilometres.
+
+23
+00:01:44,610 --> 00:01:49,670
+You could hear the quality of the connection in the music itself.
+
+24
+00:01:50,360 --> 00:01:59,200
+By 2022, Internet2 had moved its traffic onto a new generation of backbone links carrying four hundred gigabits per second.
+
+25
+00:01:59,250 --> 00:02:02,463
+The next planned upgrade would double that capacity.
+
+26
+00:02:02,483 --> 00:02:10,008
+Through partners such as Europe’s GÉANT, a campus in the United States can now reach research teams around the world.
+
+27
+00:02:10,120 --> 00:02:14,522
+Thirty-four universities set out to share computers and data.
+
+28
+00:02:14,542 --> 00:02:21,678
+Along the way, they made it possible to share something as fleeting as the next note in a duet.

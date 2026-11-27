@@ -276,9 +276,26 @@ $('#southCards').innerHTML = [
     $('#vpCC').disabled = opts.length < 2;
   };
   const setTrack = k => { track = k; menuHtml(); showSub(); };
+  /* seeking in a large clip needs HTTP range requests. If the server does not answer them (206),
+     the clip still starts streaming at once, and the whole file is fetched in the background;
+     when it arrives, the player switches to the local copy at the same moment and seeking works everywhere. */
+  const blobs = {};
+  const ensureSeekable = item => {
+    if (blobs[item.src]) return;
+    blobs[item.src] = 'checking';
+    fetch(item.src, { headers: { Range: 'bytes=0-1' } }).then(r => {
+      if (r.status === 206) { blobs[item.src] = 'range'; r.body && r.body.cancel && r.body.cancel(); return; }
+      if (r.body && r.body.cancel) r.body.cancel();
+      return fetch(item.src).then(x => x.blob()).then(b => {
+        const url = URL.createObjectURL(b); blobs[item.src] = url;
+        if (cur === item) { const t = v.currentTime, playing = !v.paused; v.src = url; v.currentTime = t; if (playing) v.play().catch(() => {}); }
+      });
+    }).catch(() => { delete blobs[item.src]; });
+  };
   const load = (item, autoplay) => {
     cur = item; cues = { bg: null, en: null };
-    v.src = item.src; if (item.poster) v.poster = item.poster; else v.removeAttribute('poster');
+    const b = blobs[item.src]; v.src = b && b.startsWith && b.startsWith('blob:') ? b : item.src;
+    if (item.poster) v.poster = item.poster; else v.removeAttribute('poster');
     $('#vpTitle').innerHTML = T(item.t); $('#vpDesc').innerHTML = item.d ? T(item.d) : '';
     $$('.vpItem', lib).forEach(b => b.classList.toggle('on', b.dataset.id === item.id));
     ['bg', 'en'].forEach(l => { const u = item.subs && item.subs[l]; if (u) fetch(u).then(r => r.ok ? r.text() : '').then(t => { if (cur === item) { cues[l] = parse(t); showSub(); } }).catch(() => {}); });
@@ -298,6 +315,7 @@ $('#southCards').innerHTML = [
   const toggle = () => v.paused || v.ended ? v.play().catch(() => {}) : v.pause();
   $('#vpPlay').addEventListener('click', toggle); $('#vpBig').addEventListener('click', toggle); v.addEventListener('click', toggle);
   ['play', 'pause', 'ended', 'loadedmetadata', 'volumechange', 'durationchange'].forEach(e => v.addEventListener(e, ui));
+  v.addEventListener('play', () => { if (cur) ensureSeekable(cur); });
   v.addEventListener('timeupdate', () => { ui(); showSub(); });
   seek.addEventListener('input', () => { if (v.duration) { v.currentTime = seek.value / 1000 * v.duration; showSub(); } });
   vol.addEventListener('input', () => { v.volume = +vol.value; v.muted = v.volume === 0; });

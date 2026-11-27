@@ -925,3 +925,4 @@ html[lang=en] .aarcGrid .roamSteps li{font-size:14px;line-height:1.5}
 .qci a{font-family:var(--fm);font-size:13px;padding:6px 12px;border-radius:9px;border:1px solid rgba(255,106,213,.4);color:var(--pk-tx);background:rgba(255,106,213,.07);text-decoration:none;transition:background .2s,border-color .2s,color .2s}.qci a:hover{background:rgba(255,106,213,.18);border-color:rgba(255,106,213,.8);color:var(--tx)}
 body[data-page="history"] .phero .lead{max-width:none}
 body[data-page="data"] .phero .lead{max-width:none}
+body[data-page="data"] .phero{padding-bottom:32px}

@@ -926,3 +926,10 @@ html[lang=en] .aarcGrid .roamSteps li{font-size:14px;line-height:1.5}
 body[data-page="history"] .phero .lead{max-width:none}
 body[data-page="data"] .phero .lead{max-width:none}
 body[data-page="data"] .phero{padding-bottom:32px}
+/* slanted colour-coded filter strip (data page) */
+.skTabs{display:flex;flex-wrap:wrap;gap:6px 0;padding-left:12px}
+.skTabs .chip{transform:skewX(-28deg);border-radius:0;padding:8px 20px;border:1.5px solid var(--c);background:color-mix(in srgb,var(--c) 7%,transparent);color:var(--c);font-weight:600;font-size:14px;transition:background .2s,color .2s}
+.skTabs .chip+.chip{margin-left:-1.5px}
+.skTabs .chip>.sk{display:inline-block;transform:skewX(28deg)}
+.skTabs .chip:hover{background:color-mix(in srgb,var(--c) 18%,transparent)}
+.skTabs .chip.on{background:var(--c);border-color:var(--c);color:var(--on)}

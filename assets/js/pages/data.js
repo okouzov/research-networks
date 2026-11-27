@@ -38,7 +38,10 @@ RN.data('facts').then(D => {
       { label: ['Източник', 'Source'], get: r => r.u ? `<a class="extSrc" href="${r.u}" target="_blank" rel="noopener">${new URL(r.u).hostname} ↗</a>` : cite(r.c) },
     ] });
   const fl = $('#fFacts');
-  fl.innerHTML = `<button class="chip on" data-c="all">${L('Всички', 'All')}</button>` + Object.entries(D.categories).map(([k, v]) => `<button class="chip" data-c="${k}">${T(v)}</button>`).join('');
+  /* slanted, colour-coded filter strip (same look as the Identity sub-tabs on the services page) */
+  const COL = ['var(--cy)', 'var(--g2)', 'var(--pk)', 'var(--gr)', 'var(--am)', 'var(--rd)', '#4f8cff', '#c084fc'];
+  fl.classList.add('skTabs');
+  fl.innerHTML = `<button class="chip on" data-c="all" style="--c:${COL[0]}"><span class="sk">${L('Всички', 'All')}</span></button>` + Object.entries(D.categories).map(([k, v], i) => `<button class="chip" data-c="${k}" style="--c:${COL[(i + 1) % COL.length]}"><span class="sk">${T(v)}</span></button>`).join('');
   fl.addEventListener('click', e => { const b = e.target.closest('.chip'); if (!b) return; $$('.chip', fl).forEach(x => x.classList.toggle('on', x === b)); t.setFilter(b.dataset.c === 'all' ? () => true : r => r.cat === b.dataset.c); });
   $('#csvFacts').onclick = () => csv('renet-facts.csv', ['value_bg', 'value_en', 'label_bg', 'label_en', 'category', 'period', 'sources'], D.facts.map(r => { const [vb, ve] = r.v.includes('|') ? r.v.split('|') : [r.v, r.v]; return [vb, ve, r.l.bg, r.l.en, r.cat, r.asof, r.c]; }));
 }).catch(() => RN.dataFail($('#tFacts')));

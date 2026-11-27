@@ -919,3 +919,6 @@ html[lang=en] .aarcGrid .roamL .ctl{margin-top:35px !important}
 html[lang=en] .aarcGrid .roamSteps li{font-size:14px;line-height:1.5}
 .roamSteps li::before{top:50%;transform:translateY(-50%)}
 .roamSteps li{transition:color .3s,border-color .3s,background .3s}
+.roamSteps li::before{left:10px}
+.roamSteps li{padding-left:50px}
+.gainGrid .roamSteps li,.aarcGrid .roamSteps li{padding-left:46px}

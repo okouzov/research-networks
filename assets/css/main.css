@@ -917,3 +917,4 @@ html[lang=en] #copernicus h2{font-size:clamp(30px,4.4vw,52px)}
 .aarcGrid .roamL .ctl{margin-top:29px !important}
 html[lang=en] .aarcGrid .roamL .ctl{margin-top:35px !important}
 html[lang=en] .aarcGrid .roamSteps li{font-size:14px;line-height:1.5}
+.roamSteps li::before{top:50%;transform:translateY(-50%)}

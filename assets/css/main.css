@@ -886,3 +886,4 @@ html[lang=en] .gainGrid .roamL .ctl{margin-top:26px !important}
 .hPur{color:var(--g2);font-weight:600}
 html[lang=en] .kHead .kSub.ticker{margin-top:1px}
 .pillLinks .pill a{color:var(--tx);text-decoration:none}.pillLinks .pill a:hover{color:var(--cy)}
+.anaGrid a{font-family:var(--fm);font-size:13px;padding:7px 12px;border-radius:10px;border:1px solid rgba(143,125,255,.45);background:rgba(143,125,255,.08);color:var(--vi-tx);text-decoration:none;transition:background .2s,border-color .2s,color .2s}.anaGrid a:hover{background:rgba(143,125,255,.2);border-color:rgba(143,125,255,.8);color:var(--tx)}

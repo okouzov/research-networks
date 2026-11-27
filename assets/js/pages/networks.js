@@ -90,7 +90,8 @@ RN.data('networks').then(D => {
     $$('.net', grid).forEach(c => c.style.display = (b.dataset.r === 'all' || c.dataset.r === b.dataset.r) ? '' : 'none'); hl(b.dataset.r); });
   const fromCard = e => { const c = e.target.closest('.net'); if (!c || e.target.closest('a')) return; const n = by[c.dataset.id]; if (!n.ll) return; open(n); /* the map lives in its own tab: switching the #hash opens it */ if (location.hash !== '#map-sec') location.hash = 'map-sec'; else $('#map-sec').scrollIntoView({ behavior: RN.RM ? 'auto' : 'smooth' }); };
   grid.addEventListener('click', fromCard); grid.addEventListener('keydown', e => { if (e.key === 'Enter') fromCard(e); });
-  $('#anaGrid').innerHTML = D.ana.map(a => `<span>${a}</span>`).join('');
+  const ANA_URL = { 'GÉANT': 'https://geant.org', ESnet: 'https://www.es.net', Internet2: 'https://internet2.edu', CANARIE: 'https://www.canarie.ca', NORDUnet: 'https://nordu.net', SURF: 'https://www.surf.nl', SINET: 'https://www.sinet.ad.jp', KREONET: 'https://www.kreonet.net' };
+  $('#anaGrid').innerHTML = D.ana.map(a => ANA_URL[a] ? `<a href="${ANA_URL[a]}" target="_blank" rel="noopener">${a}</a>` : `<span>${a}</span>`).join('');
 }).catch(() => RN.dataFail($('#netGrid')));
 
 /* ---------- Internet2 NGI stack animation ---------- */

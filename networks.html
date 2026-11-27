@@ -165,10 +165,12 @@
 
 <section id="videos" class="tight">
   <div class="wrap">
-    <div class="kicker" style="color:var(--pk)"><span lang="bg">Видеотека</span><span lang="en">Video library</span></div>
-    <h2 class="reveal"><span lang="bg">Мрежите <span class="grad">във видео</span></span><span lang="en">Networks <span class="grad">on video</span></span></h2>
+    <div class="vidHead"><div class="kicker" style="color:var(--pk)"><span lang="bg">Видеотека</span><span lang="en">Video library</span></div>
+    <h2 class="reveal"><span lang="bg">Мрежите <span class="grad">във видео</span></span><span lang="en">Networks <span class="grad">on video</span></span></h2></div>
     <div class="vidLib" id="vidLib" hidden>
-      <div class="vp" id="vp">
+      <div class="vpList" id="vpList"></div>
+      <div class="vpCol">
+      <div class="vp tv" id="vp">
         <div class="vpStage">
           <video id="vpVideo" playsinline preload="metadata"></video>
           <div class="vpSub" id="vpSub" aria-live="polite"></div>
@@ -184,9 +186,11 @@
             <div class="vpMenu" id="vpMenu" hidden></div></div>
           <button class="vpBtn" id="vpFull" aria-label="Full screen">⛶</button>
         </div>
-        <div class="vpInfo"><h3 id="vpTitle"></h3><p class="note" id="vpDesc"></p></div>
+        <span class="tvBrand">R&amp;E·NET</span><span class="tvLed"></span>
       </div>
-      <div class="vpList" id="vpList"></div>
+      <div class="tvStand"></div>
+      <div class="vpInfo"><h3 id="vpTitle"></h3><p class="note" id="vpDesc"></p></div>
+      </div>
     </div>
     <div class="wip reveal" id="vidWip">
       <svg class="wipIco" viewBox="0 0 120 120" aria-hidden="true">

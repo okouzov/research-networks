@@ -359,3 +359,15 @@ $$('#fair .flip').forEach(f => { f.addEventListener('click', () => f.classList.t
 })();
 RN.enhance();
 })();
+
+/* Trust & identity sub-tabs: eduroam / eduGAIN / AARC */
+(() => {
+  const bar = document.querySelector('.idTabs'); if (!bar) return;
+  const btns = [...bar.querySelectorAll('.chip')], panes = [...document.querySelectorAll('.idPane')];
+  const pick = p => {
+    btns.forEach(b => { const on = b.dataset.p === p; b.classList.toggle('on', on); b.setAttribute('aria-selected', on); });
+    panes.forEach(x => { x.hidden = x.dataset.p !== p; });
+    panes.forEach(x => { if (!x.hidden) x.querySelectorAll('.reveal').forEach(r => r.classList.add('in')); });
+  };
+  bar.addEventListener('click', e => { const b = e.target.closest('.chip'); if (b) pick(b.dataset.p); });
+})();

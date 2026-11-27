@@ -34,6 +34,8 @@
   <div class="wrap">
     <div class="kicker"><span lang="bg">Идентичност и доверие</span><span lang="en">Trust &amp; identity</span></div>
     <h2 class="reveal"><span lang="bg">Един акаунт — <span class="grad">хиляди кампуси</span></span><span lang="en">One account — <span class="grad">thousands of campuses</span></span></h2>
+    <div class="idTabs" role="tablist" aria-label="Trust &amp; identity"><button class="chip on" role="tab" data-p="eduroam" style="--c:var(--cy)"><span>eduroam</span></button><button class="chip" role="tab" data-p="edugain" style="--c:var(--g2)"><span>eduGAIN</span></button><button class="chip" role="tab" data-p="aarc" style="--c:var(--pk)"><span>AARC</span></button></div>
+    <div class="idPane" data-p="eduroam">
     <div class="card screen mt reveal">
       <div class="roam roamGrid">
         <div class="roamHead">
@@ -59,6 +61,8 @@
       </div>
       <ul class="bifList" id="eduList"></ul>
     </div>
+    </div>
+    <div class="idPane" data-p="edugain" hidden>
     <div class="card screen mt reveal">
       <div class="roam roamGrid gainGrid">
         <div class="roamHead">
@@ -84,8 +88,11 @@
       </div>
       <ul class="bifList" id="bifList"></ul>
     </div>
+    </div>
+    <div class="idPane" data-p="aarc" hidden>
     <div class="mt">
       <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div><h4>AARC</h4><p lang="bg">Архитектурен план (blueprint), разработен от GÉANT и научните общности, който стандартизира федеративната идентичност между домейни за международни изследователски екипи.<sup class="cite" data-c="29"></sup></p><p lang="en">An architecture blueprint developed by GÉANT and research communities that standardises cross-domain federated identity for international research teams.<sup class="cite" data-c="29"></sup></p><p style="margin-top:10px"><a href="https://aarc-community.org" target="_blank" rel="noopener">aarc-community.org ↗</a></p></div>
+    </div>
     </div>
   </div>
 </section>

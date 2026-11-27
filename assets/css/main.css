@@ -889,3 +889,20 @@ html[lang=en] .kHead .kSub.ticker{margin-top:1px}
 .anaGrid a{font-family:var(--fm);font-size:13px;padding:7px 12px;border-radius:10px;border:1px solid rgba(143,125,255,.45);background:rgba(143,125,255,.08);color:var(--vi-tx);text-decoration:none;transition:background .2s,border-color .2s,color .2s}.anaGrid a:hover{background:rgba(143,125,255,.2);border-color:rgba(143,125,255,.8);color:var(--tx)}
 #copernicus h2{font-size:clamp(26px,3.9vw,48px)}#copernicus .lead{max-width:none}
 html[lang=en] #copernicus h2{font-size:clamp(30px,4.4vw,52px)}
+/* Trust & identity: eduroam / eduGAIN / AARC as sub-tabs */
+.idTabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 0}
+.idTabs .chip{font-family:var(--fm);font-size:14px;padding:8px 18px}
+.idTabs .chip.on{background:var(--cy);border-color:var(--cy);color:var(--on)}
+.idPane:not([hidden]){animation:idIn .35s ease}
+@keyframes idIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.idPane:not([hidden]){animation:none}}
+/* sub-tabs as a strip of slanted segments, each in its own colour */
+.idTabs{gap:0;margin:16px 0 0 12px}
+.idTabs .chip{transform:skewX(-28deg);border-radius:0;min-width:150px;padding:9px 22px;border:1.5px solid var(--c);background:color-mix(in srgb,var(--c) 7%,transparent);color:var(--c);font-weight:600;transition:background .2s,color .2s}
+.idTabs .chip+.chip{margin-left:-1.5px}
+.idTabs .chip>span{display:inline-block;transform:skewX(28deg)}
+.idTabs .chip:hover{background:color-mix(in srgb,var(--c) 18%,transparent)}
+.idTabs .chip.on{background:var(--c);border-color:var(--c);color:var(--on)}
+.idTabs{margin:16px 0 0 24px;position:relative;z-index:1}
+.idPane>.card:first-child,.idPane>.mt:first-child{margin-top:0}
+.subnav[data-tabs] ~ section .idPane>.mt:first-child{margin-top:0}

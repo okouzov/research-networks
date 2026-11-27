@@ -97,18 +97,31 @@ $('#copPipe').innerHTML = [
   const s = $('#art-vlbi'); let h = `<path d="M-20 400 Q260 230 540 400" fill="#0c2244" stroke="#1d3466"/>`;
   const T = [['Jodrell Bank', 70, 336], ['Onsala', 145, 304], ['Toruń', 218, 290], ['Medicina', 300, 291], ['Asia', 378, 304], ['Africa', 450, 332]], jx = 260, jy = 70;
   h += `<g id="vlive">${T.map((t, i) => `<path d="M${t[1]} ${t[2] - 18} Q ${(t[1] + jx) / 2} ${t[2] - 120} ${jx} ${jy + 22}" fill="none" stroke="${C.cy}" stroke-width="1.6" class="flow" style="animation-duration:${.8 + i * .07}s"/>`).join('')}</g>`;
-  h += `<g id="vmail" style="opacity:0"><g id="truck"><rect x="-20" y="-11" width="30" height="20" rx="3" fill="${C.am}"/><rect x="10" y="-5" width="12" height="14" rx="2" fill="#d48f2a"/><circle cx="-12" cy="11" r="4" fill="#222"/><circle cx="14" cy="11" r="4" fill="#222"/>${txt(-5, 3, 'HDD', { f: '#151515', s: 9, ff: 'JetBrains Mono', w: 700 })}</g></g>`;
+  h += `<g id="vmail" style="opacity:0"><g id="truck"><rect x="-20" y="-11" width="30" height="20" rx="3" fill="${C.am}"/><rect x="10" y="-5" width="12" height="14" rx="2" fill="#d48f2a"/><circle cx="-12" cy="11" r="4" fill="#222"/><circle cx="14" cy="11" r="4" fill="#222"/>${txt(-5, 3, 'HDD', { f: '#151515', s: 9, ff: 'JetBrains Mono', w: 700 })}<text id="hddN" x="-5" y="-17" text-anchor="middle" fill="${C.am}" font-size="10" font-family="JetBrains Mono" font-weight="700"></text></g><rect id="disk" x="-5" y="-4" width="10" height="8" rx="1.5" fill="${C.am}" style="opacity:0"/></g>`;
   T.forEach(([n, x, y]) => { h += `<g transform="translate(${x},${y})"><path d="M-14 -24 Q0 -2 14 -24" fill="none" stroke="#e7efff" stroke-width="2.2"/><line x1="0" y1="-12" x2="0" y2="-30" stroke="#e7efff" stroke-width="1.4"/><circle cx="0" cy="-31" r="2" fill="${C.cy}"/><path d="M-5 -8 L0 -16 L5 -8 Z" fill="#93a5c8"/></g>` + txt(x, y + 14, n, { s: 10, ff: 'JetBrains Mono' }); });
   h += `<rect x="${jx - 58}" y="${jy - 22}" width="116" height="44" rx="10" fill="#081226" stroke="${C.vi}" stroke-width="1.8"/>` + txt(jx, jy - 2, 'JIVE', { f: '#fff', ff: 'Geologica', w: 700, s: 14 }) + txt(jx, jy + 13, 'correlator · NL', { f: '#93a5c8', ff: 'JetBrains Mono', s: 9.5 });
   for (let i = 0; i < 40; i++) h += `<circle cx="${(i * 97) % 520}" cy="${(i * 53) % 200}" r="${i % 4 ? .8 : 1.4}" fill="#fff" opacity="${.2 + (i % 5) / 8}"/>`;
   h += `<g id="sn" transform="translate(440,60)"><circle r="6" fill="${C.pk}"><animate attributeName="r" values="3;9;3" dur="2s" repeatCount="indefinite"/></circle>${tl(12, 4, 'свръхнова', 'supernova', { a: 'start', f: C.pk, s: 10, ff: 'JetBrains Mono' })}</g>`;
   h += `<text id="vlab" x="14" y="22" fill="${C.cy}" font-size="11" font-family="JetBrains Mono">LIVE · 1–2.5 Gbps / telescope</text>`;
   s.innerHTML = h;
-  let mode = 'live', t0 = 0; const truck = $('#truck', s);
-  RN.loop(s, (dt, now) => { if (mode === 'mail') { const k = ((now - t0) / 9000) % 1, x = 60 + k * 200, y = 330 - Math.sin(k * 3.14) * 230 * k; truck.setAttribute('transform', `translate(${x},${y})`); } });
+  let mode = 'live', t0 = 0; const truck = $('#truck', s), disk = $('#disk', s), hddN = $('#hddN', s), jive = s.querySelector(`rect[stroke="${C.vi}"]`);
+  /* "by post": the truck drives along the ground from telescope to telescope, picks up a disk at each, then leaves for the correlator */
+  const gy = x => { const P = [[-40, T[0][2]], ...T.map(t => [t[1], t[2]]), [560, T[5][2]]]; for (let i = 1; i < P.length; i++) if (x <= P[i][0]) { const [x0, y0] = P[i - 1], [x1, y1] = P[i]; return y0 + (y1 - y0) * (x - x0) / (x1 - x0); } return P[P.length - 1][1]; };
+  const V = 80, DW = 0.9, OFF = 34, plan = []; { let x = -40, t = 0; T.forEach((tt, i) => { const sx = tt[1] - OFF, d = (sx - x) / V; plan.push({ t0: t, t1: t + d, x0: x, x1: sx }); t += d; plan.push({ t0: t, t1: t + DW, x0: sx, x1: sx, pick: i }); t += DW; x = sx; }); const d = (580 - x) / V; plan.push({ t0: t, t1: t + d, x0: x, x1: 580 }); t += d; plan.push({ t0: t, t1: t + 2.2, x0: 580, x1: 580, deliver: true }); }
+  const CYC = plan[plan.length - 1].t1;
+  RN.loop(s, (dt, now) => {
+    if (mode !== 'mail') return;
+    const t = ((now - t0) / 1000) % CYC, p = plan.find(q => t < q.t1) || plan[plan.length - 1], k = Math.min(1, (t - p.t0) / (p.t1 - p.t0));
+    const ease = k < .5 ? 2 * k * k : 1 - (-2 * k + 2) ** 2 / 2, x = p.x0 + (p.x1 - p.x0) * ease, y = gy(x + OFF * 0) - 15;
+    truck.setAttribute('transform', `translate(${x},${y})`);
+    const got = plan.filter(q => q.pick !== undefined && (q.t1 <= t || q === p)).length - (p.pick !== undefined && k < .6 ? 1 : 0);
+    hddN.textContent = got > 0 ? `${got}/6` : '';
+    if (p.pick !== undefined) { const [, tx, ty] = T[p.pick], q = Math.min(1, k / .6); disk.style.opacity = q < 1 ? 1 : 0; disk.setAttribute('transform', `translate(${tx + (x - 5 - tx) * q},${ty - 20 + (y - 6 - (ty - 20)) * q - Math.sin(q * Math.PI) * 18})`); } else disk.style.opacity = 0;
+    jive.setAttribute('stroke', p.deliver ? C.am : C.vi); jive.setAttribute('stroke-width', p.deliver ? 3 : 1.8);
+  });
   chips('uc-vlbi', m => { mode = m; t0 = performance.now();
     $('#vlive', s).style.opacity = m === 'live' ? 1 : .05; $('#vmail', s).style.opacity = m === 'mail' ? 1 : 0; $('#sn', s).style.opacity = m === 'live' ? 1 : .15;
-    $('#vlab', s).textContent = m === 'live' ? 'LIVE · 1–2.5 Gbps / telescope' : 'BY POST · weeks → months'; $('#vlab', s).setAttribute('fill', m === 'live' ? C.cy : C.am); });
+    $('#vlab', s).textContent = m === 'live' ? 'LIVE · 1–2.5 Gbps / telescope' : 'BY POST · weeks → months'; $('#vlab', s).setAttribute('fill', m === 'live' ? C.cy : C.am); if (m === 'live') { jive.setAttribute('stroke', C.vi); jive.setAttribute('stroke-width', 1.8); } });
 })();
 
 /* ---------- SKA ---------- */

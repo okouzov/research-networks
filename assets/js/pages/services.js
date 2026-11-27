@@ -433,8 +433,8 @@ $$('#fair .flip').forEach(f => { f.addEventListener('click', () => f.classList.t
   const s = $('#dmzSvg');
   s.innerHTML = `<rect x="14" y="70" width="70" height="60" rx="10" fill="#0b1834" stroke="${C.vi}"/><text x="49" y="104" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="11">NREN</text>
   <path d="M84 100 C 140 100, 150 50, 200 50 L 420 50" fill="none" stroke="rgba(255,93,122,.35)" stroke-width="10"/><path d="M84 100 C 140 100, 150 150, 200 150 L 420 150" fill="none" stroke="rgba(71,240,162,.3)" stroke-width="14"/>
-  <rect x="240" y="30" width="40" height="40" rx="6" fill="#2a1420" stroke="${C.rd}"/><text x="260" y="55" text-anchor="middle" fill="${C.rd}" font-size="16">🔥</text>
-  <text x="300" y="30" fill="${C.rd}" font-family="JetBrains Mono" font-size="10" lang="bg">обща мрежа · защитна стена</text><text x="300" y="30" fill="${C.rd}" font-family="JetBrains Mono" font-size="10" lang="en">general network · firewall</text>
+  <rect x="210" y="30" width="40" height="40" rx="6" fill="#2a1420" stroke="${C.rd}"/><text x="230" y="55" text-anchor="middle" fill="${C.rd}" font-size="16">🔥</text>
+  <text x="258" y="30" fill="${C.rd}" font-family="JetBrains Mono" font-size="10" lang="bg">обща мрежа · защитна стена</text><text x="258" y="30" fill="${C.rd}" font-family="JetBrains Mono" font-size="10" lang="en">general network · firewall</text>
   <text x="230" y="185" fill="${C.gr}" font-family="JetBrains Mono" font-size="10">SCIENCE DMZ · data transfer nodes</text>
   <rect x="420" y="30" width="86" height="40" rx="8" fill="#0b1834" stroke="#5e7096"/><text x="463" y="55" text-anchor="middle" fill="#cfe0ff" font-family="Golos Text" font-size="11" lang="bg">офиси, Wi-Fi</text><text x="463" y="55" text-anchor="middle" fill="#cfe0ff" font-family="Golos Text" font-size="11" lang="en">offices, Wi-Fi</text>
   <rect x="420" y="130" width="86" height="40" rx="8" fill="#0b1834" stroke="${C.gr}"/><text x="463" y="155" text-anchor="middle" fill="#cfe0ff" font-family="Golos Text" font-size="11" lang="bg">хранилище</text><text x="463" y="155" text-anchor="middle" fill="#cfe0ff" font-family="Golos Text" font-size="11" lang="en">storage</text><g id="dmzP"></g>`;
@@ -442,7 +442,7 @@ $$('#fair .flip').forEach(f => { f.addEventListener('click', () => f.classList.t
   for (let i = 0; i < 14; i++) { const c = document.createElementNS(RN.NS, 'circle'); c.setAttribute('r', i < 4 ? 3.5 : 4); c.setAttribute('fill', i < 4 ? C.rd : C.gr); g.appendChild(c); P.push({ c, slow: i < 4, k: i / 14 }); }
   RN.loop(s, dt => P.forEach(p => {
     p.k = (p.k + dt * (p.slow ? .12 : .45)) % 1; let x, y; const k = p.k;
-    if (p.slow) { const stuck = k > .42 && k < .62; x = stuck ? 236 + (k - .42) * 20 : 84 + k * 336; y = 50 + (k < .3 ? (1 - k / .3) * 50 : 0); }
+    if (p.slow) { const stuck = k > .42 && k < .62; x = stuck ? 226 + (k - .42) * 20 : 84 + k * 336; y = 50 + (k < .3 ? (1 - k / .3) * 50 : 0); }
     else { x = 84 + k * 336; y = 150 - (k < .3 ? (1 - k / .3) * 50 : 0); }
     p.c.setAttribute('cx', x); p.c.setAttribute('cy', y);
   }));

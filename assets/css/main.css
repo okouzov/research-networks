@@ -1076,3 +1076,4 @@ html.vpBigOn,html.vpBigOn body{overflow:hidden}
 .vpList::-webkit-scrollbar-thumb{background:rgba(255,106,213,.55);border-radius:6px}
 .vpList::-webkit-scrollbar-track{background:rgba(255,255,255,.04);border-radius:6px}
 .tvBrand{color:rgba(170,190,235,.6)}
+.vidHead[hidden]{display:none}

@@ -20,12 +20,13 @@
   <div class="wrap">
     <div class="crumbs"><a href="home.html">R&amp;E·NET</a> / <span lang="bg">Мрежи по света</span><span lang="en">World networks</span></div>
     <h1><span lang="bg">Светът, свързан <span class="grad">със светлина</span></span><span lang="en">A world connected <span class="grad">by light</span></span></h1>
-    <p class="lead"><span lang="bg">Регионалните мрежи обединяват националните в общи географски зони и ги свързват през океаните. Тук ще намерите карта, каталог с официалните сайтове и подробни профили на Северна Америка, Азия, Латинска Америка, Африка и трансатлантическия мост.</span><span lang="en">Regional networks unite national ones across geographic zones and link them across the oceans. Here you will find a map, a directory with official websites and in-depth profiles of North America, Asia, Latin America, Africa and the transatlantic bridge.</span></p>
+    <p class="lead"><span lang="bg">Регионалните мрежи обединяват националните в общи географски зони и ги свързват през океаните. Тук ще намерите карта, каталог с официалните сайтове и подробни профили на Европа, Северна Америка, Азия, Латинска Америка, Африка и трансатлантическия мост.</span><span lang="en">Regional networks unite national ones across geographic zones and link them across the oceans. Here you will find a map, a directory with official websites and in-depth profiles of Europe, North America, Asia, Latin America, Africa and the transatlantic bridge.</span></p>
   </div>
 </header>
 <nav class="subnav" data-tabs aria-label="On this page"><div class="wrap">
   <a href="#map-sec"><span lang="bg">Карта</span><span lang="en">Map</span></a>
   <a href="#directory"><span lang="bg">Каталог</span><span lang="en">Directory</span></a>
+  <a href="#europe"><span lang="bg">Европа</span><span lang="en">Europe</span></a>
   <a href="#na"><span lang="bg">Северна Америка</span><span lang="en">North America</span></a>
   <a href="#asia"><span lang="bg">Азия и Океания</span><span lang="en">Asia &amp; Oceania</span></a>
   <a href="#south"><span lang="bg">Латинска Америка и Африка</span><span lang="en">Latin America &amp; Africa</span></a>
@@ -51,6 +52,27 @@
     <h2 class="reveal"><span lang="bg">Официалните сайтове</span><span lang="en">Official websites</span></h2>
     <div class="filters" id="filters"></div>
     <div class="netGrid" id="netGrid"></div>
+  </div>
+</section>
+
+<section id="europe" class="tight">
+  <div class="wrap">
+    <div class="kicker" style="color:var(--g2)"><span lang="bg">Европа</span><span lang="en">Europe</span></div>
+    <h2 class="reveal"><span lang="bg">Как Европа <span class="grad">се свърза</span></span><span lang="en">How Europe <span class="grad">got connected</span></span></h2>
+    <p class="lead reveal" style="max-width:none"><span lang="bg">Пуснете времето и вижте как една след друга държавите получават своя национална изследователска мрежа, а опорната мрежа между тях расте от килобити до 800&nbsp;Gb. Щракнете върху държава за подробности.</span><span lang="en">Press play and watch country after country gain its own national research network, while the backbone between them grows from kilobits to 800&nbsp;Gb. Click a country for details.</span></p>
+    <div class="card mt reveal euGrid">
+      <div class="euMapBox"><svg id="euSvg" viewBox="0 0 640 520" role="img" aria-label="Europe: national research networks over time"></svg>
+        <div class="euCtl"><button class="btn pri" id="euPlay">▶ <span lang="bg">Пуснете</span><span lang="en">Play</span></button><input type="range" id="euYear" min="1976" max="2026" step="1" value="2026" aria-label="Year"></div>
+      </div>
+      <div class="euSide">
+        <div class="euYear" id="euYearBig">2026</div>
+        <div class="euStat"><b id="euCount">0</b><span><span lang="bg">национални мрежи</span><span lang="en">national networks</span></span></div>
+        <div class="euStat"><b id="euEra">—</b><span><span lang="bg">паневропейска опорна мрежа</span><span lang="en">pan-European backbone</span></span></div>
+        <div class="euStat"><b id="euCap">—</b><span><span lang="bg">скорост на опорната мрежа</span><span lang="en">backbone speed</span></span></div>
+        <div class="euCard" id="euCard"><p class="note"><span lang="bg">Щракнете върху държава на картата.</span><span lang="en">Click a country on the map.</span></p></div>
+      </div>
+    </div>
+    <p class="note" style="margin-top:12px;font-size:13px"><span lang="bg">Годината е на заработването на националната мрежа, а където такава дата не е публикувана — на създаването на организацията, програмата или проекта (вижте картичката на държавата). Опорните линии са схематични и показват само поколенията на паневропейската мрежа, не реалното трасе. За държавите с щрихи няма потвърдена година, затова се появяват едва в края.</span><span lang="en">The year is when the national network went live or, where no such date is published, when the organisation, programme or project started (see each country’s card). The backbone lines are schematic: they show the generations of the pan-European network, not the actual routes. Hatched countries have no confirmed year, so they appear only at the end.</span></p>
   </div>
 </section>
 

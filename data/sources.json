@@ -92,6 +92,7 @@
     { "t": "eduGAIN — Entities Database (BIF)", "u": "https://technical.edugain.org/entities", "note": { "bg": "членове на българската федерация BIF", "en": "members of the Bulgarian federation BIF" } },
     { "t": "eduGAIN — Membership status", "u": "https://technical.edugain.org/status", "note": { "bg": "брой федерации в eduGAIN", "en": "number of federations in eduGAIN" } },
     { "t": "Internet2 — About Us", "u": "https://internet2.edu/community/about-us/", "note": { "bg": "брой членове на Internet2 и участници в InCommon", "en": "number of Internet2 members and InCommon participants" } },
+    { "t": "Europe — NREN founding years (Wikipedia and official NREN pages)", "u": "networks.html#europe", "note": { "bg": "годините на 38 европейски национални мрежи; източникът на всяка е в картичката на държавата (проверено ноември 2026)", "en": "years for 38 European national networks; each one’s source is on the country card (checked November 2026)" } },
     { "t": "eduroam.bg — Monitoring", "u": "https://www.eduroam.bg/?page_id=213", "note": { "bg": "RADIUS сървърите на eduroam в България (НИМ)", "en": "eduroam RADIUS servers in Bulgaria (NRN)" } }
   ]
 }

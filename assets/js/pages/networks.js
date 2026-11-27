@@ -172,5 +172,76 @@ $('#southCards').innerHTML = [
   const st = document.createElement('style'); st.textContent = '.anaflow{animation:anaf 2s linear infinite}@keyframes anaf{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}'; document.head.appendChild(st);
 })();
 
+/* ---------- Europe: how the continent got connected (data/europe-growth.json) ----------
+   Countries light up in the year their national research network appeared; schematic backbone
+   links (each new country to the nearest one already lit) thicken with every GÉANT generation. */
+(function europe() {
+  const svg = $('#euSvg'); if (!svg || !window.d3 || !window.topojson) return;
+  RN.data('europe-growth').then(D => {
+    const S = d3.select(svg), W = 640, H = 520;
+    const proj = d3.geoConicConformal().parallels([35, 65]).rotate([-15, 0])
+      .fitExtent([[14, 10], [W - 14, H - 10]], { type: 'MultiPoint', coordinates: [[-24, 36], [48, 36], [-10, 70], [40, 70], [-12, 34], [50, 39]] });
+    const path = d3.geoPath(proj);
+    const byNum = new Map(D.countries.map(c => [c.num, c]));
+    const LAST = 2026;
+    const yOf = c => c.y == null ? LAST : c.y;
+    /* order countries by year; each new one links to the nearest country lit before it */
+    const order = [...D.countries].sort((a, b) => yOf(a) - yOf(b) || (a.y == null) - (b.y == null));
+    const pt = c => proj(c.ll);
+    const links = [];
+    order.forEach((c, i) => { if (!i) return; let best = null, bd = 1e9; const [x, y] = pt(c);
+      for (let j = 0; j < i; j++) { const [a, b] = pt(order[j]), d = (a - x) ** 2 + (b - y) ** 2; if (d < bd) { bd = d; best = order[j]; } }
+      links.push({ a: best, b: c, y: yOf(c) }); });
+    S.append('defs').html(`<pattern id="euHatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="rgba(143,125,255,.12)"/><line x1="0" y1="0" x2="0" y2="6" stroke="rgba(143,125,255,.55)" stroke-width="2"/></pattern>`);
+    const gC = S.append('g'), gL = S.append('g'), gN = S.append('g');
+    let year = LAST, sel = null, playing = null;
+    fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json').then(r => r.json()).then(t => {
+      const feats = topojson.feature(t, t.objects.countries).features.filter(f => {
+        const b = d3.geoBounds(f); return b[1][0] > -32 && b[0][0] < 60 && b[1][1] > 28 && b[0][1] < 75; });
+      gC.selectAll('path').data(feats).join('path').attr('d', path).attr('class', f => byNum.has(f.id) ? 'euC' : 'euC off')
+        .on('click', (e, f) => { const c = byNum.get(f.id); if (c) pick(c); });
+      draw();
+    }).catch(() => {});
+    gL.selectAll('line').data(links).join('line').attr('class', 'euL')
+      .attr('x1', d => pt(d.a)[0]).attr('y1', d => pt(d.a)[1]).attr('x2', d => pt(d.b)[0]).attr('y2', d => pt(d.b)[1]);
+    gN.selectAll('circle').data(D.countries).join('circle').attr('class', 'euN').attr('r', 3.2)
+      .attr('cx', c => pt(c)[0]).attr('cy', c => pt(c)[1]).on('click', (e, c) => pick(c));
+    const eraOf = y => [...D.eras].reverse().find(e => y >= e.y) || null;
+    const host = u => u.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+    function pick(c) {
+      sel = c; const b = c.y == null ? null : (c.bt || D.basis[c.b]);
+      const site = /^https?:/.test(c.url) ? `<a href="${c.url}" target="_blank" rel="noopener">${host(c.url)} ↗</a>` : `<a href="${c.url}">${L('страницата NRN BG', 'the NRN BG page')}</a>`;
+      const src = c.src ? (/^https?:/.test(c.src) ? `<a href="${c.src}" target="_blank" rel="noopener">${L('източник', 'source')} ↗</a>` : `<a href="${c.src}">${L('източник', 'source')}</a>`) : '';
+      $('#euCard').innerHTML = `<div class="euCardHead"><b>${L(c.bg, c.en)}</b><span>${c.iso}</span></div><div class="euNren">${T(c.nren)}</div>`
+        + `<div class="euWhen">${c.y == null ? L('Годината не е потвърдена в източник.', 'No year confirmed in a source.') : `<b>${c.y}</b> · ${L(b.bg, b.en)}`}</div>`
+        + `<div class="euLinks">${site}${src ? ' · ' + src : ''}</div>`;
+      draw();
+    }
+    function draw() {
+      const e = eraOf(year), lit = c => c.y != null ? c.y <= year : year >= LAST;
+      gC.selectAll('path.euC:not(.off)').attr('class', f => { const c = byNum.get(f.id); return 'euC' + (lit(c) ? ' on' : '') + (c.y == null ? ' unk' : '') + (sel === c ? ' sel' : ''); })
+        .attr('fill', f => { const c = byNum.get(f.id); return c.y == null && lit(c) ? 'url(#euHatch)' : null; });
+      gL.selectAll('line').attr('opacity', d => d.y <= year ? (e ? e.c : .5) : 0).attr('stroke-width', e ? e.w : .8);
+      gN.selectAll('circle').attr('opacity', c => lit(c) ? 1 : .18).classed('sel', c => sel === c);
+      $('#euYearBig').textContent = year;
+      $('#euCount').textContent = D.countries.filter(lit).length;
+      $('#euEra').innerHTML = e ? T(e.n) : '—';
+      $('#euCap').innerHTML = e ? L(e.cap.replace('.', ',').replace(/ /g, ' '), e.cap.replace(/ /g, ' ')) : '—';
+      $('#euYear').value = year;
+    }
+    $('#euYear').addEventListener('input', ev => { stop(); year = +ev.target.value; draw(); });
+    const stop = () => { if (playing) { clearInterval(playing); playing = null; $('#euPlay').classList.remove('on'); } };
+    $('#euPlay').addEventListener('click', () => {
+      if (playing) return stop();
+      if (year >= LAST) year = 1976;
+      $('#euPlay').classList.add('on');
+      playing = setInterval(() => { year++; draw(); if (year >= LAST) stop(); }, RN.RM ? 60 : 380);
+      draw();
+    });
+    document.addEventListener('rn:lang', () => { if (sel) pick(sel); else draw(); });
+    draw();
+  }).catch(() => {});
+})();
+
 RN.enhance();
 })();

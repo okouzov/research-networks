@@ -1066,3 +1066,13 @@ body[data-page="networks"] .subnav .wrap{gap:2px}body[data-page="networks"] .sub
 .vp.tv.big .vpBar{background:linear-gradient(180deg,#081226,#060e1f);padding:10px 14px}
 html.vpBigOn,html.vpBigOn body{overflow:hidden}
 @media (max-width:900px){.vpKick,.vpHeading,.vpList,.vidLib .vp{grid-column:1;grid-row:auto}.vpHeading{order:-1}.vpKick{order:-2}.vidLib .vp{order:0}.vpList{order:1}}
+/* video library v4: brand centred in the top bezel, outlined subtitles lower down, scrollable list */
+.tvBrand{top:0;height:16px;line-height:16px;font-size:9.5px;letter-spacing:.22em}
+.tvLed{top:4.5px}
+.vpSub{bottom:4px}
+.vpSub span{background:none;padding:0;color:#fff;text-shadow:-1.5px -1.5px 0 #000,1.5px -1.5px 0 #000,-1.5px 1.5px 0 #000,1.5px 1.5px 0 #000,0 -1.5px 0 #000,0 1.5px 0 #000,-1.5px 0 0 #000,1.5px 0 0 #000,0 0 6px rgba(0,0,0,.8)}
+.vpList{overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(255,106,213,.55) transparent;padding-right:6px;align-self:start}
+.vpList::-webkit-scrollbar{width:6px}
+.vpList::-webkit-scrollbar-thumb{background:rgba(255,106,213,.55);border-radius:6px}
+.vpList::-webkit-scrollbar-track{background:rgba(255,255,255,.04);border-radius:6px}
+.tvBrand{color:rgba(170,190,235,.6)}

@@ -361,6 +361,9 @@ $('#southCards').innerHTML = [
     list.forEach((x, i) => { if (!x.id) x.id = String(i); });
     $('#vpList').addEventListener('click', e => { const b = e.target.closest('.vpItem'); if (!b) return; const it = list.find(x => x.id === b.dataset.id); $('#vpList').classList.add('picked'); if (it && it !== cur) load(it, true); });
     load(list[0], false); ui();
+    /* the list on the left is never taller than the TV; with more clips it scrolls */
+    const fitList = () => { const lst = $('#vpList'); lst.style.maxHeight = innerWidth > 900 ? tvEl.offsetHeight + 'px' : ''; };
+    new ResizeObserver(fitList).observe(tvEl); fitList();
   }).catch(() => {});
 })();
 

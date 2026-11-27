@@ -7,13 +7,13 @@
     "proj": { "bg": "стартира проектът", "en": "project starts" }
   },
   "eras": [
-    { "y": 1984, "n": "EARN / RARE", "cap": "kbps–2 Mbps", "c": 0.55, "w": 0.6 },
-    { "y": 1997, "n": "TEN-34", "cap": "34 Mbps", "c": 0.65, "w": 0.8 },
-    { "y": 1998, "n": "TEN-155", "cap": "155 Mbps", "c": 0.7, "w": 1 },
-    { "y": 2001, "n": "GÉANT", "cap": "2.5–10 Gbps", "c": 0.78, "w": 1.3 },
-    { "y": 2005, "n": "GÉANT2", "cap": "10 Gbps", "c": 0.84, "w": 1.6 },
-    { "y": 2013, "n": { "bg": "GÉANT, 100 Gb ера", "en": "GÉANT, 100 Gb era" }, "cap": "100 Gbps", "c": 0.9, "w": 1.9 },
-    { "y": 2026, "n": "GÉANT 800 Gb", "cap": "2 × 400 Gbps", "c": 1, "w": 2.3 }
+    { "y": 1984, "n": "EARN / RARE", "cap": "kbps–2 Mbps", "c": 0.55, "w": 0.4 },
+    { "y": 1997, "n": "TEN-34", "cap": "34 Mbps", "c": 0.65, "w": 0.5 },
+    { "y": 1998, "n": "TEN-155", "cap": "155 Mbps", "c": 0.7, "w": 0.6 },
+    { "y": 2001, "n": "GÉANT", "cap": "2.5–10 Gbps", "c": 0.78, "w": 0.8 },
+    { "y": 2005, "n": "GÉANT2", "cap": "10 Gbps", "c": 0.84, "w": 1 },
+    { "y": 2013, "n": { "bg": "GÉANT, 100 Gb ера", "en": "GÉANT, 100 Gb era" }, "cap": "100 Gbps", "c": 0.9, "w": 1.2 },
+    { "y": 2026, "n": "GÉANT 800 Gb", "cap": "2 × 400 Gbps", "c": 1, "w": 1.4 }
   ],
   "countries": [
     { "iso": "GB", "num": "826", "ll": [-0.13, 51.51], "bg": "Великобритания", "en": "United Kingdom", "nren": "Janet (Jisc)", "url": "https://www.jisc.ac.uk/janet", "y": 1984, "b": "net", "src": "https://en.wikipedia.org/wiki/JANET" },

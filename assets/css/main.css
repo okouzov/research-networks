@@ -946,7 +946,7 @@ body[data-page="sources"] .toolbar{margin-bottom:0}
 .euC.on{fill:rgba(143,125,255,.38);stroke:rgba(190,180,255,.75)}
 .euC:not(.off):hover{stroke:#fff;stroke-width:1.2}
 .euC.sel{stroke:var(--am);stroke-width:1.8}
-.euL{stroke:var(--cy);stroke-linecap:round;transition:opacity .35s,stroke-width .35s;filter:drop-shadow(0 0 3px rgba(62,230,255,.6));pointer-events:none}
+.euL{stroke:var(--cy);stroke-linecap:round;transition:opacity .35s,stroke-width .35s;filter:drop-shadow(0 0 2px rgba(62,230,255,.5));pointer-events:none}
 .euN{fill:#e7efff;stroke:#0b1834;stroke-width:1;cursor:pointer;transition:opacity .35s}
 .euN.sel{fill:var(--am)}
 .euCtl{display:flex;align-items:center;gap:14px;margin-top:12px}

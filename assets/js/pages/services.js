@@ -5,8 +5,8 @@ const { $, $$, L, C } = RN;
 /* Scenario switch shared by eduroam and eduGAIN:
    out = a Bulgarian researcher abroad, in = a visiting researcher in Bulgaria */
 const SCN = [['out', ['Българин в чужбина', 'Bulgarian abroad']], ['in', ['Гост учен в България', 'Visiting researcher in Bulgaria']]];
-function scenSwitch(el, pick) {
-  el.innerHTML = SCN.map(([id, t], i) => `<button class="chip${i ? '' : ' on'}" data-s="${id}" aria-pressed="${!i}">${L(...t)}</button>`).join('');
+function scenSwitch(el, pick, list = SCN) {
+  el.innerHTML = list.map(([id, t], i) => `<button class="chip${i ? '' : ' on'}" data-s="${id}" aria-pressed="${!i}">${L(...t)}</button>`).join('');
   el.addEventListener('click', e => {
     const b = e.target.closest('.chip'); if (!b || b.classList.contains('on')) return;
     if (pick(b.dataset.s) === false) return; // busy: keep the current scenario
@@ -202,6 +202,120 @@ const boxLabel = (x, y, col, bg, en) => `<text x="${x}" y="${y}" fill="${col}" f
   });
   scenSwitch($('#gainScen'), id => { if (running) return false; build(id); });
   build('out');
+})();
+
+/* ---------- AARC: one community proxy in front of all the project's services ---------- */
+(function aarc() {
+  const svg = $('#aarcSvg'), ol = $('#aarcSteps'); if (!svg) return;
+  const PK = C.pk;
+  const LOGIN_INST = [['Вход в собствената|институция', 'Login at the|home institution'], 'IdP · eduGAIN'];
+  const BASE = {
+    proxy: [280, 180, ['Прокси на|общността', 'Community|proxy'], 'SP-IdP proxy', 'b', PK],
+    comm: [280, 60, ['Регистър на общността', 'Community registry'], 'VO · groups · roles', 'a', C.vi],
+    s1: [480, 90, ['Изчислителен|клъстер', 'Computing|cluster'], '', 'b'],
+    s3: [480, 270, ['Инструменти|и wiki', 'Tools|and wiki'], '', 'b'],
+  };
+  const FULL = [['up', 0, C.am], ['pi', 1, C.am], ['pause', 2, 'idp'], ['pi', 3, C.gr, true], ['pc', 4, C.vi], ['pc', 4, C.vi, true], ['ps1', 5, C.gr], ['ps2', 5, C.gr], ['ps3', 5, C.gr]];
+  const SC = {
+    inst: {
+      user: [70, 305, ['Учен', 'Researcher'], 'user@uni.bg', 'r'],
+      idp: [95, 110, ...LOGIN_INST, 'b'],
+      s2: [480, 180, ['Хранилище|за данни', 'Data|repository'], '', 'b'],
+      seq: FULL,
+      steps: [
+        ['Учен от международен проект отваря изчислителния клъстер, който го пренасочва към проксито на общността — общата входна врата за всички услуги.', 'A researcher in an international project opens the computing cluster, which redirects them to the community proxy — the single front door to all its services.'],
+        ['Проксито пита откъде е, и той избира своя университет — входът минава през eduGAIN.', 'The proxy asks where they are from, and they pick their university — the login goes through eduGAIN.'],
+        ['Въвежда паролата си в собствената институция — проектът никога не я вижда.', 'They enter their password at their home institution — the project never sees it.'],
+        ['Институцията потвърждава кой е ученият и връща данните към проксито.', 'The institution confirms who the researcher is and sends the data back to the proxy.'],
+        ['Проксито добавя от регистъра на общността членството му: проект, групи и роли.', 'The proxy adds their membership from the community registry: project, groups and roles.'],
+        ['Всяка услуга получава един и същ набор от данни и сама решава какво да разреши.', 'Every service receives the same set of attributes and decides for itself what to allow.'],
+        ['Един вход — достъп до всички услуги на проекта, без нови акаунти и пароли.', 'One login — access to all the project’s services, with no new accounts or passwords.'],
+      ],
+    },
+    guest: {
+      user: [70, 305, ['Гост', 'Guest'], 'ORCID iD', 'r'],
+      idp: [95, 110, ['Вход с ORCID', 'Sign in with ORCID'], 'orcid.org', 'b'],
+      s2: [480, 180, ['Хранилище|за данни', 'Data|repository'], '', 'b'],
+      seq: FULL,
+      steps: [
+        ['Докторант от партньор без вход в eduGAIN отваря изчислителния клъстер на проекта и попада в проксито на общността.', 'A doctoral student from a partner without an eduGAIN login opens the project’s computing cluster and lands at the community proxy.'],
+        ['Институцията му не е във федерация, затова той избира вход с ORCID.', 'Their institution is not in a federation, so they choose to sign in with ORCID.'],
+        ['Влиза в профила си в ORCID — проектът не вижда паролата му.', 'They sign in to their ORCID profile — the project does not see their password.'],
+        ['ORCID потвърждава самоличността му, а проксито отбелязва, че нивото на доверие е по-ниско от институционалното.', 'ORCID confirms their identity, and the proxy notes that the level of assurance is lower than an institutional one.'],
+        ['Ръководителят на проекта предварително е одобрил членството му, затова проксито намира групите и ролите му в регистъра.', 'The project lead approved their membership in advance, so the proxy finds their groups and roles in the registry.'],
+        ['Всяка услуга получава един и същ набор от данни и сама решава какво да разреши.', 'Every service receives the same set of attributes and decides for itself what to allow.'],
+        ['Гостът работи наравно с колегите си — без акаунт, създаден специално за него.', 'The guest works on equal terms with colleagues — without an account created just for them.'],
+      ],
+    },
+    mfa: {
+      user: [70, 305, ['Учен', 'Researcher'], 'user@uni.bg', 'r'],
+      idp: [95, 110, ...LOGIN_INST, 'b'],
+      mfa: [185, 300, ['Втори фактор', 'Second factor'], 'MFA', 'a', C.am],
+      s2: [480, 180, ['Чувствителни|данни', 'Sensitive|data'], '', 'b'],
+      seq: [['up', 0, C.am], ['pi', 1, C.am], ['pause', 2, 'idp'], ['pi', 3, C.gr, true], ['pm', 4, C.am], ['pause', 4, 'mfa'], ['pm', 4, C.am, true], ['pc', 5, C.vi], ['pc', 5, C.vi, true], ['ps2', 6, C.gr]],
+      steps: [
+        ['Учен отваря хранилище с чувствителни (например медицински) данни и попада в проксито на общността.', 'A researcher opens a repository with sensitive (for example medical) data and lands at the community proxy.'],
+        ['Проксито пита откъде е, и той избира своя университет — входът минава през eduGAIN.', 'The proxy asks where they are from, and they pick their university — the login goes through eduGAIN.'],
+        ['Въвежда паролата си в собствената институция — проектът никога не я вижда.', 'They enter their password at their home institution — the project never sees it.'],
+        ['Институцията потвърждава кой е ученият и връща данните към проксито.', 'The institution confirms who the researcher is and sends the data back to the proxy.'],
+        ['Данните са чувствителни, затова проксито изисква и втори фактор — код от приложение на телефона.', 'The data is sensitive, so the proxy also requires a second factor — a code from a phone app.'],
+        ['Проксито добавя от регистъра на общността членството му: проект, групи и роли.', 'The proxy adds their membership from the community registry: project, groups and roles.'],
+        ['Хранилището вижда, че входът е с два фактора, и отваря защитените данни.', 'The repository sees that the login used two factors and opens the protected data.'],
+        ['Достъп с по-високо ниво на доверие — само там, където наистина е нужно.', 'Access at a higher level of assurance — only where it is really needed.'],
+      ],
+    },
+  };
+  const SCN_A = [['inst', ['Учен от институция', 'Researcher with an institution']], ['guest', ['Гост без институция', 'Guest without an institution']], ['mfa', ['Чувствителни данни', 'Sensitive data']]];
+  let pk, ok, ring, S, N, running = false;
+  const mark = i => $$('li', ol).forEach((li, j) => li.classList.toggle('on', j === i));
+  const W = '#e7efff';
+  const icon = (k, x, y) => k === 'user' ? `<rect x="${x - 8}" y="${y - 6}" width="16" height="10" rx="1.5" fill="none" stroke="${W}" stroke-width="1.4"/><path d="M${x - 10} ${y + 6}h20" stroke="${W}" stroke-width="1.4"/>`
+    : k === 'idp' ? `<rect x="${x - 6}" y="${y - 2}" width="12" height="9" rx="1.5" fill="none" stroke="${W}" stroke-width="1.4"/><path d="M${x - 4} ${y - 2}v-3a4 4 0 0 1 8 0v3" fill="none" stroke="${W}" stroke-width="1.4"/>`
+    : k === 'mfa' ? `<rect x="${x - 5}" y="${y - 8}" width="10" height="16" rx="2" fill="none" stroke="${W}" stroke-width="1.4"/><circle cx="${x}" cy="${y + 5}" r="1" fill="${W}"/>`
+    : k === 'comm' ? `<circle cx="${x - 4}" cy="${y - 3}" r="2.6" fill="none" stroke="${W}" stroke-width="1.3"/><circle cx="${x + 4}" cy="${y - 3}" r="2.6" fill="none" stroke="${W}" stroke-width="1.3"/><path d="M${x - 9} ${y + 7}a5 5 0 0 1 10 0M${x - 1} ${y + 7}a5 5 0 0 1 10 0" fill="none" stroke="${W}" stroke-width="1.3"/>`
+    : k === 'proxy' ? `<path d="M${x} ${y - 10}l8 3.5v5.5c0 5-3.4 8-8 9c-4.6-1-8-4-8-9V${y - 6.5}z" fill="none" stroke="${W}" stroke-width="1.4"/><path d="M${x - 3.5} ${y + 1}l2.5 2.5 4.5-5" fill="none" stroke="${W}" stroke-width="1.4"/>`
+    : k === 's2' ? `<ellipse cx="${x}" cy="${y - 5}" rx="7" ry="2.6" fill="none" stroke="${W}" stroke-width="1.3"/><path d="M${x - 7} ${y - 5}v10a7 2.6 0 0 0 14 0v-10M${x - 7} ${y}a7 2.6 0 0 0 14 0" fill="none" stroke="${W}" stroke-width="1.3"/>`
+    : k === 's3' ? `<path d="M${x - 7} ${y - 6}h14M${x - 7} ${y - 1}h14M${x - 7} ${y + 4}h9" stroke="${W}" stroke-width="1.4"/>`
+    : `<rect x="${x - 7}" y="${y - 7}" width="14" height="14" rx="2" fill="none" stroke="${W}" stroke-width="1.4"/><path d="M${x - 4} ${y - 2}h8M${x - 4} ${y + 2}h8" stroke="${W}" stroke-width="1.2"/>`;
+  const build = id => {
+    S = SC[id];
+    N = { ...BASE, user: S.user, idp: S.idp, s2: S.s2, ...(S.mfa ? { mfa: S.mfa } : {}) };
+    const P = (a, b) => `M${N[a][0]},${N[a][1]} L${N[b][0]},${N[b][1]}`;
+    const R = { up: P('user', 'proxy'), pi: P('proxy', 'idp'), pc: P('proxy', 'comm'), ps1: P('proxy', 's1'), ps2: P('proxy', 's2'), ps3: P('proxy', 's3'), ...(S.mfa ? { pm: P('proxy', 'mfa') } : {}) };
+    let h = `<rect x="10" y="62" width="225" height="290" rx="12" fill="none" stroke="rgba(71,240,162,.25)" stroke-dasharray="5 5"/>` + boxLabel(20, 344, '#47f0a2', 'УЧЕН И НЕГОВИЯТ ВХОД', 'RESEARCHER AND LOGIN');
+    h += `<rect x="410" y="50" width="140" height="302" rx="12" fill="none" stroke="rgba(255,106,213,.3)" stroke-dasharray="5 5"/>` + boxLabel(420, 344, PK, 'УСЛУГИ НА ПРОЕКТА', 'PROJECT SERVICES');
+    Object.entries(R).forEach(([rid, d]) => { const meta = rid === 'pc';
+      h += `<path id="aR_${rid}" d="${d}" fill="none" stroke="${meta ? 'rgba(143,125,255,.45)' : 'rgba(120,170,255,.28)'}" stroke-width="1.6" stroke-dasharray="${meta ? '2 4' : '4 5'}"/>`; });
+    Object.entries(N).forEach(([k, [x, y, t, s, lp, col]]) => {
+      h += `<g><circle cx="${x}" cy="${y}" r="${k === 'proxy' ? 21 : 17}" fill="#0b1834" stroke="${col || C.cy}" stroke-width="${k === 'proxy' ? 2.2 : 1.6}"/>${icon(k, x, y)}${nodeLabel(x, y, t, s, lp)}</g>`;
+    });
+    h += `<circle id="aarcRing" r="17" fill="none" stroke="${C.am}" stroke-width="3" opacity="0"/>`;
+    h += `<circle id="aarcPk" r="6" fill="${C.am}" opacity="0" style="filter:drop-shadow(0 0 6px ${C.am})"/><text id="aarcOk" x="${N.user[0] + 24}" y="${N.user[1] - 24}" fill="${C.gr}" font-family="Geologica" font-weight="700" font-size="14" opacity="0"><tspan lang="bg">✓ ВЪТРЕ</tspan><tspan lang="en">✓ SIGNED IN</tspan></text>`;
+    svg.innerHTML = h; pk = $('#aarcPk', svg); ok = $('#aarcOk', svg); ring = $('#aarcRing', svg);
+    ol.innerHTML = S.steps.map(s => `<li>${L(...s)}</li>`).join(''); mark(0);
+  };
+  $('#aarcBtn').addEventListener('click', () => {
+    if (running) return; running = true; ok.setAttribute('opacity', 0);
+    const SEQ = S.seq, dur = s => RN.RM ? 60 : s[0] === 'pause' ? 1100 : 650;
+    let i = 0, t0 = null;
+    const f = now => {
+      if (t0 === null) t0 = now;
+      const s = SEQ[i], k = Math.min(1, (now - t0) / dur(s));
+      mark(s[1]);
+      if (s[0] === 'pause') { const [x, y] = N[s[2]]; pk.setAttribute('opacity', 0); ring.setAttribute('cx', x); ring.setAttribute('cy', y); ring.setAttribute('opacity', (Math.sin(k * Math.PI * 3) * .5 + .5).toFixed(2)); }
+      else {
+        ring.setAttribute('opacity', 0);
+        const p = $('#aR_' + s[0], svg), L0 = p.getTotalLength(), q = p.getPointAtLength((s[3] ? 1 - k : k) * L0);
+        pk.setAttribute('opacity', 1); pk.setAttribute('fill', s[2]); pk.style.filter = `drop-shadow(0 0 6px ${s[2]})`;
+        pk.setAttribute('cx', q.x); pk.setAttribute('cy', q.y);
+      }
+      if (k >= 1) { i++; t0 = now; if (i >= SEQ.length) { pk.setAttribute('opacity', 0); ring.setAttribute('opacity', 0); ok.setAttribute('opacity', 1); mark(S.steps.length - 1); running = false; return; } }
+      requestAnimationFrame(f);
+    };
+    requestAnimationFrame(f);
+  });
+  scenSwitch($('#aarcScen'), id => { if (running) return false; build(id); }, SCN_A);
+  build('inst');
 })();
 
 /* ---------- eduroam in Bulgaria (data/eduroam.json) ----------

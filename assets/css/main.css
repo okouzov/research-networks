@@ -906,3 +906,14 @@ html[lang=en] #copernicus h2{font-size:clamp(30px,4.4vw,52px)}
 .idTabs{margin:16px 0 0 24px;position:relative;z-index:1}
 .idPane>.card:first-child,.idPane>.mt:first-child{margin-top:0}
 .subnav[data-tabs] ~ section .idPane>.mt:first-child{margin-top:0}
+/* AARC diagram: same layout as eduGAIN, three scenarios under the heading */
+.aarcGrid{grid-template-columns:1.2fr 1fr}
+.aarcGrid .roamSteps li{padding-left:44px;padding-right:10px}
+.aarcGrid .scen{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.aarcGrid .scen button{font-size:13px;padding:5px 10px;white-space:nowrap}
+@media (max-width:900px){.aarcGrid{grid-template-columns:1fr}}
+.aarcGrid .roamSteps li{padding-top:9px;padding-bottom:9px}
+.aarcGrid .scen{margin-bottom:8px}
+.aarcGrid .roamL .ctl{margin-top:29px !important}
+html[lang=en] .aarcGrid .roamL .ctl{margin-top:35px !important}
+html[lang=en] .aarcGrid .roamSteps li{font-size:14px;line-height:1.5}

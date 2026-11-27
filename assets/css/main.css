@@ -967,3 +967,4 @@ body[data-page="sources"] .toolbar{margin-bottom:0}
 .euLinks{font-size:13.5px;margin-top:8px}
 @media (max-width:900px){.euGrid{grid-template-columns:1fr}.euYear{font-size:48px}}
 .euCardHead{align-items:center}.euCardHead>span{font-size:36px;line-height:1;letter-spacing:.02em}
+.euCardHead b span{font-size:14px;font-weight:600;color:var(--tx)}

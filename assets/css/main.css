@@ -933,3 +933,4 @@ body[data-page="data"] .phero{padding-bottom:32px}
 .skTabs .chip>.sk{display:inline-block;transform:skewX(28deg)}
 .skTabs .chip:hover{background:color-mix(in srgb,var(--c) 18%,transparent)}
 .skTabs .chip.on{background:var(--c);border-color:var(--c);color:var(--on)}
+.skTabs{padding-left:23px}

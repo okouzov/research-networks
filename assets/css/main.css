@@ -1087,3 +1087,5 @@ body[data-page="networks"] .phero{padding-bottom:6px}body[data-page="networks"] 
 .vp.tv.big .vpStage,.vp.tv:fullscreen .vpStage{border-radius:12px;box-shadow:0 0 0 2px #02050d,0 0 0 3px rgba(255,255,255,.05),inset 0 0 40px rgba(0,0,0,.6)}
 .vp.tv.big .vpStage::after,.vp.tv:fullscreen .vpStage::after,.vp.tv.big .tvBrand,.vp.tv:fullscreen .tvBrand,.vp.tv.big .tvLed,.vp.tv:fullscreen .tvLed{display:block}
 .vp.tv.big .vpBar,.vp.tv:fullscreen .vpBar{background:none;padding:12px 4px}
+.tvBrand{top:0;height:23px;line-height:23px}.tvLed{top:8px}
+.tvBrand{top:-.5px}

@@ -53,7 +53,6 @@ RN.PAGES = [
   { id: 'services', href: 'services.html', bg: 'GÉANT услуги', en: 'GÉANT services', d: { bg: 'eduroam, eduGAIN, облак, EOSC, квантови мрежи', en: 'eduroam, eduGAIN, cloud, EOSC, quantum networks' } },
   { id: 'history', href: 'history.html', bg: 'История', en: 'History', d: { bg: 'От ARPANET до 800 Gb — 60 години в хронология', en: 'From ARPANET to 800 Gb — 60 years on a timeline' } },
   { id: 'data', href: 'data.html', bg: 'Данни', en: 'Data', d: { bg: 'Търсими таблици с числа, мрежи и събития', en: 'Searchable tables of figures, networks and events' } },
-  { id: 'videos', href: 'videos.html', bg: 'Видеотека', en: 'Video library', d: { bg: 'Подбрани видеа за изследователските мрежи', en: 'Selected videos on research networks' } },
   { id: 'bulgaria', href: 'bulgaria.html', bg: 'NRN BG', en: 'NRN BG', d: { bg: 'Българската национална изследователска мрежа: карта, история, услуги', en: 'The Bulgarian national research network: map, history, services' } },
   { id: 'sources', href: 'sources.html', bg: 'Източници', en: 'Sources', d: { bg: '75 източника от двата доклада + проверени адреси', en: '75 sources from the two reports + verified links' } },
 ];

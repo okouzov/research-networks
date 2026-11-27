@@ -434,7 +434,7 @@ $$('#fair .flip').forEach(f => { f.addEventListener('click', () => f.classList.t
 (function dmz() {
   const s = $('#dmzSvg');
   s.innerHTML = `<rect x="14" y="70" width="70" height="60" rx="10" fill="#0b1834" stroke="${C.vi}"/><text x="49" y="104" text-anchor="middle" fill="#fff" font-family="JetBrains Mono" font-size="11">NREN</text>
-  <path id="dmzR" d="M84 100 C 140 100, 150 50, 200 50 L 420 50" fill="none" stroke="rgba(255,93,122,.35)" stroke-width="10"/><path id="dmzG" d="M84 100 C 140 100, 150 150, 200 150 L 420 150" fill="none" stroke="rgba(71,240,162,.3)" stroke-width="14"/><g id="dmzP"></g>
+  <path id="dmzR" d="M84 86 C 140 86, 150 50, 200 50 L 420 50" fill="none" stroke="rgba(255,93,122,.35)" stroke-width="10"/><path id="dmzG" d="M84 116 C 140 116, 150 150, 200 150 L 420 150" fill="none" stroke="rgba(71,240,162,.3)" stroke-width="14"/><g id="dmzP"></g>
   <rect x="210" y="30" width="40" height="40" rx="6" fill="#2a1420" stroke="${C.rd}"/><text x="230" y="55" text-anchor="middle" fill="${C.rd}" font-size="16">🔥</text>
   <text x="258" y="30" fill="${C.rd}" font-family="JetBrains Mono" font-size="10" lang="bg">обща мрежа · защитна стена</text><text x="258" y="30" fill="${C.rd}" font-family="JetBrains Mono" font-size="10" lang="en">general network · firewall</text>
   <text x="230" y="185" fill="${C.gr}" font-family="JetBrains Mono" font-size="10" lang="bg">SCIENCE DMZ · възли за пренос на данни</text><text x="230" y="185" fill="${C.gr}" font-family="JetBrains Mono" font-size="10" lang="en">SCIENCE DMZ · data transfer nodes</text>

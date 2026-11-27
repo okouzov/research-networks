@@ -485,3 +485,25 @@ RN.enhance();
   };
   bar.addEventListener('click', e => { const b = e.target.closest('.chip'); if (b) pick(b.dataset.p); });
 })();
+
+/* Steps: tighter line spacing (about 3.5px less per line) while every box keeps its height —
+   the saved space goes into the top/bottom padding, so the text sits centred in the same box */
+(() => {
+  const lists = [...document.querySelectorAll('.roamSteps')]; if (!lists.length) return;
+  const tight = ol => { if (!ol.offsetParent) return;
+    const lis = [...ol.children];
+    lis.forEach(li => { li.style.lineHeight = ''; li.style.paddingTop = ''; li.style.paddingBottom = ''; });
+    lis.forEach(li => {
+      const cs = getComputedStyle(li), lh = parseFloat(cs.lineHeight), fs = parseFloat(cs.fontSize), pt = parseFloat(cs.paddingTop), pb = parseFloat(cs.paddingBottom);
+      const n = Math.max(1, Math.round((li.clientHeight - pt - pb) / lh)), d = Math.min(3.5, lh - fs * 1.25); if (d <= 0) return;
+      li.style.lineHeight = (lh - d) + 'px'; li.style.paddingTop = (pt + n * d / 2) + 'px'; li.style.paddingBottom = (pb + n * d / 2) + 'px';
+    });
+  };
+  const all = () => lists.forEach(tight);
+  lists.forEach(ol => new MutationObserver(() => tight(ol)).observe(ol, { childList: true }));
+  document.addEventListener('rn:lang', () => setTimeout(all, 0));
+  document.addEventListener('rn:tab', () => setTimeout(all, 0));
+  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(all, 120); });
+  const bar = document.querySelector('.idTabs'); if (bar) bar.addEventListener('click', () => setTimeout(all, 0));
+  all();
+})();

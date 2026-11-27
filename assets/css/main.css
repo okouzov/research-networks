@@ -1077,3 +1077,4 @@ html.vpBigOn,html.vpBigOn body{overflow:hidden}
 .vpList::-webkit-scrollbar-track{background:rgba(255,255,255,.04);border-radius:6px}
 .tvBrand{color:rgba(170,190,235,.6)}
 .vidHead[hidden]{display:none}
+body[data-page="networks"] .phero{padding-bottom:6px}body[data-page="networks"] .phero .lead{max-width:none}#videos.tight{padding-top:0}#videos .vidLib{margin-top:17px}

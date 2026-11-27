@@ -935,3 +935,5 @@ body[data-page="data"] .phero{padding-bottom:32px}
 .skTabs .chip.on{background:var(--c);border-color:var(--c);color:var(--on)}
 .skTabs{padding-left:23px}
 body[data-page="sources"] .phero{padding-bottom:24px}body[data-page="sources"] section.tight{padding-top:34px}body[data-page="sources"] #srcBody>.mt:first-child{margin-top:22px}
+body[data-page="sources"] .phero{padding-bottom:2px}body[data-page="sources"] section.tight{padding-top:8px}body[data-page="sources"] #srcBody>.mt:first-child{margin-top:11px}
+body[data-page="sources"] .toolbar{margin-bottom:0}

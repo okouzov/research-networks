@@ -885,3 +885,4 @@ html[lang=en] .gainGrid .roamL .ctl{margin-top:26px !important}
 .hRed{color:var(--nrn);font-weight:600}.hBlue{color:#4f8cff;font-weight:600}
 .hPur{color:var(--g2);font-weight:600}
 html[lang=en] .kHead .kSub.ticker{margin-top:1px}
+.pillLinks .pill a{color:var(--tx);text-decoration:none;border-bottom:1px dotted var(--cy)}.pillLinks .pill a:hover{color:var(--cy);border-bottom-style:solid}

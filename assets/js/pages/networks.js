@@ -243,5 +243,95 @@ $('#southCards').innerHTML = [
   }).catch(() => {});
 })();
 
+/* ---------- Video library (data/videos.json): own player with play/pause, seek, volume, BG/EN subtitles, full screen ----------
+   Subtitles are read from .vtt or .srt files and drawn in our own overlay, so both formats work and look the same everywhere. */
+(function videos() {
+  const lib = $('#vidLib'); if (!lib) return;
+  const v = $('#vpVideo'), sub = $('#vpSub'), seek = $('#vpSeek'), vol = $('#vpVol'), menu = $('#vpMenu');
+  const IC = {
+    play: '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>',
+    pause: '<svg viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg>',
+    vol: '<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+    mute: '<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+    full: '<svg viewBox="0 0 24 24"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+  };
+  const fmt = s => { s = Math.max(0, Math.floor(s || 0)); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = String(s % 60).padStart(2, '0'); return h ? `${h}:${String(m).padStart(2, '0')}:${x}` : `${m}:${x}`; };
+  /* SRT or VTT -> [{a, b, t}] */
+  const ts = x => { const p = x.trim().replace(',', '.').split(':').map(Number); return p.length === 3 ? p[0] * 3600 + p[1] * 60 + p[2] : p[0] * 60 + p[1]; };
+  const parse = txt => txt.replace(/\r/g, '').split(/\n{2,}/).map(b => {
+    const ls = b.split('\n'), k = ls.findIndex(l => l.includes('-->')); if (k < 0) return null;
+    const [a, z] = ls[k].split('-->'); return { a: ts(a), b: ts(z.trim().split(/\s+/)[0]), t: ls.slice(k + 1).join('\n').replace(/<[^>]+>/g, '') };
+  }).filter(Boolean);
+  let list = [], cur = null, cues = { bg: null, en: null }, track = 'off', userTrack = false;
+  const esc = s => String(s).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+  const showSub = () => {
+    const cs = track !== 'off' && cues[track]; if (!cs) { sub.innerHTML = ''; return; }
+    const t = v.currentTime, c = cs.find(q => t >= q.a && t <= q.b);
+    sub.innerHTML = c ? `<span>${esc(c.t).replace(/\n/g, '<br>')}</span>` : '';
+  };
+  const menuHtml = () => {
+    const opts = [['off', L('Без субтитри', 'Off')], ...['bg', 'en'].filter(l => cur && cur.subs && cur.subs[l]).map(l => [l, l === 'bg' ? 'Български' : 'English'])];
+    menu.innerHTML = opts.map(([k, t]) => `<button data-k="${k}" class="${k === track ? 'on' : ''}">${t}</button>`).join('');
+    $('#vpCC').classList.toggle('on', track !== 'off');
+    $('#vpCC').disabled = opts.length < 2;
+  };
+  const setTrack = k => { track = k; menuHtml(); showSub(); };
+  const load = (item, autoplay) => {
+    cur = item; cues = { bg: null, en: null };
+    v.src = item.src; if (item.poster) v.poster = item.poster; else v.removeAttribute('poster');
+    $('#vpTitle').innerHTML = T(item.t); $('#vpDesc').innerHTML = item.d ? T(item.d) : '';
+    $$('.vpItem', lib).forEach(b => b.classList.toggle('on', b.dataset.id === item.id));
+    ['bg', 'en'].forEach(l => { const u = item.subs && item.subs[l]; if (u) fetch(u).then(r => r.ok ? r.text() : '').then(t => { if (cur === item) { cues[l] = parse(t); showSub(); } }).catch(() => {}); });
+    if (!userTrack) track = 'off';
+    if (track !== 'off' && !(item.subs && item.subs[track])) track = 'off';
+    menuHtml(); sub.innerHTML = ''; seek.value = 0;
+    if (autoplay) v.play().catch(() => {});
+  };
+  const ui = () => {
+    const p = !v.paused && !v.ended;
+    $('#vpPlay').innerHTML = p ? IC.pause : IC.play; $('#vpBig').hidden = p; lib.querySelector('.vp').classList.toggle('playing', p);
+    $('#vpMute').innerHTML = v.muted || v.volume === 0 ? IC.mute : IC.vol;
+    $('#vpTime').textContent = `${fmt(v.currentTime)} / ${fmt(v.duration)}`;
+    if (v.duration) { seek.value = Math.round(v.currentTime / v.duration * 1000); seek.style.setProperty('--p', (v.currentTime / v.duration * 100) + '%'); }
+    vol.style.setProperty('--p', ((v.muted ? 0 : v.volume) * 100) + '%');
+  };
+  const toggle = () => v.paused || v.ended ? v.play().catch(() => {}) : v.pause();
+  $('#vpPlay').addEventListener('click', toggle); $('#vpBig').addEventListener('click', toggle); v.addEventListener('click', toggle);
+  ['play', 'pause', 'ended', 'loadedmetadata', 'volumechange', 'durationchange'].forEach(e => v.addEventListener(e, ui));
+  v.addEventListener('timeupdate', () => { ui(); showSub(); });
+  seek.addEventListener('input', () => { if (v.duration) { v.currentTime = seek.value / 1000 * v.duration; showSub(); } });
+  vol.addEventListener('input', () => { v.volume = +vol.value; v.muted = v.volume === 0; });
+  $('#vpMute').addEventListener('click', () => { if (v.muted || v.volume === 0) { v.muted = false; if (v.volume === 0) v.volume = .6; vol.value = v.volume; } else v.muted = true; });
+  $('#vpCC').addEventListener('click', e => { e.stopPropagation(); menu.hidden = !menu.hidden; });
+  menu.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; userTrack = true; setTrack(b.dataset.k); menu.hidden = true; });
+  document.addEventListener('click', e => { if (!e.target.closest('.vpCC')) menu.hidden = true; });
+  $('#vpFull').addEventListener('click', () => { const el = lib.querySelector('.vp'); if (document.fullscreenElement) document.exitFullscreen(); else (el.requestFullscreen || el.webkitRequestFullscreen).call(el); });
+  /* keyboard while the player has focus: space/k play, ←/→ 5 s, ↑/↓ volume, m mute, c subtitles, f full screen */
+  lib.querySelector('.vp').addEventListener('keydown', e => {
+    if (e.target.matches('input[type=range]') && /Arrow/.test(e.key)) return;
+    const k = e.key.toLowerCase();
+    if (k === ' ' || k === 'k') { e.preventDefault(); toggle(); }
+    else if (k === 'arrowright') v.currentTime = Math.min(v.duration || 0, v.currentTime + 5);
+    else if (k === 'arrowleft') v.currentTime = Math.max(0, v.currentTime - 5);
+    else if (k === 'arrowup') { e.preventDefault(); v.volume = Math.min(1, v.volume + .1); vol.value = v.volume; }
+    else if (k === 'arrowdown') { e.preventDefault(); v.volume = Math.max(0, v.volume - .1); vol.value = v.volume; }
+    else if (k === 'm') $('#vpMute').click();
+    else if (k === 'c') { const ks = ['off', ...['bg', 'en'].filter(l => cur && cur.subs && cur.subs[l])]; userTrack = true; setTrack(ks[(ks.indexOf(track) + 1) % ks.length]); }
+    else if (k === 'f') $('#vpFull').click();
+  });
+  lib.querySelector('.vp').tabIndex = 0;
+  /* pause when the visitor leaves the tab */
+  document.addEventListener('rn:tab', e => { if (e.detail !== 'videos') v.pause(); });
+  document.addEventListener('rn:lang', () => { menuHtml(); if (cur) { $('#vpTitle').innerHTML = T(cur.t); } });
+  RN.data('videos').then(D => {
+    list = (D.videos || []).filter(x => x && x.src); if (!list.length) return;
+    $('#vidWip').hidden = true; lib.hidden = false;
+    $('#vpList').innerHTML = list.map((x, i) => `<button class="vpItem" data-id="${x.id || i}"><span class="vpThumb">${x.poster ? `<img src="${x.poster}" alt="" loading="lazy">` : `<video src="${x.src}#t=1" preload="metadata" muted playsinline></video>`}<i>${IC.play}</i></span><span class="vpMeta"><b>${T(x.t)}</b>${x.d ? `<small>${T(x.d)}</small>` : ''}</span></button>`).join('');
+    list.forEach((x, i) => { if (!x.id) x.id = String(i); });
+    $('#vpList').addEventListener('click', e => { const b = e.target.closest('.vpItem'); if (!b) return; const it = list.find(x => x.id === b.dataset.id); if (it && it !== cur) load(it, true); });
+    load(list[0], false); ui();
+  }).catch(() => {});
+})();
+
 RN.enhance();
 })();

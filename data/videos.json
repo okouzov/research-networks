@@ -1,0 +1,4 @@
+{
+  "_doc": "Video library on networks.html#videos. Put the files in assets/video/. src = MP4 (H.264); poster = optional JPG/PNG still; subs = optional subtitles per language, .vtt or .srt (both work). t = title, d = short description (bg/en). A clip with no entry here is not shown.",
+  "videos": []
+}

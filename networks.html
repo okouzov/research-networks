@@ -167,7 +167,28 @@
   <div class="wrap">
     <div class="kicker" style="color:var(--pk)"><span lang="bg">Видеотека</span><span lang="en">Video library</span></div>
     <h2 class="reveal"><span lang="bg">Мрежите <span class="grad">във видео</span></span><span lang="en">Networks <span class="grad">on video</span></span></h2>
-    <div class="wip reveal">
+    <div class="vidLib" id="vidLib" hidden>
+      <div class="vp" id="vp">
+        <div class="vpStage">
+          <video id="vpVideo" playsinline preload="metadata"></video>
+          <div class="vpSub" id="vpSub" aria-live="polite"></div>
+          <button class="vpBig" id="vpBig" aria-label="Play">▶</button>
+        </div>
+        <div class="vpBar">
+          <button class="vpBtn" id="vpPlay" aria-label="Play / pause">▶</button>
+          <span class="vpTime" id="vpTime">0:00 / 0:00</span>
+          <input class="vpSeek" id="vpSeek" type="range" min="0" max="1000" value="0" aria-label="Seek">
+          <button class="vpBtn" id="vpMute" aria-label="Mute">🔊</button>
+          <input class="vpVol" id="vpVol" type="range" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+          <div class="vpCC"><button class="vpBtn vpCCBtn" id="vpCC" aria-label="Subtitles">CC</button>
+            <div class="vpMenu" id="vpMenu" hidden></div></div>
+          <button class="vpBtn" id="vpFull" aria-label="Full screen">⛶</button>
+        </div>
+        <div class="vpInfo"><h3 id="vpTitle"></h3><p class="note" id="vpDesc"></p></div>
+      </div>
+      <div class="vpList" id="vpList"></div>
+    </div>
+    <div class="wip reveal" id="vidWip">
       <svg class="wipIco" viewBox="0 0 120 120" aria-hidden="true">
         <g class="wipGear"><path d="M60 22l6 1 2 9 7 3 8-5 8 8-5 8 3 7 9 2v12l-9 2-3 7 5 8-8 8-8-5-7 3-2 9H54l-2-9-7-3-8 5-8-8 5-8-3-7-9-2V54l9-2 3-7-5-8 8-8 8 5 7-3 2-9z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><circle cx="60" cy="60" r="13" fill="none" stroke="currentColor" stroke-width="4"/></g>
         <g class="wipCone"><path d="M84 112l12-40h6l12 40z" fill="var(--am)"/><path d="M89 96h20M86 106h26" stroke="#0b1530" stroke-width="5"/><rect x="78" y="110" width="42" height="6" rx="2" fill="var(--am)"/></g>

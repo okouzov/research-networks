@@ -1102,3 +1102,5 @@ body[data-page="networks"] .phero{padding-bottom:6px}body[data-page="networks"] 
 .vp.switchOn .vpStage video{animation:crtOn .55s cubic-bezier(.2,.8,.2,1)}
 @keyframes crtOn{0%{transform:scale(1,.01);filter:brightness(3)}45%{transform:scale(1,.01);filter:brightness(3)}70%{transform:scale(1,1);filter:brightness(1.8)}100%{transform:none;filter:none}}
 @media (prefers-reduced-motion:reduce){.vpOff>span{animation:none}.vp.switchOn .vpStage video{animation:none}}
+#migration .lead{max-width:none}
+#migration .lead{font-size:19px}

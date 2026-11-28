@@ -27,14 +27,14 @@
         "bg": "assets/video/internet2-duet.bg.srt",
         "en": "assets/video/internet2-duet.en.srt"
       },
-      "c": "#ff5d7a"
+      "c": "#e2384f"
     },
     {
       "id": "arrive-in-time",
       "src": "assets/video/arrive-in-time.mp4",
       "poster": "assets/video/arrive-in-time.jpg",
       "t": {
-        "bg": "Да пристигнеш навреме (TEIN)",
+        "bg": "Да стигнеш навреме (TEIN)",
         "en": "Arrive in Time (TEIN)"
       },
       "subs": {
@@ -55,7 +55,7 @@
         "bg": "assets/video/bringing-the-pieces-together.bg.srt",
         "en": "assets/video/bringing-the-pieces-together.en.srt"
       },
-      "c": "#ffb547"
+      "c": "#f0882a"
     },
     {
       "id": "a-shorter-line",
@@ -69,7 +69,7 @@
         "bg": "assets/video/a-shorter-line.bg.srt",
         "en": "assets/video/a-shorter-line.en.srt"
       },
-      "c": "#8fc35c",
+      "c": "#a9b733",
       "nl": true
     }
   ]

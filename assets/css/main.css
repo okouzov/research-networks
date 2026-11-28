@@ -1119,3 +1119,4 @@ body[data-page="history"] .phero{padding-bottom:13px}
 .secSwap.swapOn>.off.up{transform:rotateX(90deg)}
 .secSwapP{color:var(--mut);font-size:17px;line-height:1.45}
 @media (prefers-reduced-motion:reduce){.secSwap.swapOn>*{transition:opacity .6s}.secSwap.swapOn>.off{transform:none;filter:none}}
+html[lang=en] .secSwap h2{font-size:clamp(28px,4.1vw,49px)}

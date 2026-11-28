@@ -1,5 +1,5 @@
 {
-  "_doc": "Video library on networks.html#videos. Put the files in assets/video/. src = MP4 (H.264); poster = optional JPG/PNG still; subs = optional subtitles per language, .vtt or .srt (both work). t = title, d = short description (bg/en). A clip with no entry here is not shown.",
+  "_doc": "Video library on networks.html#videos. Put the files in assets/video/. src = MP4 (H.264); poster = optional JPG/PNG still; subs = optional subtitles per language, .vtt or .srt (both work). t = title, d = short description (bg/en). A clip with no entry here is not shown. c = colour of the network name in brackets; nl = put the bracket on its own line.",
   "videos": [
     {
       "id": "follow-the-signal",
@@ -12,7 +12,8 @@
       "subs": {
         "bg": "assets/video/follow-the-signal.bg.srt",
         "en": "assets/video/follow-the-signal.en.srt"
-      }
+      },
+      "c": "#4f8cff"
     },
     {
       "id": "internet2-duet",
@@ -25,7 +26,8 @@
       "subs": {
         "bg": "assets/video/internet2-duet.bg.srt",
         "en": "assets/video/internet2-duet.en.srt"
-      }
+      },
+      "c": "#ff5d7a"
     },
     {
       "id": "arrive-in-time",
@@ -38,20 +40,22 @@
       "subs": {
         "bg": "assets/video/arrive-in-time.bg.srt",
         "en": "assets/video/arrive-in-time.en.srt"
-      }
+      },
+      "c": "#a593ff"
     },
     {
       "id": "bringing-the-pieces-together",
       "src": "assets/video/bringing-the-pieces-together.mp4",
       "poster": "assets/video/bringing-the-pieces-together.jpg",
       "t": {
-        "bg": "Да съберем парченцата (RedCLARA)",
+        "bg": "Да съберем частите (RedCLARA)",
         "en": "Bringing the Pieces Together (RedCLARA)"
       },
       "subs": {
         "bg": "assets/video/bringing-the-pieces-together.bg.srt",
         "en": "assets/video/bringing-the-pieces-together.en.srt"
-      }
+      },
+      "c": "#ffb547"
     },
     {
       "id": "a-shorter-line",
@@ -64,7 +68,9 @@
       "subs": {
         "bg": "assets/video/a-shorter-line.bg.srt",
         "en": "assets/video/a-shorter-line.en.srt"
-      }
+      },
+      "c": "#8fc35c",
+      "nl": true
     }
   ]
 }

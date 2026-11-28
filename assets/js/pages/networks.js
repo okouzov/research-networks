@@ -354,10 +354,13 @@ $('#southCards').innerHTML = [
   /* pause when the visitor leaves the tab */
   document.addEventListener('rn:tab', e => { if (e.detail !== 'videos') v.pause(); });
   document.addEventListener('rn:lang', () => { menuHtml(); if (cur) { $('#vpTitle').innerHTML = T(cur.t); } });
+  /* title with the network in brackets drawn in the clip's own colour (optionally on its own line) */
+  const vTitle = x => { const one = str => { const m = String(str).match(/^(.*?)\s*\((.+)\)\s*$/); return m ? `${esc(m[1])} <span class="vpNet${x.nl ? ' nl' : ''}"${x.c ? ` style="color:${x.c}"` : ''}>(${esc(m[2])})</span>` : esc(str); };
+    return x.t && typeof x.t === 'object' ? L(one(x.t.bg), one(x.t.en)) : one(x.t); };
   RN.data('videos').then(D => {
     list = (D.videos || []).filter(x => x && x.src); if (!list.length) return;
     $('#vidWip').hidden = true; lib.hidden = false; const vh = $('.vidHead'); if (vh) vh.hidden = true;
-    $('#vpList').innerHTML = list.map((x, i) => `<button class="vpItem" data-id="${x.id || i}"><span class="vpThumb">${x.poster ? `<img src="${x.poster}" alt="" loading="lazy">` : `<video src="${x.src}#t=1" preload="metadata" muted playsinline></video>`}<i>${IC.play}</i></span><span class="vpMeta"><b>${T(x.t)}</b>${x.d ? `<small>${T(x.d)}</small>` : ''}</span></button>`).join('');
+    $('#vpList').innerHTML = list.map((x, i) => `<button class="vpItem" data-id="${x.id || i}"><span class="vpThumb">${x.poster ? `<img src="${x.poster}" alt="" loading="lazy">` : `<video src="${x.src}#t=1" preload="metadata" muted playsinline></video>`}<i>${IC.play}</i></span><span class="vpMeta"><b>${vTitle(x)}</b>${x.d ? `<small>${T(x.d)}</small>` : ''}</span></button>`).join('');
     list.forEach((x, i) => { if (!x.id) x.id = String(i); });
     $('#vpList').addEventListener('click', e => { const b = e.target.closest('.vpItem'); if (!b) return; const it = list.find(x => x.id === b.dataset.id); $('#vpList').classList.add('picked'); if (it && it !== cur) load(it, true); });
     load(list[0], false); ui();

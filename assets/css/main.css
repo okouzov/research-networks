@@ -1090,3 +1090,4 @@ body[data-page="networks"] .phero{padding-bottom:6px}body[data-page="networks"] 
 .tvBrand{top:0;height:23px;line-height:23px}.tvLed{top:8px}
 .tvBrand{top:-.5px}
 .vp.tv.big{inset:10px;border-radius:26px;border:1px solid rgba(160,180,230,.18);box-shadow:0 0 0 100vmax rgba(2,5,13,.96),inset 0 1px 0 rgba(255,255,255,.08)}.vp.tv:fullscreen{border-radius:26px;border:1px solid rgba(160,180,230,.18)}.vp.tv:fullscreen::backdrop{background:#02050d}
+.vpNet{font-weight:700;white-space:nowrap}.vpNet.nl{display:block;white-space:normal}

@@ -312,7 +312,7 @@ function uplinks() {
   };
   b.classList.add('off'); measure();
   addEventListener('resize', measure); document.addEventListener('rn:lang', measure);
-  setInterval(() => { cur ^= 1; show(cur); }, 10000);
+  setInterval(() => { cur ^= 1; show(cur); document.dispatchEvent(new CustomEvent('rn:heroSwap', { detail: cur })); }, 10000);
 })();
 
 /* section heading swap: a section's h2 and its paragraph take turns every 10 s (same 3D flip as the hero);
@@ -331,7 +331,8 @@ document.querySelectorAll('.secSwap').forEach(box => {
     off.classList.add('off', 'up'); on.classList.remove('off', 'up');
     setTimeout(() => { if (off.classList.contains('off')) off.classList.remove('up'); }, 950);
   };
-  b.classList.add('off'); measure();
+  a.classList.add('off'); cur = 1; measure();
   addEventListener('resize', measure); document.addEventListener('rn:lang', measure); document.addEventListener('rn:tab', () => setTimeout(measure, 0));
-  setInterval(() => { cur ^= 1; show(cur); }, 10000);
+  /* in step with the hero, always the opposite side: never two coloured headings at once */
+  document.addEventListener('rn:heroSwap', e => { cur = e.detail ? 0 : 1; show(cur); });
 });

@@ -1,0 +1,127 @@
+1
+00:00:00,500 --> 00:00:05,383
+High in the Bolivian Andes, a particle passes through a tank of water.
+
+2
+00:00:05,383 --> 00:00:09,577
+For an instant, the water gives off a faint flash of light.
+
+3
+00:00:09,577 --> 00:00:11,330
+A sensor records it.
+
+4
+00:00:11,580 --> 00:00:17,000
+The particle came from a shower set off by a cosmic ray striking Earth’s atmosphere.
+
+5
+00:00:17,250 --> 00:00:24,320
+What could scientists learn by comparing measurements like this across an entire continent?
+
+6
+00:00:24,570 --> 00:00:29,054
+The first connections grew inside individual countries.
+
+7
+00:00:29,054 --> 00:00:33,680
+Chile’s university network was already operating in 1986.
+
+8
+00:00:33,930 --> 00:00:41,803
+Brazil launched its national research networking project in 1989 and brought its first backbone online in 1992.
+
+9
+00:00:41,803 --> 00:00:46,170
+Argentina’s universities were building links of their own.
+
+10
+00:00:46,420 --> 00:00:50,852
+A researcher could now reach colleagues across the country.
+
+11
+00:00:50,852 --> 00:00:55,680
+The next challenge was reaching the laboratory across the border.
+
+12
+00:00:55,930 --> 00:01:02,109
+In 2003, Latin American research networks came together to form RedCLARA.
+
+13
+00:01:02,109 --> 00:01:09,890
+A year later, its regional backbone began linking Argentina, Brazil, Chile, Panama and Mexico.
+
+14
+00:01:10,140 --> 00:01:18,340
+The European Union helped fund this work through a project called ALICE, which also connected RedCLARA to Europe’s research network.
+
+15
+00:01:18,590 --> 00:01:27,460
+A university could join through its national network and work with partners across Latin America and across the Atlantic.
+
+16
+00:01:27,710 --> 00:01:30,573
+Now return to that tank in Bolivia.
+
+17
+00:01:30,573 --> 00:01:35,500
+It belongs to the Latin American Giant Observatory, known as LAGO.
+
+18
+00:01:35,750 --> 00:01:40,372
+Its detectors are spread across different latitudes and altitudes.
+
+19
+00:01:40,372 --> 00:01:42,370
+Some sit near sea level.
+
+20
+00:01:42,370 --> 00:01:46,180
+Others stand more than five thousand metres above it.
+
+21
+00:01:46,430 --> 00:01:52,859
+At a mountain station, particles pass through less atmosphere before they reach the detector.
+
+22
+00:01:52,859 --> 00:02:00,370
+Research networks let the teams bring their records together and compare what reaches the ground at each site.
+
+23
+00:02:00,620 --> 00:02:06,645
+For years, research traffic between Brazil and Europe travelled via North America.
+
+24
+00:02:06,645 --> 00:02:13,340
+In 2021, the European Union and its Latin American partners helped open a more direct route.
+
+25
+00:02:13,590 --> 00:02:20,550
+Through the BELLA programme, research networks gained capacity on a submarine cable from Brazil to Portugal.
+
+26
+00:02:20,800 --> 00:02:25,242
+Physics teams in São Paulo and Lisbon put it to the test.
+
+27
+00:02:25,242 --> 00:02:33,170
+They sustained a transfer of one hundred gigabits per second, ten times what the previous route had allowed.
+
+28
+00:02:33,420 --> 00:02:39,630
+BELLA Two is extending that effort towards more research communities in Central and South America.
+
+29
+00:02:39,880 --> 00:02:42,379
+Think back to the flash in Bolivia.
+
+30
+00:02:42,379 --> 00:02:46,330
+A single detector can tell you what reached one mountaintop.
+
+31
+00:02:46,580 --> 00:02:54,440
+Compare it with instruments at other heights and latitudes, and you can begin to see how cosmic radiation varies across a continent.
+
+32
+00:02:54,690 --> 00:02:59,150
+That is a question no single station could answer.

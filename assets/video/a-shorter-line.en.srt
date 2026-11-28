@@ -1,0 +1,184 @@
+1
+00:00:00,500 --> 00:00:06,190
+Imagine sending a research file from Lagos to Cape Town. Watch the route.
+
+2
+00:00:06,290 --> 00:00:11,670
+It heads north, crosses into Europe, then turns back towards southern Africa.
+
+3
+00:00:11,770 --> 00:00:17,300
+For years, much of the research traffic between these two African regions took just such a detour.
+
+4
+00:00:17,400 --> 00:00:23,290
+What would it take to draw a different line on this map?
+
+5
+00:00:23,390 --> 00:00:26,100
+The first pieces were already in place.
+
+6
+00:00:26,200 --> 00:00:32,900
+In 2004, EUMEDCONNECT began linking research communities around the Mediterranean.
+
+7
+00:00:33,000 --> 00:00:37,500
+In 2005, African network leaders formed the UbuntuNet Alliance
+
+8
+00:00:37,600 --> 00:00:43,110
+to bring more affordable connections to universities in eastern and southern Africa.
+
+9
+00:00:43,210 --> 00:00:47,300
+In 2010, WACREN emerged in West and Central Africa,
+
+10
+00:00:47,400 --> 00:00:54,200
+and the Arab States Research and Education Network, ASREN, brought together partners across the Arab world.
+
+11
+00:00:54,300 --> 00:01:00,100
+From 2011, the European Union and African partners co-funded AfricaConnect.
+
+12
+00:01:00,200 --> 00:01:07,710
+A university could connect through its national network and reach colleagues across borders.
+
+13
+00:01:07,810 --> 00:01:11,500
+In Kampala, the difference showed up on a hospital bill.
+
+14
+00:01:11,600 --> 00:01:17,570
+Nsambya Hospital had struggled with expensive bandwidth and an unreliable connection.
+
+15
+00:01:17,670 --> 00:01:21,900
+In 2019, it joined Uganda’s research and education network.
+
+16
+00:01:22,000 --> 00:01:27,570
+The price it paid for bandwidth fell to one fifth of the previous rate.
+
+17
+00:01:27,670 --> 00:01:33,300
+Network engineers also helped redesign the hospital’s own system at no extra charge,
+
+18
+00:01:33,400 --> 00:01:37,680
+giving staff a more dependable connection.
+
+19
+00:01:37,780 --> 00:01:44,920
+In Benin and Burkina Faso, the next question was what students would find once their campuses were connected.
+
+20
+00:01:45,020 --> 00:01:49,700
+Through the Africa Digital Campus project, WACREN and its partners equipped lecturers
+
+21
+00:01:49,800 --> 00:01:54,440
+to record lessons and share them on a regional video platform.
+
+22
+00:01:54,540 --> 00:01:59,500
+The project trained a hundred and thirty-four university educators and researchers.
+
+23
+00:01:59,600 --> 00:02:05,100
+Together, they produced two hundred and seventy-seven online courses.
+
+24
+00:02:05,200 --> 00:02:11,710
+A student could go back and replay the part of a lesson that needed a second look.
+
+25
+00:02:11,810 --> 00:02:16,500
+Around Agadir in Morocco, researchers wanted to see how the land was changing.
+
+26
+00:02:16,600 --> 00:02:21,690
+Each satellite image was about two hundred and fifty megabytes.
+
+27
+00:02:21,790 --> 00:02:26,300
+Morocco’s academic network and EUMEDCONNECT let the team exchange these files
+
+28
+00:02:26,400 --> 00:02:30,640
+with specialists in Toulouse, who had the software to classify them.
+
+29
+00:02:30,740 --> 00:02:36,300
+Together they mapped changes in argan woodland and traced the city’s roads.
+
+30
+00:02:36,400 --> 00:02:43,470
+The results were used to train Agadir’s municipal transport staff to work with geographic data.
+
+31
+00:02:43,570 --> 00:02:47,500
+In Oman, a technical college that belongs to the national research network
+
+32
+00:02:47,600 --> 00:02:52,100
+can use Masader, the country’s virtual science library.
+
+33
+00:02:52,200 --> 00:02:57,500
+Students and lecturers can read scientific journals, electronic books and Arabic publications
+
+34
+00:02:57,600 --> 00:03:02,240
+through subscriptions shared across participating institutions.
+
+35
+00:03:02,340 --> 00:03:06,300
+In Jordan, ASREN’s international connection supports SESAME,
+
+36
+00:03:06,400 --> 00:03:11,730
+a laboratory where researchers use intense beams of light to study materials.
+
+37
+00:03:11,830 --> 00:03:18,300
+One team used X-rays to look inside ancient glazed beads and fragments of Egyptian blue pigment.
+
+38
+00:03:18,400 --> 00:03:26,280
+The scans revealed clues to how craftspeople made them, while the objects themselves stayed intact.
+
+39
+00:03:26,380 --> 00:03:28,500
+Now send that file again.
+
+40
+00:03:28,600 --> 00:03:34,300
+In 2025, a direct ten-gigabit link connected Lagos and Cape Town.
+
+41
+00:03:34,400 --> 00:03:38,890
+Research traffic between the two regions could stay in Africa.
+
+42
+00:03:38,990 --> 00:03:41,900
+AfricaConnect Four is extending this work,
+
+43
+00:03:42,000 --> 00:03:48,870
+while EUMEDplus supports research connectivity in North Africa with partners in Lebanon and Jordan.
+
+44
+00:03:48,970 --> 00:03:52,500
+On the map, the change is a shorter line.
+
+45
+00:03:52,600 --> 00:03:56,900
+In daily life, it is a hospital paying less, a lecturer sharing a course,
+
+46
+00:03:57,000 --> 00:04:01,900
+and a student opening a journal her college can now afford.
+

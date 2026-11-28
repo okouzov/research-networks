@@ -39,6 +39,32 @@
         "bg": "assets/video/arrive-in-time.bg.srt",
         "en": "assets/video/arrive-in-time.en.srt"
       }
+    },
+    {
+      "id": "bringing-the-pieces-together",
+      "src": "assets/video/bringing-the-pieces-together.mp4",
+      "poster": "assets/video/bringing-the-pieces-together.jpg",
+      "t": {
+        "bg": "Да съберем парченцата (RedCLARA)",
+        "en": "Bringing the Pieces Together (RedCLARA)"
+      },
+      "subs": {
+        "bg": "assets/video/bringing-the-pieces-together.bg.srt",
+        "en": "assets/video/bringing-the-pieces-together.en.srt"
+      }
+    },
+    {
+      "id": "a-shorter-line",
+      "src": "assets/video/a-shorter-line.mp4",
+      "poster": "assets/video/a-shorter-line.jpg",
+      "t": {
+        "bg": "По-директна линия – по-добър живот (Africa & Middle East)",
+        "en": "A Shorter Line – a Better Life (Africa & Middle East)"
+      },
+      "subs": {
+        "bg": "assets/video/a-shorter-line.bg.srt",
+        "en": "assets/video/a-shorter-line.en.srt"
+      }
     }
   ]
 }

@@ -13,7 +13,7 @@
         "bg": "assets/video/follow-the-signal.bg.srt",
         "en": "assets/video/follow-the-signal.en.srt"
       },
-      "c": "#4f8cff"
+      "c": "#3f70cc"
     },
     {
       "id": "internet2-duet",
@@ -27,7 +27,7 @@
         "bg": "assets/video/internet2-duet.bg.srt",
         "en": "assets/video/internet2-duet.en.srt"
       },
-      "c": "#e2384f"
+      "c": "#b52d3f"
     },
     {
       "id": "arrive-in-time",
@@ -41,7 +41,7 @@
         "bg": "assets/video/arrive-in-time.bg.srt",
         "en": "assets/video/arrive-in-time.en.srt"
       },
-      "c": "#a593ff"
+      "c": "#8476cc"
     },
     {
       "id": "bringing-the-pieces-together",
@@ -55,7 +55,7 @@
         "bg": "assets/video/bringing-the-pieces-together.bg.srt",
         "en": "assets/video/bringing-the-pieces-together.en.srt"
       },
-      "c": "#f0882a"
+      "c": "#c06d22"
     },
     {
       "id": "a-shorter-line",
@@ -69,7 +69,7 @@
         "bg": "assets/video/a-shorter-line.bg.srt",
         "en": "assets/video/a-shorter-line.en.srt"
       },
-      "c": "#a9b733",
+      "c": "#879229",
       "nl": true
     }
   ]

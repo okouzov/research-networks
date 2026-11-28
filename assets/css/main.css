@@ -1111,3 +1111,11 @@ body[data-page="science"] .phero{padding-bottom:32px}
 body[data-page="science"] .phero{padding-bottom:13px}
 body[data-page="services"] .phero .lead{max-width:none}body[data-page="services"] .phero{padding-bottom:13px}
 body[data-page="history"] .phero{padding-bottom:13px}
+/* section heading/paragraph swap (NRN BG → Развитие) */
+.secSwap{margin:4px 0 0}
+.secSwap.swapOn{display:grid;align-items:center;perspective:900px}
+.secSwap.swapOn>*{grid-area:1/1;margin:0;transform-origin:50% 50% -30px;backface-visibility:hidden;transition:transform .9s cubic-bezier(.65,0,.35,1),opacity .9s ease,filter .9s ease}
+.secSwap.swapOn>.off{opacity:0;transform:rotateX(-90deg);filter:blur(4px);pointer-events:none}
+.secSwap.swapOn>.off.up{transform:rotateX(90deg)}
+.secSwapP{color:var(--mut);font-size:17px;line-height:1.45}
+@media (prefers-reduced-motion:reduce){.secSwap.swapOn>*{transition:opacity .6s}.secSwap.swapOn>.off{transform:none;filter:none}}

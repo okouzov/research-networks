@@ -314,3 +314,24 @@ function uplinks() {
   addEventListener('resize', measure); document.addEventListener('rn:lang', measure);
   setInterval(() => { cur ^= 1; show(cur); }, 10000);
 })();
+
+/* section heading swap: a section's h2 and its paragraph take turns every 10 s (same 3D flip as the hero);
+   the block keeps the height of the taller of the two, each one centred in it */
+document.querySelectorAll('.secSwap').forEach(box => {
+  const [a, b] = box.children; let cur = 0;
+  const measure = () => {
+    box.classList.remove('swapOn'); box.style.minHeight = '';
+    a.style.display = 'block'; b.style.display = 'none'; const ha = a.offsetHeight;
+    a.style.display = 'none'; b.style.display = 'block'; const hb = b.offsetHeight;
+    a.style.display = b.style.display = '';
+    box.classList.add('swapOn'); box.style.minHeight = Math.max(ha, hb) + 'px';
+  };
+  const show = i => {
+    const on = i ? b : a, off = i ? a : b;
+    off.classList.add('off', 'up'); on.classList.remove('off', 'up');
+    setTimeout(() => { if (off.classList.contains('off')) off.classList.remove('up'); }, 950);
+  };
+  b.classList.add('off'); measure();
+  addEventListener('resize', measure); document.addEventListener('rn:lang', measure); document.addEventListener('rn:tab', () => setTimeout(measure, 0));
+  setInterval(() => { cur ^= 1; show(cur); }, 10000);
+});

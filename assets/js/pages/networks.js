@@ -293,6 +293,8 @@ $('#southCards').innerHTML = [
     }).catch(() => { delete blobs[item.src]; });
   };
   const load = (item, autoplay) => {
+    const wasOff = tvEl.classList.contains('off'); tvEl.classList.remove('off');
+    if (wasOff) { tvEl.classList.remove('switchOn'); void tvEl.offsetWidth; tvEl.classList.add('switchOn'); }
     cur = item; cues = { bg: null, en: null };
     const b = blobs[item.src]; v.src = b && b.startsWith && b.startsWith('blob:') ? b : item.src;
     if (item.poster) v.poster = item.poster; else v.removeAttribute('poster');
@@ -312,7 +314,7 @@ $('#southCards').innerHTML = [
     if (v.duration) { seek.value = Math.round(v.currentTime / v.duration * 1000); seek.style.setProperty('--p', (v.currentTime / v.duration * 100) + '%'); }
     vol.style.setProperty('--p', ((v.muted ? 0 : v.volume) * 100) + '%');
   };
-  const toggle = () => v.paused || v.ended ? v.play().catch(() => {}) : v.pause();
+  const toggle = () => { if (!cur) return; v.paused || v.ended ? v.play().catch(() => {}) : v.pause(); };
   $('#vpPlay').addEventListener('click', toggle); $('#vpBig').addEventListener('click', toggle); v.addEventListener('click', toggle);
   ['play', 'pause', 'ended', 'loadedmetadata', 'volumechange', 'durationchange'].forEach(e => v.addEventListener(e, ui));
   v.addEventListener('play', () => { if (cur) ensureSeekable(cur); $('#vpList').classList.add('picked'); });
@@ -363,7 +365,8 @@ $('#southCards').innerHTML = [
     $('#vpList').innerHTML = list.map((x, i) => `<button class="vpItem" data-id="${x.id || i}"><span class="vpThumb">${x.poster ? `<img src="${x.poster}" alt="" loading="lazy">` : `<video src="${x.src}#t=1" preload="metadata" muted playsinline></video>`}<i>${IC.play}</i></span><span class="vpMeta"><b>${vTitle(x)}</b>${x.d ? `<small>${T(x.d)}</small>` : ''}</span></button>`).join('');
     list.forEach((x, i) => { if (!x.id) x.id = String(i); });
     $('#vpList').addEventListener('click', e => { const b = e.target.closest('.vpItem'); if (!b) return; const it = list.find(x => x.id === b.dataset.id); $('#vpList').classList.add('picked'); if (it && it !== cur) load(it, true); });
-    load(list[0], false); ui();
+    /* the screen starts switched off; a click on a clip in the list switches it on and plays at once */
+    tvEl.classList.add('off'); ui();
     /* the list on the left is never taller than the TV; with more clips it scrolls */
     const fitList = () => { const lst = $('#vpList'); lst.style.maxHeight = innerWidth > 900 ? tvEl.offsetHeight + 'px' : ''; };
     new ResizeObserver(fitList).observe(tvEl); fitList();

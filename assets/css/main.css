@@ -1091,3 +1091,14 @@ body[data-page="networks"] .phero{padding-bottom:6px}body[data-page="networks"] 
 .tvBrand{top:-.5px}
 .vp.tv.big{inset:10px;border-radius:26px;border:1px solid rgba(160,180,230,.18);box-shadow:0 0 0 100vmax rgba(2,5,13,.96),inset 0 1px 0 rgba(255,255,255,.08)}.vp.tv:fullscreen{border-radius:26px;border:1px solid rgba(160,180,230,.18)}.vp.tv:fullscreen::backdrop{background:#02050d}
 .vpNet{font-weight:700;white-space:nowrap}.vpNet.nl{display:block;white-space:normal}
+/* TV switched off until a clip is chosen; CRT-style switch-on */
+.vpOff{position:absolute;inset:0;z-index:2;display:none;place-items:center;background:radial-gradient(ellipse at 50% 45%,#0b1426 0%,#03060d 70%);pointer-events:none}
+.vpOff::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0 1px,transparent 1px 3px)}
+.vpOff>span{position:relative;font:600 clamp(13px,1.6cqw,20px)/1.3 var(--fm);letter-spacing:.12em;text-transform:uppercase;color:rgba(170,190,235,.55);animation:vpHint 2.6s ease-in-out infinite}
+@keyframes vpHint{0%,100%{opacity:.55}50%{opacity:1}}
+.vp.off .vpOff{display:grid}
+.vp.off .vpBig,.vp.off .vpSub{display:none}
+.vp.off .vpBar{opacity:.45;pointer-events:none}
+.vp.switchOn .vpStage video{animation:crtOn .55s cubic-bezier(.2,.8,.2,1)}
+@keyframes crtOn{0%{transform:scale(1,.01);filter:brightness(3)}45%{transform:scale(1,.01);filter:brightness(3)}70%{transform:scale(1,1);filter:brightness(1.8)}100%{transform:none;filter:none}}
+@media (prefers-reduced-motion:reduce){.vpOff>span{animation:none}.vp.switchOn .vpStage video{animation:none}}

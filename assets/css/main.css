@@ -1121,3 +1121,4 @@ body[data-page="history"] .phero{padding-bottom:13px}
 @media (prefers-reduced-motion:reduce){.secSwap.swapOn>*{transition:opacity .6s}.secSwap.swapOn>.off{transform:none;filter:none}}
 html[lang=en] .secSwap h2{font-size:clamp(28px,4.1vw,49px)}
 .heroFit.heroSwap{width:100%}
+.phero.compact .heroSwap.swapOn>.lead{font-size:17px;line-height:1.3}
